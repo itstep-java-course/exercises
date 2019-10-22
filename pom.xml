@@ -5,7 +5,10 @@
     <groupId>com.itstep</groupId>
     <artifactId>java-exercises</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>logical-operators</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>java-exercises</name>
 
