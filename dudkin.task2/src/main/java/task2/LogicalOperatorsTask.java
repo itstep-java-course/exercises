@@ -11,7 +11,7 @@ public static boolean BossCalled()
 
     public static void main(String[] args)
     {
-        if((GetupInTime()&&IsntRainy())||BossCalled())
+        if(BossCalled()||(GetupInTime()&&IsntRainy()))
             System.out.println("I will go to work!");
         else
         System.out.println("I will not go anywhere because i don't want");
