@@ -11,12 +11,12 @@ public class LogicalOperatorOR {
 
     private static boolean isSunny() {
         System.out.println("Is sunny method is called.");
-        return false;
+        return true;
     }
 
     private static boolean hasUmbrella() {
         System.out.println("has umbrella method is called.");
-        return false;
+        return true;
     }
 
     private static void goOutside() {

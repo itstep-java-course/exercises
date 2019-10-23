@@ -12,12 +12,12 @@ public class LogicalOperatorAND {
 
     private static boolean hasGas() {
         System.out.println("Has gas is called");
-        return true;
+        return false;
     }
 
     private static boolean hasDriver() {
         System.out.println("Has driver is called");
-        return true;
+        return false;
     }
 
     private static void run() {
