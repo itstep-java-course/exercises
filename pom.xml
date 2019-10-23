@@ -8,6 +8,7 @@
     <modules>
         <module>logical-operators</module>
         <module>dudkin.task2</module>
+        <module>dudkin.task2</module>
     </modules>
     <packaging>pom</packaging>
 
