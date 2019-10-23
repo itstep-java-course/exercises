@@ -7,6 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>logical-operators</module>
+        <module>kukishev.task2</module>
     </modules>
     <packaging>pom</packaging>
 
