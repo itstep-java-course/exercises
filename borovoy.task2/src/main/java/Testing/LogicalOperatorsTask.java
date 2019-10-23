@@ -29,13 +29,13 @@ public class LogicalOperatorsTask {
         return true;
     }
 
-    private static boolean stayathome() {
+    private static void stayathome() {
         System.out.println("Stay at home  method is called.");
-        return false;
+
     }
 
-    private static boolean gotoawork() {
+    private static void gotoawork() {
         System.out.println("Go to work method is called.");
-        return false;
+
     }
 }
