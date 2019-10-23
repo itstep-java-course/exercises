@@ -15,7 +15,7 @@ public class LogicalOperatorOR {
     }
 
     private static boolean hasUmbrella() {
-        System.out.println("has umbrella method is called.");
+        System.out.println("Has umbrella method is called.");
         return false;
     }
 

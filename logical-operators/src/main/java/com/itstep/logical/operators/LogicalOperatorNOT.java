@@ -10,7 +10,7 @@ public class LogicalOperatorNOT {
     }
 
     private static boolean hasMoney() {
-        return true;
+        return false;
     }
 
     private static void drinkBeer() {
