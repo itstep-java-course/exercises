@@ -8,7 +8,7 @@ public class TernaryOperator {
     }
 
     private static boolean hasMoney() {
-        return false;
+        return true;
     }
 
     private static String drinkBeer() {
