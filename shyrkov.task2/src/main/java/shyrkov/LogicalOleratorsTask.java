@@ -1,4 +1,4 @@
-package shyrkov;
+package main.java.shyrkov;
 
 public class LogicalOleratorsTask {
     public static void main(String[] args){
