@@ -1,4 +1,4 @@
-package strahovtask2;
+package com.itstep.logical.operators.strahov;
 
 public class LogicalOperatorsTask {
     public static void main(String[] args) {

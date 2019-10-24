@@ -1,6 +1,6 @@
-package com.itstep.logical.operators;
+package com.itstep.control.structures;
 
-public class SwitchOperator {
+public class ControlOperatorSwitch {
     public static void main(String[] args) {
         defineAnimalByVoice("gav");
         defineAnimalByVoice("ky-ky");
