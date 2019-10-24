@@ -8,6 +8,7 @@
     <modules>
         <module>logical-operators</module>
         <module>perepeliatnyk.task2</module>
+        <module>perepeliatnyk.task3</module>
     </modules>
     <packaging>pom</packaging>
 
