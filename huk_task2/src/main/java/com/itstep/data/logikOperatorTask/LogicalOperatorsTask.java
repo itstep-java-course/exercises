@@ -1,4 +1,7 @@
-package LogikOperator;
+package com.itstep.data.logikOperatorTask;
+
+/*1. Используя примеры кода и операторы (AND, OR, NOT) описать следующие условия:
+Я пойду на работу если проснусь вовремя и не будет дождя или если позвонит начальник*/
 
 public class LogicalOperatorsTask {
     public static void main(String[] args) {
