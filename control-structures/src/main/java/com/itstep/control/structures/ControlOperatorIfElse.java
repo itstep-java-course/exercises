@@ -4,7 +4,7 @@ public class ControlOperatorIfElse {
 
     public static void main(String[] args) {
         //if
-        boolean condition = true;
+        boolean condition = false;
         boolean condition2 = true;
 
         if (condition) {
