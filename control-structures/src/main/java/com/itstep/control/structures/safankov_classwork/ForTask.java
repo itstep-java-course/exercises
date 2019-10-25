@@ -5,6 +5,7 @@ public class ForTask {
         for(int i = 5;i<=13;i++){
             if(i==7){
                 System.out.println(i);
+
             }
         }
     }
