@@ -8,7 +8,7 @@ public class Translator {
                 System.out.println("Привет");
                 break;
             case "Bad":
-                System.out.printf("Плохо");
+                System.out.println("Плохо");
                 break;
             case "Good":
                 System.out.println("Хорошо");
@@ -23,7 +23,7 @@ public class Translator {
                 System.out.println("Минус");
                 break;
             default:
-                System.out.printf("Да фиг его знает,переводите в словаре!");
+                System.out.println("Да фиг его знает,переводите в словаре!");
         }
     }
 }
