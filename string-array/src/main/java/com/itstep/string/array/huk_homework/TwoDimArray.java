@@ -14,8 +14,9 @@ public class TwoDimArray {
 
         System.out.println("Our TwoDimArray1: ");
         for (int i = 0; i < twoDimArray1.length; i++) {
-            for (int j = 0; j < twoDimArray1.length; j++) { //почему работает twoDimArray1.length и twoDimArray1[i].length
-                //for (int j = 0; j < twoDimArray1[i].length; j++) {
+            //for (int j = 0; j < twoDimArray1.length; j++) { //почему работает twoDimArray1.length и twoDimArray1[i].length
+            // а понял работает когда у наших массивы одинаковые строки и колонки
+            for (int j = 0; j < twoDimArray1[i].length; j++) {
                 System.out.print(twoDimArray1[i][j] + "\t");
             }
             System.out.println();
@@ -26,5 +27,24 @@ public class TwoDimArray {
         int[][] twoDimArray2 = {{11, 12, 13}, {14, 15, 16}, {17, 18, 19}};//короткая запись
         System.out.println("Our TwoDimArray2 = " + Arrays.deepToString(twoDimArray2) + "\n");//самый короткий способ вывода
         // списка элементов двумерного массива на екран - метод deepToString класса Arrays.
+
+
+        System.out.println("============================================================\n");
+        int[][] twoDimArray3 = {{111, 112, 113}, {114, 115, 116}, {117, 118, 119}};//короткая запись
+        System.out.println("Our TwoDimArray3: ");
+        for (int[] i : twoDimArray3) {
+            for (int j : i) {
+                System.out.print(j + "\t");
+            }
+            System.out.println();
+        }
     }
 }
+
+
+
+
+
+
+
+
