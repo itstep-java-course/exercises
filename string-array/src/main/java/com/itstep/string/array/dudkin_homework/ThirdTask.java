@@ -33,11 +33,11 @@ public class ThirdTask {
             System.out.println("No valid solution");
         else if (D == 0) {
             double x = (-p / 2);
-            System.out.println("Constant1 * exponent raised in the("+x+"*x) power+Constant2 * exponent raised in the("+x+"*x)power");
+            System.out.println("(Constant1 * x +Constant2)*exponent raised to the (x*" + x + ")");
         } else {
             double x1 = ((-p + sqrt(D)) / 2);
-            double x2= ((-p - sqrt(D)) / 2);
-            System.out.println("Constant1 * exponent raised in the("+x1+"*x) power+Constant2 * exponent raised in the("+x2+"*x)power");
+            double x2 = ((-p - sqrt(D)) / 2);
+            System.out.println("Constant1 * exponent raised to the(" + x1 + "*x) power+Constant2 * exponent raised to the(" + x2 + "*x)power");
         }
 
     }
