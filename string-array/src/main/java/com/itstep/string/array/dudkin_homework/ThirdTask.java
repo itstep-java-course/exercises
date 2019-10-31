@@ -23,22 +23,22 @@ public class ThirdTask {
         for (int i = 10; i != 0; i--)
             fact *= i;
         System.out.println(fact);
-        System.out.println("General solution of a second order differential equation:");
+        System.out.println("The general solution of the quadratic equation:");
         Scanner is = new Scanner(System.in);
-        System.out.println("Enter cons p and q");
-        int p = is.nextInt();
-        int q = is.nextInt();
-        int D = p * p - 4 * q;
+        System.out.println("Enter cons a, b and c");
+        int a = is.nextInt();
+        int b = is.nextInt();
+        int c = is.nextInt();
+        int D = b * b - (4 * a * c);
         if (D < 0)
             System.out.println("No valid solution");
         else if (D == 0) {
-            double x = (-p / 2);
-            System.out.println("(Constant1 * x +Constant2)*exponent raised to the (x*" + x + ")");
+            double x = (-b / (2 * a));
+            System.out.println("Root of the quadratic equation"+x);
         } else {
-            double x1 = ((-p + sqrt(D)) / 2);
-            double x2 = ((-p - sqrt(D)) / 2);
-            System.out.println("Constant1 * exponent raised to the(" + x1 + "*x) power+Constant2 * exponent raised to the(" + x2 + "*x)power");
+            double x1 = ((-b + sqrt(D)) / (2 * a));
+            double x2 = ((-b - sqrt(D)) / (2 * a));
+            System.out.println("First root of the quadratic equation=" + x1 + "\nSecond root of the quadratic equation=" + x2);
         }
-
     }
 }
