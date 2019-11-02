@@ -6,3 +6,4 @@ public class HomeTask31 {
             System.out.println(i);
         }
     }
+}

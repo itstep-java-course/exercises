@@ -1,7 +1,7 @@
 package com.itstep.control.structures.shilov.hometask;
 
 public class HomeTask3 {
-    public class ControlOperatorSwitch {
+
         public static void main(String[] args) {
             Voice("Hello");
             Voice("World");
@@ -29,3 +29,5 @@ public class HomeTask3 {
                     System.out.println("что-то непонятное");
             }
         }
+
+}

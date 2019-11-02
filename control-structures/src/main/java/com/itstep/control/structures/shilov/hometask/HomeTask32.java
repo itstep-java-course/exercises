@@ -1,7 +1,7 @@
 package com.itstep.control.structures.shilov.hometask;
 
 public class HomeTask32 {
-    public class WhileBreakContinueTask {
+
         public static void main(String[] args) {
             int x = 20;
             while (x >= 0) {
@@ -15,5 +15,5 @@ public class HomeTask32 {
                 x--;
             }
         }
-    }
+
 }
