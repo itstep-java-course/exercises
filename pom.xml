@@ -9,6 +9,7 @@
         <module>logical-operators</module>
         <module>control-structures</module>
         <module>string-array</module>
+        <module>static-method</module>
     </modules>
     <packaging>pom</packaging>
 
