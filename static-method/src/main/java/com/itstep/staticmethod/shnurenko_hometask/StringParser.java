@@ -58,11 +58,6 @@ public class StringParser {
         return year + '-' + month + '-' + day;
     }
 
-    private static String getDatePartValue(String part, String partName) {
-
-        return "";
-    }
-
     private static String getFileName(String source) {
         int lastIndexOfSlash = source.lastIndexOf("/");
 
