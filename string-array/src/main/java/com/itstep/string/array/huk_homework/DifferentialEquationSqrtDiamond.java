@@ -37,7 +37,6 @@ public class DifferentialEquationSqrtDiamond {
         } else {
             System.out.println("There are no real roots "); //D < 0 - уравнение имеет 2 мнимых корня (т.е. вещественных корней нет).
 
-
         }
     }
 }
