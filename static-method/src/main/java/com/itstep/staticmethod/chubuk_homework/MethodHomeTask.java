@@ -4,51 +4,52 @@ public class MethodHomeTask
 {
     public static void main(String[] args)
     {
-        MethodHomeTask.arrayOutputToConsole(takesStringReturnsArray('-'));
+        MethodHomeTask.arrayOutputToConsole(breaksStringIntoArray("s3://part_path_1/data/part_path_2/processed/part_path_3/year=2019/month=11/day=04/id=11111111/file_name.gz"));
     }
-    static String src="s3://part_path_1/data/part_path_2/processed/part_path_3/year=2019/month=11/day=04/id=11111111/file_name.gz";
-    public static String[] takesStringReturnsArray(char a)
+    public static String[] breaksStringIntoArray(String src)
     {
+        int startIndexPart = src.indexOf("p");
+        int endIndexPart = src.indexOf("1")+1;
+        int startIndexId = src.indexOf("id=")+3;
+        int endIndexId = src.indexOf("/file");
+        int startYear = src.indexOf("year=")+5;
+        int endYear = src.indexOf("/month");
+        int startMonth = src.indexOf("month=")+6;
+        int endMonth = src.indexOf("/day");
+        int startDay = src.indexOf("day=")+4;
+        int endDay = src.indexOf("/id");
+        int indexNameFile = src.indexOf("file");
+        int endIndexNameFile = src.indexOf("z")+1;
         String[] array =
                 {
-                MethodHomeTask.bitePart_path_1(src, 5, 16),
-                MethodHomeTask.biteIdValue(src, 82, 93),
-                MethodHomeTask.biteDateFormatYYYY(src, 61, 65)+a+
-                MethodHomeTask.biteDateFormatMM(src, 72, 74)+a+
-                MethodHomeTask.biteDateFormatDD(src, 79, 81),
-                MethodHomeTask.biteFileNameWithExtension(src, 94, 106)
+                MethodHomeTask.bitePartPath1(src, startIndexPart, endIndexPart),
+                MethodHomeTask.biteIdValue(src, startIndexId, endIndexId),
+                MethodHomeTask.biteDateFormatYYYYMMDD(src, startYear, endYear, startMonth, endMonth, startDay, endDay),
+                MethodHomeTask.biteFileNameWithExtension(src, indexNameFile, endIndexNameFile)
                 };
         return array;
     }
-    public static String bitePart_path_1(String s3, int startIndex, int endIndex)
+    public static String bitePartPath1(String s3, int startIndexPath, int endIndexPath)
     {
-        return s3.substring(startIndex, endIndex);
+        return s3.substring(startIndexPath, endIndexPath);
     }
-    public static String biteIdValue(String s3, int startIndex, int endIndex)
+    public static String biteIdValue(String s3, int startIndexId, int endIndexId)
     {
-        return s3.substring(startIndex, endIndex);
+        return s3.substring(startIndexId, endIndexId);
     }
-    public static String biteDateFormatYYYY(String s3, int startIndex, int endIndex)
+    public static String biteDateFormatYYYYMMDD(String s3, int startIndexYYY, int endIndexYYY, int startIndexMM, int endIndexMM, int startIndexDD, int endIndexDD)
     {
-        return s3.substring(startIndex, endIndex);
+        return s3.substring(startIndexYYY, endIndexYYY) +'-'+ s3.substring(startIndexMM, endIndexMM) +'-'+ s3.substring(startIndexDD, endIndexDD);
     }
-    public static String biteDateFormatMM(String s3, int startIndex, int endIndex)
+    public static String biteFileNameWithExtension(String s3, int startIndexName, int endIndexName)
     {
-        return s3.substring(startIndex, endIndex);
-    }
-    public static String biteDateFormatDD(String s3, int startIndex, int endIndex)
-    {
-        return s3.substring(startIndex, endIndex);
-    }
-    public static String biteFileNameWithExtension(String s3, int startIndex, int endIndex)
-    {
-        return s3.substring(startIndex, endIndex);
+        return s3.substring(startIndexName, endIndexName);
     }
     public static void arrayOutputToConsole(String[] array)
     {
         for (String i:array)
         {
-            System.out.println(i);
+            System.out.print(i+", ");
         }
     }
 }
