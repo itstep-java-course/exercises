@@ -1,7 +1,7 @@
 package com.itstep.staticmethod.dudkin_homework;
 
 public class Task {
-    private static String[] useMainMethod(String mainStr) {
+    private static String[] extractMainInfo(String mainStr) {
         String[] str = mainStr.split("//");
         String[] result = {getPath(str[1]), getId(str[1]), getData(str[1]), getName(str[1])};
         return result;
@@ -54,6 +54,6 @@ public class Task {
 
     public static void main(String[] args) {
         String info = "s3://part_path_1/data/part_path_2/processed/part_path_3/year=2019/month=11/day=04/id=11111111/file_name.gz";
-        showResult(mainMethod(info));
+        showResult(extractMainInfo(info));
     }
 }
