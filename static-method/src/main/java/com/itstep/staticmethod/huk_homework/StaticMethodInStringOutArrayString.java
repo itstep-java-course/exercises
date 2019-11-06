@@ -1,5 +1,5 @@
 
-package com.itstep.staticmethod.modificators.huk_homework;
+package com.itstep.staticmethod.huk_homework;
 
 //import java.util.Scanner;
 
