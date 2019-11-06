@@ -1,7 +1,7 @@
 package com.itstep.staticmethod.dudkin_homework;
 
 public class Task {
-    private static String[] mainMethod(String mainStr) {
+    private static String[] useMainMethod(String mainStr) {
         String[] str = mainStr.split("//");
         String[] result = {getPath(str[1]), getId(str[1]), getData(str[1]), getName(str[1])};
         return result;
