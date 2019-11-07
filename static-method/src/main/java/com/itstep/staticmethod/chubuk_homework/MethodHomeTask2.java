@@ -1,6 +1,7 @@
 package com.itstep.staticmethod.chubuk_homework;
 
 public class MethodHomeTask2 {
+
     public static String[] convertStringToArray(String text) {
         String[] array = text.split("/");
         String[] arr = new String[4];

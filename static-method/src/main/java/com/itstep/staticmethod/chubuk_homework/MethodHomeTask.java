@@ -2,6 +2,7 @@ package com.itstep.staticmethod.chubuk_homework;
 
 public class MethodHomeTask
 {
+
     public static void main(String[] args)
     {
         MethodHomeTask.arrayOutputToConsole(breaksStringIntoArray("s3://part33/data/part_path_2/processed/part444/year=19/month=11/day=04/id=88/name.gz"));
