@@ -2,7 +2,7 @@ package com.itstep.staticmethod;
 
 public class HomeTaskExample {
 
-    public static void printParts(String[] p) {
+    private static void printParts(String[] p) {
         for (int i = 0; i < p.length; i++) {
             System.out.print(p[i]);
             if (i != p.length - 1)
@@ -18,7 +18,7 @@ public class HomeTaskExample {
         printParts(parts);
     }
 
-    public static String[] extractParts(String input) {
+    private static String[] extractParts(String input) {
         String partOne = extractPartOne(input);
         String valueId = extractValueId(input);
         String date = extractDate(input);
@@ -32,12 +32,12 @@ public class HomeTaskExample {
         return result;
     }
 
-    public static String extractPartOne(String input) {
+    private static String extractPartOne(String input) {
         String[] allInfo = input.split("/");
         return allInfo[2];
     }
 
-    public static String extractValueId(String input) {
+    private static String extractValueId(String input) {
         String[] allInfo = input.split("/");
         String[] idFields = new String[2];
         for (int i = 0; i < allInfo.length; i++) {
@@ -47,7 +47,7 @@ public class HomeTaskExample {
         return idFields[1];
     }
 
-    public static String extractDate(String input) {
+    private static String extractDate(String input) {
         String[] allInfo = input.split("/");
         String[] yearStr = new String[2];
         String[] monthStr = new String[2];
@@ -65,7 +65,7 @@ public class HomeTaskExample {
         return data;
     }
 
-    public static String extractFileName(String input) {
+    private static String extractFileName(String input) {
         String[] allInfo = input.split("/");
         return allInfo[allInfo.length - 1];
     }
