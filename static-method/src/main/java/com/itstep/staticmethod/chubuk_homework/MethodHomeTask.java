@@ -4,21 +4,21 @@ public class MethodHomeTask
 {
     public static void main(String[] args)
     {
-        MethodHomeTask.arrayOutputToConsole(breaksStringIntoArray("s3://part_path_1/data/part_path_2/processed/part_path_3/year=2019/month=11/day=04/id=11111111/file_name.gz"));
+        MethodHomeTask.arrayOutputToConsole(breaksStringIntoArray("s3://part33/data/part_path_2/processed/part444/year=19/month=11/day=04/id=88/name.gz"));
     }
     public static String[] breaksStringIntoArray(String src)
     {
-        int startIndexPart = src.indexOf("p");
-        int endIndexPart = src.indexOf("1")+1;
+        int startIndexPart = src.indexOf("s3")+5;
+        int endIndexPart = src.indexOf("/data");
         int startIndexId = src.indexOf("id=")+3;
-        int endIndexId = src.indexOf("/file");
+        int endIndexId = src.indexOf("/name");
         int startYear = src.indexOf("year=")+5;
         int endYear = src.indexOf("/month");
         int startMonth = src.indexOf("month=")+6;
         int endMonth = src.indexOf("/day");
         int startDay = src.indexOf("day=")+4;
         int endDay = src.indexOf("/id");
-        int indexNameFile = src.indexOf("file");
+        int indexNameFile = src.lastIndexOf("/")+1;
         int endIndexNameFile = src.indexOf("z")+1;
         String[] array =
                 {
