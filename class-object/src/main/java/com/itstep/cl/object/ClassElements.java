@@ -3,11 +3,18 @@ package com.itstep.cl.object;
 public class ClassElements {
 
     //статические поля
-    private static String className;
-    private static int classesCount;
+    private static String className = "abc";
+    private static int classesCount = 3;
 
     //статический блок инициализации
     static {
+        String s = "sdsd.sd.sds";
+        String[] s1 = s.split(".");
+
+        for (String s2 : s1) {
+            System.out.println(s2);
+        }
+
         System.out.println("Статический блок инициализации");
     }
 

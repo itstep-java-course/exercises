@@ -2,11 +2,12 @@ package com.itstep.cl.object;
 
 public class InitializationOrder {
 
-    private static String staticField = initStaticField();
-
     static {
         System.out.println("static block");
     }
+
+    private static String staticField = initStaticField();
+
 
     private String nonStaticField = initNonStaticField();
 
@@ -24,7 +25,9 @@ public class InitializationOrder {
     }
 
     public static void main(String[] args) {
-        new InitializationOrder();
+        InitializationOrder order = new InitializationOrder();
+
+        System.out.println(order);
     }
 
     private String initNonStaticField() {
