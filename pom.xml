@@ -10,6 +10,7 @@
         <module>control-structures</module>
         <module>string-array</module>
         <module>static-method</module>
+        <module>class-object</module>
     </modules>
     <packaging>pom</packaging>
 
