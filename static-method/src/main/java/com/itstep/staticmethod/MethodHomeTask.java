@@ -3,54 +3,45 @@ package com.itstep.staticmethod;
 public class MethodHomeTask
 {
 
-    public static void main(String[] args)
-    {
-        MethodHomeTask.arrayOutputToConsole(breaksStringIntoArray("s3://part33/data/part_path_2/p/part444/year=19/month=11/day=04/id=88/hello2.gz"));
+    public static String[] convertStringToArray(String text) {
+        String[] array = text.split("/");
+        String[] arr = new String[4];
+        arr[0] = MethodHomeTask.getPath(text);
+        int id = array[10].indexOf("=")+1;
+        arr[1] = MethodHomeTask.cutIdValue(array[10],id);
+        int year = array[7].indexOf("=")+1;
+        int month = array[8].indexOf("=")+1;
+        int day = array[9].indexOf("=")+1;
+        arr[2] = MethodHomeTask.cutYearMonthDay(array[7],year,array[8],month,array[9],day);
+        arr[3] = MethodHomeTask.getName(text);
+        return arr;
     }
-    public static String[] breaksStringIntoArray(String src)
-    {
-        int startIndexPart = src.indexOf("s3")+5;
-        int endIndexPart = src.indexOf("/data");
-        int startIndexId = src.indexOf("id=")+3;
-        int endIndexId = src.lastIndexOf("/");
-        int startYear = src.indexOf("year=")+5;
-        int endYear = src.indexOf("/month");
-        int startMonth = src.indexOf("month=")+6;
-        int endMonth = src.indexOf("/day");
-        int startDay = src.indexOf("day=")+4;
-        int endDay = src.indexOf("/id");
-        int indexNameFile = src.lastIndexOf("/")+1;
-        int endIndexNameFile = src.indexOf("z")+1;
-        String[] array =
-                {
-                        MethodHomeTask.bitePartPath1(src, startIndexPart, endIndexPart),
-                        MethodHomeTask.biteIdValue(src, startIndexId, endIndexId),
-                        MethodHomeTask.biteDateFormatYYYYMMDD(src, startYear, endYear, startMonth, endMonth, startDay, endDay),
-                        MethodHomeTask.biteFileNameWithExtension(src, indexNameFile, endIndexNameFile)
-                };
-        return array;
+    private static String getPath(String s) {
+        String[] allInfo = s.split("/");
+        return allInfo[2];
     }
-    public static String bitePartPath1(String s3, int startIndexPath, int endIndexPath)
-    {
-        return s3.substring(startIndexPath, endIndexPath);
+    private static String getName(String s) {
+        String[] allInfo = s.split("/");
+        return allInfo[allInfo.length - 1];
     }
-    public static String biteIdValue(String s3, int startIndexId, int endIndexId)
+    public static String cutIdValue(String idValue, int startIndex)
     {
-        return s3.substring(startIndexId, endIndexId);
+        return idValue.substring(startIndex);
     }
-    public static String biteDateFormatYYYYMMDD(String s3, int startIndexYYY, int endIndexYYY, int startIndexMM, int endIndexMM, int startIndexDD, int endIndexDD)
+    public static String cutYearMonthDay(String arrayOfYear,int indexYear,String arrayOfMonth,int indexMonth,String arrayDay,int indexDay)
     {
-        return s3.substring(startIndexYYY, endIndexYYY) +'-'+ s3.substring(startIndexMM, endIndexMM) +'-'+ s3.substring(startIndexDD, endIndexDD);
+        String date = arrayOfYear.substring(indexYear)+"-"+arrayOfMonth.substring(indexMonth)+"-"+arrayDay.substring(indexDay);
+        return date;
     }
-    public static String biteFileNameWithExtension(String s3, int startIndexName, int endIndexName)
+    public static void arrayPrint(String[] arr)
     {
-        return s3.substring(startIndexName, endIndexName);
-    }
-    public static void arrayOutputToConsole(String[] array)
-    {
-        for (String i:array)
+        for (String i: arr)
         {
             System.out.print(i+", ");
         }
+    }
+    public static void main(String[] args)
+    {
+        MethodHomeTask.arrayPrint(convertStringToArray( "s3://part/data/part_path_2/pro/part_path_3/year=2019/month=11/day=04/id=333/file_name.txt"));
     }
 }
