@@ -12,6 +12,14 @@ public class StaticMethodsOverloadExample {
         System.out.println(word2);
     }
 
+    public static void printWords(int word, String word2) {
+
+    }
+
+    public static void printWords(String word, int word2) {
+
+    }
+
     public static void printWords(List<String> words) {
         for (String word : words) {
             System.out.println(word);
