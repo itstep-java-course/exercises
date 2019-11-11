@@ -6,11 +6,11 @@ public class CarTask {
     private String name;
     private String model;
     private String body;
-    private String year;
-    private String motor;
+    private int year;
+    private double motor;
     private String transmission;
 
-    public CarTask(String name, String model, String body, String year, String motor, String transmission) {
+    public CarTask(String name, String model, String body, int year, double motor, String transmission) {
         this.name = name;
         this.model = model;
         this.body = body;
@@ -33,10 +33,10 @@ public class CarTask {
     public static void main(String[] args) {
 //    CarTask Opel = new CarTask();
 
-        CarTask Mercedes = new CarTask("Mercedes", "S220", "Sedan", "2018", "4.4L petrol", "Automatic (6)");
-        CarTask Volkswagen = new CarTask("Volkswagen", "Transporter", "Wagon", "2008", "2.0 diesel", "Manual (5)");
-        CarTask Opel = new CarTask("Opel", "Calibra", "Coupe", "1991", "2.0 petrol", "Manual (6)");
-        CarTask Renault = new CarTask("Renault", "Megane", "Universal", "2015", "1.5 TurboDiesel", "Robot (4)");
+        CarTask Mercedes = new CarTask("Mercedes", "S220", "Sedan", 2018, 4.4, "Automatic (6)");
+        CarTask Volkswagen = new CarTask("Volkswagen", "Transporter", "Wagon", 2008, 2.0, "Manual (5)");
+        CarTask Opel = new CarTask("Opel", "Calibra", "Coupe", 1991, 2.0, "Manual (6)");
+        CarTask Renault = new CarTask("Renault", "Megane", "Universal", 2015, 1.5, "Robot (4)");
 
 
         String carInfo = Mercedes.allCarInfo();

@@ -12,16 +12,11 @@ public class Reverser {
 
     private String inputString; //простая строка
 
-    {
-        System.out.println(inputString); //инициализация строки
-    }
 
-    public Reverser(String inputString) {
-        this.inputString = inputString;
-    } // конструктор
+    public Reverser(String P) {this.inputString = P;} // конструктор
 
-    private static void doReverse(String p) {
-        char[] ch = p.toCharArray();
+    private void doReverse() {
+        char[] ch = inputString.toCharArray();
         for (int i = ch.length - 1; i >= 0; i--){
             System.out.print(ch[i]);
         }
@@ -36,7 +31,8 @@ public class Reverser {
 
 
     public static void main(String[] args) {
-        Reverser.doReverse("hello");
+        Reverser reverser = new Reverser("hello");
+        reverser.doReverse();
 
     }
 }
