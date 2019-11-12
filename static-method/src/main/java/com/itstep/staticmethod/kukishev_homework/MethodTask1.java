@@ -5,9 +5,9 @@ public class MethodTask1 {
 
     private static void printParts(String[] nova) {
         for (int i = 0; i < nova.length; i++) {
-            System.out.println(nova[i]);
+            System.out.print(nova[i]);
             if (i!= nova.length -1)
-                System.out.println(',');
+                System.out.print(',');
 
         }
 
@@ -73,8 +73,8 @@ public class MethodTask1 {
             if (element.startsWith("year"))
                 year = element.split("=");
             if (element.startsWith("month"))
-                month = element.split("/");
-            if (element.startsWith("date"))
+                month = element.split("=");
+            if (element.startsWith("day"))
                 day = element.split("=");
 
         }
