@@ -16,13 +16,13 @@ public class Car {
     }
 
     public String getCarInfo() {
-        return "this is" + type + mark + model + "has powerfull" + engine;
+        return "this is" + " " + type + " " + mark + " " + model + " " + "has powerfull" + " " + engine + " " + "engine";
     }
 
     public static void main(String[] args) {
 
-        Car mazda = new Car (mark: "Mazda", model: "6", type: "sedan", engine: "2.5T");
-        Car suzuki = new Car (mark: "Suzuki", model: "SX4", type: "SUV", engine: "1.4T");
+        Car mazda = new Car ("Mazda", "6", "sedan", "2.5T");
+        Car suzuki = new Car ("Suzuki", "SX4", "SUV", "1.4T");
 
         String carInfo = mazda.getCarInfo();
         String carInfo1 = suzuki.getCarInfo();
