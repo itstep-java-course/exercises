@@ -11,6 +11,7 @@
         <module>string-array</module>
         <module>static-method</module>
         <module>class-object</module>
+        <module>oop-principles</module>
     </modules>
     <packaging>pom</packaging>
 

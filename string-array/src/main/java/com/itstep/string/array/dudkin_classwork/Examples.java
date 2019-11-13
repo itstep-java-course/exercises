@@ -1,7 +1,5 @@
 package com.itstep.string.array.dudkin_classwork;
 
-import com.sun.deploy.security.SelectableSecurityManager;
-
 import java.util.Scanner;
 
 public class Examples {

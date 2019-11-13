@@ -1,7 +1,6 @@
 package com.itstep.string.array.shilov.homework;
 
- class HomeWorkString {
-
+public class HomeWorkString {
     public static void main(String[] args) {
         String str1 = "hello_java_world";
         String[] str2 = str1.split("_");
