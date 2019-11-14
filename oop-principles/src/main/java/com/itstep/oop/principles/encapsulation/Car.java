@@ -21,8 +21,8 @@ public class Car {
     }
 
     public void reduceGas() {
-        carSpeed = 0;
-        setTransmission(0);
+        carSpeed-=10;
+        controlTransmission(carSpeed);
     }
 
     public void stopEngine() {
