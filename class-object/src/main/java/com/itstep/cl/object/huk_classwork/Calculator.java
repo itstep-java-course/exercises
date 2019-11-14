@@ -25,12 +25,12 @@ public class Calculator {
         }
 
         else if  (sign.equals("/")){
-            double del = value1/value2;
+            double del = (value1/value2);
             return del;
         }
 
         else if(sign.equals("*")){
-            double ymn = value1*value2;
+            double ymn = (value1*value2);
             return ymn;
         }
        return 0;
@@ -38,7 +38,13 @@ public class Calculator {
 
 
     public static void main(String[] args) {
-        Calculator calculator = new Calculator(20.00, 30.00,"+");
-        System.out.println(calculator.calculator());
+        Calculator calculator1 = new Calculator(20.00, 30.00,"+");
+        System.out.println(calculator1.calculator());
+        Calculator calculator2 = new Calculator(20.00, 30.00,"-");
+        System.out.println(calculator2.calculator());
+        Calculator calculator3 = new Calculator(20.00, 30.00,"*");
+        System.out.println(calculator3.calculator());
+        Calculator calculator4 = new Calculator(20.00, 30.00,"/");
+        System.out.println(calculator4.calculator());
     }
 }
