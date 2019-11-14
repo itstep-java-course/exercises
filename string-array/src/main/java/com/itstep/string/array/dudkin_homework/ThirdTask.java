@@ -50,7 +50,8 @@ class ThirdPart {
         } else {
             double x1 = ((-b + sqrt(D)) / (2 * a));
             double x2 = ((-b - sqrt(D)) / (2 * a));
-            System.out.println("First root of the quadratic equation=" + x1 + "\nSecond root of the quadratic equation=" + x2);
+            System.out.println(
+                    "First root of the quadratic equation=" + x1 + "\nSecond root of the quadratic equation=" + x2);
         }
     }
 }
