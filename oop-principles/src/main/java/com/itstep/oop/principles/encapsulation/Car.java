@@ -10,21 +10,9 @@ public class Car {
         this.currentTransmissionNumber = 0;
     }
 
+    // ======= кнопка старт - стоп
     public void startEngine() {
         System.out.println("The engine has been started by driver");
-    }
-
-    public void addGas() {
-        controlTransmission(carSpeed);
-
-        carSpeed += 10;
-    }
-
-    public void reduceGas() {
-//        carSpeed = 0;
-//        setTransmission(0);
-        controlTransmission(carSpeed);
-        carSpeed -= 10;
     }
 
     public void stopEngine() {
@@ -33,11 +21,28 @@ public class Car {
         }
         System.out.println("The engine has been stopped by driver");
     }
+    // ======= кнопка старт - стоп
 
+    // ======= педаль газа
+    public void addGas() {
+        controlTransmission(carSpeed);
+
+        carSpeed += 10;
+    }
+
+    public void reduceGas() {
+        carSpeed -= 10;
+        controlTransmission(carSpeed);
+    }
+    // ======= педаль газа
+
+    //спидометр
     public int getSpeed() {
         return carSpeed;
     }
+    //спидометр
 
+    //управление сцеплением и трансмиссией
     private void controlTransmission(int carSpeed) {
         if (carSpeed == 0) {
             pushClutch();
@@ -65,4 +70,5 @@ public class Car {
         System.out.println("The transmission number: " + number + " is being set");
         currentTransmissionNumber = number;
     }
+    //управление сцеплением и трансмиссией
 }
