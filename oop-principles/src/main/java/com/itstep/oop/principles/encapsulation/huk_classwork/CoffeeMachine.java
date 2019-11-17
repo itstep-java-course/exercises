@@ -16,19 +16,19 @@ public class CoffeeMachine {
     }
 
 
-    public void addCoffee() {
+    private void addCoffee() {
         System.out.println("Add coffee");
     }
 
-    public void addMilk() {
+    private void addMilk() {
         System.out.println("Add milk");
     }
 
-    public void addWater() {
+    private void addWater() {
         System.out.println("Add water");
     }
 
-    public void addSugar() {
+    private void addSugar() {
         System.out.println("Add sugar");
     }
 }
