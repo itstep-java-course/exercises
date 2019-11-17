@@ -4,13 +4,12 @@ public class Test
 {
     public static void main(String[] args)
     {
-        OrderManager manager = new OrderManager(25);
-
+        Product shop = new Product();
         int i = 0;
         do
             {
             System.out.println("Enter the order id: ");
-            System.out.println(Product.printOut());
+            System.out.println(shop.printOut());
             i++;
             }
         while (i != 5);

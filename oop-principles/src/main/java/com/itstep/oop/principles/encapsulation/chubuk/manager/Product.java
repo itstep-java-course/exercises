@@ -3,9 +3,10 @@ import java.util.Scanner;
 
 public class Product
 {
-    public static double printOut()
+    public double printOut()
     {
         Scanner in = new Scanner(System.in);
-        return OrderManager.purchaseOrder(in.nextInt(), 100);
+        OrderManager order = new OrderManager(20);
+        return order.purchaseOrder(in.nextInt(),0);
     }
 }

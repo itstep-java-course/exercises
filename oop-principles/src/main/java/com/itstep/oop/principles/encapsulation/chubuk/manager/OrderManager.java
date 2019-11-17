@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class OrderManager
 {
-    private static int[][] stock;
+    private int[][] stock;
 
     public OrderManager(int productNumber)
     {
@@ -12,7 +12,7 @@ public class OrderManager
 
     private int[][] fillStock(int productNumber)
     {
-        stock = new int[productNumber][3];
+        stock = new int[productNumber][2];
         Random random = new Random();
         for (int i = 0; i < stock.length ; i++)
         {
@@ -22,21 +22,14 @@ public class OrderManager
         return stock;
     }
 
-    public static double purchaseOrder(int orderId, double price) throws RuntimeException
+    public double purchaseOrder(int orderId, double price) throws RuntimeException
     {
-        if (orderId < stock.length)
-        {
-            if (orderId >= 0) {
-                if (stock[orderId][1] == 1) {
-                    stock[orderId][1] = 0;
+                if (stock[orderId][1] == 1)
+                {
+                    stock[orderId][1] -= 1;
                     price = stock[orderId][0];
                     return (price * 1.2);
-                } else
-                {
-                    throw new RuntimeException("Product is out");
                 }
-            }
-        }
-        throw new RuntimeException("There is no such Products on stock");
+                else throw new RuntimeException("There is no such Products on stock");
     }
 }
