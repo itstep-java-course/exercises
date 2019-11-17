@@ -1,9 +1,14 @@
 package com.itstep.oop.principles.encapsulation;
 
-public class Driver {
+import com.itstep.oop.principles.encapsulation.v2.Car;
+import com.itstep.oop.principles.encapsulation.v2.TransmissionController;
+
+public class Driver2 {
 
     public static void main(String[] args) {
-        Car car = new Car();
+        TransmissionController transmissionController = new TransmissionController();
+
+        Car car = new Car(transmissionController);
 
         car.startEngine();
 
@@ -49,7 +54,5 @@ public class Driver {
         System.out.println("The car speed is: " + car.getSpeed());
 
         car.stopEngine();
-
-
-}
+    }
 }
