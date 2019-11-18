@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class OrderManager {
     private int[][] storage;
-
+    //склад продуктов[айди][кл-во товаров под айди]
     public OrderManager(){
         storage = fillStorage();
     }
