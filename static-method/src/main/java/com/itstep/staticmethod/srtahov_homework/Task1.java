@@ -8,10 +8,10 @@ public class Task1 {
     }
 
     public static String[] Patch(String input) {
-        String patchOne = getMass(input);
-        String patchTwo = getId(input);
-        String patchThree = getData(input);
-        String patchFour = fullFileName(input);
+        String getMassiv = getMass(input);
+        String getId = getId(input);
+        String getData = getData(input);
+        String getFileName = fullFileName(input);
         String[] result = new String[4];
         result[0] = getMass(input);
         result[1] = getId(input);
