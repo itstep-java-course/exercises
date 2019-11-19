@@ -1,12 +1,12 @@
 package com.itstep.oop.principles.encapsulation;
 
 public class GetterSetterExample {
-    private String name;
+    public String name;
     private String lastName;
     private int age;
 
     public String getName() {
-        return name;
+        return name == null ? "empty" : name;
     }
 
     public void setName(String name) {
