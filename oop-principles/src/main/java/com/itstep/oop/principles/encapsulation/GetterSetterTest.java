@@ -8,8 +8,6 @@ public class GetterSetterTest {
 
         test.name = "name";
 
-        test.setName("name1");
-
         System.out.println(test.name == null ? "empty" : test.name);
         System.out.println(test.name);
         System.out.println(test.name);

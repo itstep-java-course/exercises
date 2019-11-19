@@ -9,7 +9,7 @@ public class Car {
         this.name = name;
     }
 
-    protected String getCarInfo() {
+    String getCarInfo() {
         return "The color is: " + color + ", the name is: " + name;
     }
 }

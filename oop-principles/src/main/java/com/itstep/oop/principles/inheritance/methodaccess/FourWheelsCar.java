@@ -5,6 +5,7 @@ public class FourWheelsCar extends Car {
         super(color, name);
     }
 
+    //можно расширять область видимости метода, но нельзя сужать
     @Override
     public String getCarInfo() {
         return super.getCarInfo();
