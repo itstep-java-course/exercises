@@ -2,7 +2,7 @@ package com.itstep.oop.principles.inheritance.huk_homework.fixed;
 
 public class Triangle extends Shape {
 
-    public Triangle(double a, double h) {
+    protected Triangle(double a, double h) {
         super(a, "Triangle");
         this.h = h;
     }
