@@ -1,11 +1,11 @@
 package com.itstep.oop.principles.inheritance.borovoy_homework;
 
-class Rectangle extends Square {
+class Rectangle extends Shape {
 
     private double width;
 
     Rectangle(double length, double width, String name) {
-        super(length, name);
+        super(length, width, name);
         this.width = width;
     }
 

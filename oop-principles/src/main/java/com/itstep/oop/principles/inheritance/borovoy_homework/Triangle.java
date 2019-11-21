@@ -4,7 +4,7 @@ class Triangle extends Shape {
     private double height;
 
     Triangle(double length, double height, String name) {
-        super(length,  name);
+        super(length, height, name);
         this.height = height;
     }
 
