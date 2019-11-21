@@ -1,14 +1,14 @@
 package com.itstep.oop.principles.inheritance.dudkin_homework.not_API;
 
 public class RightTriangle extends Triangle {
-    public RightTriangle(double side1, double side2, double side3, String name) {
-        super(side1, side2, side3, name);
+    public RightTriangle(double[] side, String name) {
+        super(side, name);
     }
 
     @Override
     public double calcArea() {
         int j = 0;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < side.length; i++)
             if (side[i] > side[j])
                 j = i;
         double temp = side[j];

@@ -1,8 +1,8 @@
 package com.itstep.oop.principles.inheritance.dudkin_homework.not_API;
 
 public class Rectangle extends Shape {
-    public Rectangle(double side1, double side2, String name) {
-        super(side1, side2, name);
+    public Rectangle(double[] side, String name) {
+        super(2, side, name);
     }
 
     @Override
