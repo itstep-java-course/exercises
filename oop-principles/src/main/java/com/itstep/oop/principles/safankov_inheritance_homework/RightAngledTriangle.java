@@ -1,13 +1,17 @@
 package com.itstep.oop.principles.safankov_inheritance_homework;
 
   public class RightAngledTriangle extends Shape {//прямоугольный треугольник
-     RightAngledTriangle(double width, double length){
-         super(width,length);
-     }
+      public double length;
+      private double height;
+
+      public RightAngledTriangle(double length, double height){
+          super("RightAngledTriangle");
+          this.length = length;
+          this.height = height;
+      }
      @Override
      public double getArea(){
-         double halfSquare = super.getArea();
-         return halfSquare/2;
+     return length * height / 2;
      }
 
 }
