@@ -5,8 +5,8 @@ import com.itstep.oop.principles.inheritance.dudkin_homework.not_API.Shape;
 import static java.lang.Math.sqrt;
 
 public class Triangle extends Shape {
-    public Triangle(double[] side, String name) {
-        super(3, side, name);
+    public Triangle(double[] side) {
+        super(3, side);
 
     }
 

@@ -3,8 +3,8 @@ package com.itstep.oop.principles.inheritance.dudkin_homework.not_API;
 import com.itstep.oop.principles.inheritance.dudkin_homework.not_API.Rectangle;
 
 public class Square extends Rectangle {
-    public Square(double[] side, String name) {
-        super(side, name);
+    public Square(double[] side) {
+        super(side);
     }
 
     @Override

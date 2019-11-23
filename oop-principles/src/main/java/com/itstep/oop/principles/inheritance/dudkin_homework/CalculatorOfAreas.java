@@ -4,10 +4,10 @@ import com.itstep.oop.principles.inheritance.dudkin_homework.not_API.*;
 
 public class CalculatorOfAreas {
     public static void main(String[] args) {
-        Shape rectangle = new Rectangle(new double[]{4, 5}, "1");
-        Shape triangle = new Triangle(new double[]{4, 5, 6}, "2");
-        Shape square = new Square(new double[]{2}, "3");
-        Shape rightTriangle = new RightTriangle(new double[]{10, 5, 2}, "4");
+        Shape rectangle = new Rectangle(new double[]{4, 5});
+        Shape triangle = new Triangle(new double[]{4, 5, 6});
+        Shape square = new Square(new double[]{2});
+        Shape rightTriangle = new RightTriangle(new double[]{10, 5, 2});
         Shape[] figure = new Shape[]{rectangle, triangle, square, rightTriangle};
         for (int i = 0; i < figure.length; i++) {
             System.out.println(figure[i].calcArea());

@@ -1,8 +1,8 @@
 package com.itstep.oop.principles.inheritance.dudkin_homework.not_API;
 
 public class RightTriangle extends Triangle {
-    public RightTriangle(double[] side, String name) {
-        super(side, name);
+    public RightTriangle(double[] side) {
+        super(side);
     }
 
     @Override
