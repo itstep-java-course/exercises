@@ -1,6 +1,6 @@
 package com.itstep.oop.principles.inheritance.borovoy_homework;
 
- class Shapes {
+class Shapes {
     private final Shape[] shapes;
 
     Shapes(Shape[] shapes) {
@@ -11,8 +11,10 @@ package com.itstep.oop.principles.inheritance.borovoy_homework;
         double square = 0.0;
 
         for (Shape shape : shapes) {
+            System.out.println(shape.getName() + " square: " + shape.getSquare());
             square += shape.getSquare();
         }
         return square;
     }
 }
+

@@ -13,6 +13,7 @@ package com.itstep.oop.principles.inheritance.borovoy_homework;
    Shapes shape = new Shapes(shapes);
 
    double squareOfShapes = shape.getSquare();
+
    System.out.println("The  square of shapes is: " + squareOfShapes);
   }
  }

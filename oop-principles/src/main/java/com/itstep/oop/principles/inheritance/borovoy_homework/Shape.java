@@ -1,6 +1,6 @@
 package com.itstep.oop.principles.inheritance.borovoy_homework;
 
- class Shape {
+class Shape {
     protected double length;
     private double width;
     private String name;
@@ -8,9 +8,14 @@ package com.itstep.oop.principles.inheritance.borovoy_homework;
     Shape(double length, double width, String name) {
         this.length = length;
         this.width = width;
-        this.name= name;
+        this.name = name;
     }
+
     double getSquare() {
         return length * length;
+    }
+
+    public String getName() {
+        return name;
     }
 }
