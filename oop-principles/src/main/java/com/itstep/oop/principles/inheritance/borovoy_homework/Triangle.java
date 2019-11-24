@@ -11,6 +11,6 @@ class Triangle extends Shape {
     @Override
     double getSquare() {
         double square = super.getSquare();
-        return square * height / (2 * length);
+        return square * height / (2 * width);
     }
 }

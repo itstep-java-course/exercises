@@ -2,7 +2,7 @@ package com.itstep.oop.principles.inheritance.borovoy_homework;
 
 class Shape {
     protected double length;
-    private double width;
+    public double width;
     private String name;
 
     Shape(double length, double width, String name) {
@@ -12,7 +12,7 @@ class Shape {
     }
 
     double getSquare() {
-        return length * length;
+        return length * width;
     }
 
     public String getName() {
