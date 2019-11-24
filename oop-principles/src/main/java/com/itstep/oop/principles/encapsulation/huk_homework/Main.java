@@ -1,16 +1,16 @@
 package com.itstep.oop.principles.encapsulation.huk_homework;
 
-import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        int[] orders = new int[]{1, 2, 3, 4, 5};
-
-        // Random random = new Random();
-        // int orders = random.nextInt(100);
+        int[] orders = new int[5];
+        for (int i = 0; i < orders.length; i++) {
+            orders[i] = (int) (Math.random() * 13);
+            System.out.println(orders[i]);
+        }
 
         OrderManager orderManager = new OrderManager(orders);
-        double finalPrice = orderManager.purchaseOrder(22, 12, 12);
+        double finalPrice = orderManager.purchaseOrder(12,14.14);
         System.out.println(finalPrice);
 
         System.out.println("ids====ids");

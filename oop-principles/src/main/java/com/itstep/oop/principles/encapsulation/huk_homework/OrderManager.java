@@ -2,17 +2,14 @@ package com.itstep.oop.principles.encapsulation.huk_homework;
 
 public class OrderManager {
 
-    private int orderId;
-    private double price;
+
     private final int[] orderIds;
 
     public OrderManager(int[] orderIds) {
-        this.orderId = orderId;
-        this.price = price;
         this.orderIds = orderIds;
     }
 
-    public double purchaseOrder(int id, int orderId, double price) {
+    double purchaseOrder(int orderId, double price) {
         if (isOrderExists(orderId)) {
             deleteExistingOrder(orderId);
             return price + price *0.2;
