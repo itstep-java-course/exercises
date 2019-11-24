@@ -7,6 +7,10 @@ class Rectangle extends Shape
         super(name, sides1, sides2);
     }
 
+    public Rectangle(String name, double sides1) {
+        super(name, sides1);
+    }
+
     @Override
     double getAreaArea()
     {
