@@ -1,4 +1,4 @@
-package com.itstep.oop.principles.safankov_homework;
+package com.itstep.oop.principles.encapsulation.safankov_homework;
 
 import java.util.Arrays;
 
