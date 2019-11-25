@@ -10,4 +10,9 @@ public class BMW implements SedanCar {
     public int getMaxSpeed() {
         return 250;
     }
+
+    @Override
+    public String getCarCase() {
+        return "bakladjan";
+    }
 }

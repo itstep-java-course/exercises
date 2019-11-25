@@ -15,6 +15,10 @@ public interface Car {
         }
     }
 
+    default void printStr(String str) {
+        System.out.println(str);
+    }
+
     String getCarCase();
 
     String getModel();
