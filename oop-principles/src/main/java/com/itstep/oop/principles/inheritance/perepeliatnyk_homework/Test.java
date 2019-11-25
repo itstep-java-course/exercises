@@ -2,7 +2,7 @@ package com.itstep.oop.principles.inheritance.perepeliatnyk_homework;
 
 public class Test {
     public static void main(String[] args) {
-        Shape rectangle = new Rectangle("Прямоугольник: ", 5.0,3.0);
+        Shape rectangle = new Rectangle("Прямоугольник: ", 5.0, 3.0);
         Shape square = new Square("Квадрат: ", 5.0);
         Shape triangle = new Triangle("Треугольник: ", 4.0, 2.0);
         Shape circle = new Circle("Круг: ", 4);
@@ -21,4 +21,5 @@ public class Test {
         }
         System.out.println("Общая площадь: " + Math.rint(100.0 * area) / 100);
     }
+
 }
