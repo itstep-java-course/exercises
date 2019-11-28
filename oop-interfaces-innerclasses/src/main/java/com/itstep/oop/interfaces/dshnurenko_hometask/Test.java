@@ -6,9 +6,10 @@ public class Test {
         WordTransformer reverseTransformer = new ReverseTransformer();
         WordTransformer countLettersTransformer = new CountLettersTransformer();
         WordTransformer countLettersWithFilterTransformer = new CountLettersWithFilterTransformer();
+        WordTransformer first3LetterReverser = new First3LetterReverser();
 
         WordTransformer[] transformers =
-                new WordTransformer[]{reverseTransformer, countLettersTransformer, countLettersWithFilterTransformer};
+                new WordTransformer[]{reverseTransformer, countLettersTransformer, countLettersWithFilterTransformer,first3LetterReverser};
 
         //split source str
         String sourceStr = "";
