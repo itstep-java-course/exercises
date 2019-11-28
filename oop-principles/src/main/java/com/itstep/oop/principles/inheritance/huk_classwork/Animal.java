@@ -20,7 +20,7 @@ abstract class Animal {
 
     abstract void makeSound();
 
-    abstract void fly();
+    abstract void flyOrWalk();
 
 }
 

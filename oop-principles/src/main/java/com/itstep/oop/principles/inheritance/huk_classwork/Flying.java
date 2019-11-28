@@ -9,7 +9,7 @@ abstract class Flying extends  Animal {
 
 
     @Override
-    public void fly() {
+    public void flyOrWalk() {
         System.out.println("Умею летать, не умею ходить");
     }
 
