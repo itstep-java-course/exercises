@@ -1,6 +1,6 @@
 package com.itstep.oop.principles.polimorf.shyrkov_homework;
 
-public class TransformerToThirdLogic implements Transformable {
+public class TransformerToThirdLogic extends TransformerToFirstLogic {
     @Override
     public String transformString(String str) {
         if(str.length()>6)
