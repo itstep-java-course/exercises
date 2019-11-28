@@ -12,6 +12,8 @@
         <module>static-method</module>
         <module>class-object</module>
         <module>oop-principles</module>
+        <module>oop-interfaces-innerclasses</module>
+        <module>oop-innerclasses</module>
     </modules>
     <packaging>pom</packaging>
 
