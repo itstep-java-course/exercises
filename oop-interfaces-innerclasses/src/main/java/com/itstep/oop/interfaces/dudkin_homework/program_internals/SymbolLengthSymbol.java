@@ -1,8 +1,8 @@
 package com.itstep.oop.interfaces.dudkin_homework.program_internals;
 
-public class FirstLogic extends Converter {
+public class SymbolLengthSymbol extends Converter {
 
-    public FirstLogic(String firstString) {
+    public SymbolLengthSymbol(String firstString) {
         super(firstString);
         inputStr = result;
         doMainLogic();
@@ -13,6 +13,5 @@ public class FirstLogic extends Converter {
             int length = inputStr[i].length() - 2;
             result[i] = inputStr[i].charAt(0) + Integer.toString(length) + inputStr[i].charAt(length + 1);
         }
-
     }
 }

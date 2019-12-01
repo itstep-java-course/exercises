@@ -25,6 +25,4 @@ abstract class Converter implements MainInterface {
             System.out.println(result[i]);
         }
     }
-
-    protected abstract void doMainLogic();
 }
