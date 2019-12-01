@@ -8,10 +8,10 @@ public class SourceStringSplitter {
     }
 
     public String[] makeSplit(){
-        return null;
 
-       /* String[] str1 = str.split("[/ ,-]+");
-        ShowStrings.Print(str1);//вывод
-        return str1;*/
+
+        String[] str1 = sourceStr.split("[/ ,-]+");
+        //ResultPrinter.print(str1);
+        return str1;
     }
 }

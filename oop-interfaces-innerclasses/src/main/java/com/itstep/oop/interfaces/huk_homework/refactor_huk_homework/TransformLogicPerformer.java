@@ -6,11 +6,6 @@ public class TransformLogicPerformer {
     private final WordTransformer[] transformers;
 
 
-
- /*   public String getWord(String word) {
-        return word;
-    }*/
-
     public TransformLogicPerformer(String[] words,
                                    WordTransformer[] transformers) {
         this.words = words;

@@ -1,6 +1,7 @@
 package com.itstep.oop.interfaces.huk_homework.refactor_huk_homework;
 
 public class ResultPrinter {
+
     public void print(String[] transformedStrings) {
         for (String transformedString : transformedStrings) {
             System.out.println(transformedString);
