@@ -12,17 +12,7 @@ public class ResultArray {
         TransformToArray transformToArray = new TransformToArray();
         String[] string = transformToArray.performString(str);
 
-        TransformLogicPerform logicPerformer = new TransformLogicPerform(outputLatestVersion);
-        int transformer = logicPerformer.performLogic();
-
-        String[][] designer = new String[transformer][string.length];
-        for (int i = 0; i < string.length; i++) {
-            String[] revers = reversWords.outputLatestVersion(string);
-            String[] change = wordChange.outputLatestVersion(string);
-            String[] countChange = countWordsChange.outputLatestVersion(string);
-
-            designer = new String[][]{revers, change, countChange};
-        }
-        return designer;
+        TransformLogicPerform logicPerformer = new TransformLogicPerform(outputLatestVersion, string);
+        return logicPerformer.performLogic();
     }
 }
