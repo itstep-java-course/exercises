@@ -1,18 +1,17 @@
-package com.itstep.oop.principles.encapsulation.huk_homework;
+package com.itstep.oop.principles.encapsulation.strahov_hometask;
 
-public class OrderManager {
-
+class OrderManager {
 
     private final int[] orderIds;
 
-    public OrderManager(int[] orderIds) {
+    OrderManager(int[] orderIds) {
         this.orderIds = orderIds;
     }
 
     double purchaseOrder(int orderId, double price) {
         if (isOrderExists(orderId)) {
             deleteExistingOrder(orderId);
-            return price + price *0.2;
+            return price + price * 0.2;
         }
         throw new RuntimeException("Order not found");
     }
@@ -33,5 +32,4 @@ public class OrderManager {
             }
         }
     }
-
 }
