@@ -5,8 +5,8 @@ public class Test {
     public static void main(String[] args) {
         String str = "description,main,maintenance-polimorfism encapsulation, bodies";
         ResultArray resultArray = new ResultArray();
-        String[][] result = resultArray.returnAll(str);
-        PrintArray printArray = new PrintArray();
+        String[][] result = resultArray.returnFinalArray(str);
+        ArrayPrinter printArray = new ArrayPrinter();
         printArray.printArray(result);
     }
 }
