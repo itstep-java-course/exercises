@@ -10,9 +10,9 @@ public class TransformLogicPerformer {
     }
 
     public String[] performLogic(){
-        String result = "";
         String[] arr = new String[transformers.length];
         for (int i = 0; i < transformers.length ; i++) {
+            String result = "";
             for (String word : words) {
                 result += transformers[i].transform(word);
                 arr[i] = result;
