@@ -31,6 +31,9 @@ public class Lift implements UpMoveable, DownMoveable, Stopable {
             return;
         }
         Button pressedButton = findPressedButton(buttonName);
+        if ( pressedButton == null){
+            return;
+        }
         pressedButton.onClick();
 
         if (currentFloor>pressedButton.floor){//если мы на  10м то едим вниз
