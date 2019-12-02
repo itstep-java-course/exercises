@@ -4,7 +4,8 @@ public class Splitter {
 
     public String[] split(String str){
         String[] strArray = str.split("[/ ,-]+");
-        StringArrayPrinter.printArray(strArray);
+        StringArrayPrinter printer = new StringArrayPrinter();
+        printer.printArray(strArray);
         return strArray;
     }
 }

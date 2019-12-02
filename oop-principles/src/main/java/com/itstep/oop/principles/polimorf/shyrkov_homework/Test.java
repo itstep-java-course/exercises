@@ -7,13 +7,17 @@ public class Test {
         Splitter splitter = new Splitter();
         String[] splittedArray = splitter.split(str);
 
-        Transformable firstLogic = new TransformerToFirstLogic();
-        Transformable secondLogic = new TransformerToSecondLogic();
-        Transformable thirdLogic = new TransformerToThirdLogic();
+        Transformable firstLogicTransformer = new TransformerToFirstLogic();
+        Transformable secondLogicTransformer = new TransformerToSecondLogic();
+        Transformable thirdLogicTransformer = new TransformerToThirdLogic();
 
+        StringArrayPrinter printer = new StringArrayPrinter();
         StringArrayTransformer transformer = new StringArrayTransformer();
-        transformer.transform(splittedArray, firstLogic);
-        transformer.transform(splittedArray, secondLogic);
-        transformer.transform(splittedArray, thirdLogic);
+        String[] strsByFirstLogic = transformer.transform(splittedArray, firstLogicTransformer);
+        printer.printArray(strsByFirstLogic);
+        String[] strsBySecondLogic = transformer.transform(splittedArray, secondLogicTransformer);
+        printer.printArray(strsBySecondLogic);
+        String[] strsByThirdLogic = transformer.transform(splittedArray, thirdLogicTransformer);
+        printer.printArray(strsByThirdLogic);
     }
 }
