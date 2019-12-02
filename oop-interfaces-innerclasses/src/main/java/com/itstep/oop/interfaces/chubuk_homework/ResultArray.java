@@ -2,7 +2,7 @@ package com.itstep.oop.interfaces.chubuk_homework;
 
 public class ResultArray {
 
-    public String[][] printAll(String str) {
+    public String[][] returnAll(String str) {
         WordDesigner reversWords = new ReversWords();
         WordDesigner wordChange = new WordsChange();
         WordDesigner countWordsChange = new CountingWordsChange();
