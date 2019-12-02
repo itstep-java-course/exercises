@@ -27,19 +27,21 @@ public class Lift implements DownMoveable, Upmoveable, Stopable {
         if (buttonName == null) {
             return;
         }
-        for (Button button : buttons) {
-            if (buttonName.equals(button.name)) {
-                button.onClick();
-                if (currentFloor > button.floor) {
-                    moveDown();
-                } else if (currentFloor == button.floor) {
-                    stop();
-                } else {
-                    moveUp();
-                }
-            }
+ Button pressedButton =findPressedButton(buttonName);
+        pressedButton.onClick();
+        if (buttonName == null) {
+            return;
         }
-    }
+                if (currentFloor > pressedButton.floor) {
+                    moveDown();
+                } else if (currentFloor == pressedButton.floor)
+                    stop();
+                else
+                    moveUp();
+
+            }
+
+
 private Button findPressedButton(String buttonName) {
     for (Button button : buttons) {
         if (buttonName.equals(button.name)) {
