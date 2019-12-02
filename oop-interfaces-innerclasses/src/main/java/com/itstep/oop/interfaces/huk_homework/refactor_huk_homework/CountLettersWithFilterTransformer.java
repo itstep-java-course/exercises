@@ -5,8 +5,8 @@ public class CountLettersWithFilterTransformer extends CountLettersTransformer {
     @Override
     public String transform(String word) {
         if (word.length() > 6) {
-            super.transform(word);
+            return super.transform(word);
         }
-        return word;
+        return "";//?
     }
 }

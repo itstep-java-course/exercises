@@ -11,7 +11,8 @@ public class SourceStringSplitter {
 
 
         String[] str1 = sourceStr.split("[/ ,-]+");
-        //ResultPrinter.print(str1);
+//        ResultPrinter resultPrinter = new ResultPrinter();
+//        resultPrinter.print(str1);
         return str1;
     }
 }

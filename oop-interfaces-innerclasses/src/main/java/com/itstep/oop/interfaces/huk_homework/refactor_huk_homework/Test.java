@@ -12,9 +12,7 @@ public class Test {
         WordTransformer[] transformers =
                 new WordTransformer[]{reverseTransformer, countLettersTransformer, countLettersWithFilterTransformer};
 
-        //split source str
-        String sourceStr = "";
-        SourceStringSplitter sourceStringSplitter = new SourceStringSplitter(sourceStr);
+        SourceStringSplitter sourceStringSplitter = new SourceStringSplitter(str);
         String[] words = sourceStringSplitter.makeSplit();
 
         //perform transformation
