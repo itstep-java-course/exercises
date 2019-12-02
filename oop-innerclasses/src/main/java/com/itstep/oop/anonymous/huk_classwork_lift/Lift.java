@@ -3,6 +3,7 @@ package com.itstep.oop.anonymous.huk_classwork_lift;
 public class Lift implements UpMoveable, DownMoveable, Stopable {
 
     private final Button[] buttons;
+    private int currentFloor = 1; //начальное положение лифта
 
     public Lift(Button[] buttons){
 
@@ -23,6 +24,34 @@ public class Lift implements UpMoveable, DownMoveable, Stopable {
                 emergency,
                 stopButton
         };
+    }
+
+    public void pressButton(String buttonName){ //нажатие кнопки
+        if (buttonName == null){
+            return;
+        }
+        for (Button button: buttons) {
+            if (buttonName.equals(button.name)){
+                button.onClick();
+
+                if (currentFloor>button.floor){//если мы на  10м то едим вниз
+                    moveDown(); //движемся вниз
+                }else if(currentFloor == button.floor){//если нажимаем 10 и стоим на 10 этаже
+                   stop();// тогда стоим
+                }else {
+                    moveUp();
+                }
+
+            }
+        }
+    }
+    private  Button findPressedButton(String buttonName){
+        for (Button button :buttons){
+            if (buttonName.equals(button.name)) {
+                return button;
+            }
+        }
+        return null;
     }
 
     @Override
