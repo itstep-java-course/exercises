@@ -30,19 +30,15 @@ public class Lift implements UpMoveable, DownMoveable, Stopable {
         if (buttonName == null){
             return;
         }
-        for (Button button: buttons) {
-            if (buttonName.equals(button.name)){
-                button.onClick();
+        Button pressedButton = findPressedButton(buttonName);
+        pressedButton.onClick();
 
-                if (currentFloor>button.floor){//если мы на  10м то едим вниз
-                    moveDown(); //движемся вниз
-                }else if(currentFloor == button.floor){//если нажимаем 10 и стоим на 10 этаже
-                   stop();// тогда стоим
-                }else {
-                    moveUp();
-                }
-
-            }
+        if (currentFloor>pressedButton.floor){//если мы на  10м то едим вниз
+            moveDown(); //движемся вниз
+        }else if(currentFloor == pressedButton.floor){//если нажимаем 10 и стоим на 10 этаже
+            stop();// тогда стоим
+        }else {
+            moveUp();
         }
     }
     private  Button findPressedButton(String buttonName){
