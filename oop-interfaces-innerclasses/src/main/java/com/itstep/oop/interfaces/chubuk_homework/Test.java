@@ -4,8 +4,8 @@ import java.util.Arrays;
 public class Test {
     public static void main(String[] args) {
         String str = "description,main,maintenance-polimorfism encapsulation, bodies";
-        ResultArray resultPrint = new ResultArray();
-        String[][] result = resultPrint.returnAll(str);
+        ResultArray resultArray = new ResultArray();
+        String[][] result = resultArray.returnAll(str);
         PrintArray printArray = new PrintArray();
         printArray.printArray(result);
     }
