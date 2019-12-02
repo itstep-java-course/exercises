@@ -7,7 +7,7 @@ class CountingWordsChange extends WordsChange{
         String[] result = new String[word.length];
         for (int i = 0; i < word.length; i++) {
             if (word[i].length() > 6)
-                result[i] = word[i].charAt(0) + "" + word[i].length() + "" + word[i].charAt(word[i].length() - 1);
+                result[i] = word[i].charAt(0) + "" + (word[i].length()-2) + "" + word[i].charAt(word[i].length() - 1);
             else result[i] ="";
         }
         return result;
