@@ -5,11 +5,15 @@ public class Lift implements UpMoveable, DownMoveable, Stopable {
     private final Button[] buttons;
 
     private int currentFloor = 1;
+    private Button pressedButton;
+    private boolean isStopPressed;
 
     public Lift() {
         Button firstFloorButton = new Button(1, "first");
         Button secondFloorButton = new Button(2, "second");
         Button thirdFloorButton = new Button(3, "third");
+        Button fourthFloorButton = new Button(4, "fourth");
+        Button fifthFloorButton = new Button(5, "fifth");
 
         Button emergency = new Button("Emergency");
         Button stopButton = new Button("Stop");
@@ -18,6 +22,8 @@ public class Lift implements UpMoveable, DownMoveable, Stopable {
                 firstFloorButton,
                 secondFloorButton,
                 thirdFloorButton,
+                fourthFloorButton,
+                fifthFloorButton,
                 emergency,
                 stopButton};
     }
@@ -26,7 +32,7 @@ public class Lift implements UpMoveable, DownMoveable, Stopable {
         if (buttonName == null) {
             return;
         }
-        Button pressedButton = findPressedButton(buttonName);
+        pressedButton = findPressedButton(buttonName);
         if (pressedButton == null) {
             return;
         }
@@ -52,17 +58,25 @@ public class Lift implements UpMoveable, DownMoveable, Stopable {
 
     @Override
     public void moveDown() {
-
+        while (currentFloor > pressedButton.floor && !isStopPressed) {
+            System.out.println("The lift on the floor: " + currentFloor);
+            currentFloor--;
+        }
+        System.out.println("The lift on the floor: " + currentFloor);
     }
 
     @Override
     public void stop() {
-
+        isStopPressed = true;
     }
 
     @Override
     public void moveUp() {
-
+        while (currentFloor < pressedButton.floor && !isStopPressed) {
+            System.out.println("The lift on the floor: " + currentFloor);
+            currentFloor++;
+        }
+        System.out.println("The lift on the floor: " + currentFloor);
     }
 
     private class Button {
