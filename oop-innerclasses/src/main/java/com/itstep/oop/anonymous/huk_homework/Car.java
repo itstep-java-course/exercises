@@ -1,7 +1,7 @@
 package com.itstep.oop.anonymous.huk_homework;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+//import java.text.ParseException;
+//import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Car implements AbleToRide {
@@ -77,18 +77,18 @@ public class Car implements AbleToRide {
         System.out.println("Car is driving...");
     }
 
-    public static Date StringToDate(String s) {
-
-        Date result = null;
-        try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            result = dateFormat.parse(s);
-        } catch (ParseException e) {
-            e.printStackTrace();
-
-        }
-        return result;
-    }
+//    public static Date StringToDate(String s) {
+//
+//        Date result = null;
+//        try {
+//            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            result = dateFormat.parse(s);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//
+//        }
+//        return result;
+//    }
 
     public String getCarInfo() {
         return "The car model: " + carModel + " Body type: " + carBodeType + " Color: " + carColor + " Number of seats: " + carNumberOfSeats + " Price: " + carPrice + " Max speed: " + carMaxSpeed + " Date: "+ carDate;
