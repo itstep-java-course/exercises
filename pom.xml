@@ -14,6 +14,7 @@
         <module>oop-principles</module>
         <module>oop-interfaces-innerclasses</module>
         <module>oop-innerclasses</module>
+        <module>exceptions</module>
     </modules>
     <packaging>pom</packaging>
 
