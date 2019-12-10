@@ -6,6 +6,6 @@ public class Test {
     public static void main(String[] args) {
         FileReaderImpl reader = new FileReaderImpl();
 
-        reader.readFile(new File(""));
+       // reader.readFile(new File(""));
     }
 }
