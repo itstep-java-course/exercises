@@ -3,10 +3,13 @@ package com.itstep.dudkin_homework;
 public class PasswordValidator {
     private char[] symbols;
 
-    PasswordValidator(String password) throws CustomExceptions {
+    PasswordValidator(String password) {
         symbols = password.toCharArray();
+    }
+
+    public void check() throws ValidationException {
         if (!(normalLength() && have3numbers() && haveCapitalLetter() && haveSpecialSymbol()))
-            throw new CustomExceptions();
+            throw new ValidationException();
         System.out.println("Everything is all right!");
     }
 
