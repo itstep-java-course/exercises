@@ -19,50 +19,50 @@ public class Validator {
     }
 
     boolean isPasswordValid() throws IsNotSuitablePassword {
-        return containAnUppercaseLetter(password) && containSpecialCharacter(password) && containThreeDigits(password) && beLongFromAndTo(password);
+        return containAnUppercaseLetter() && containSpecialCharacter() && containThreeDigits() && beLongFromAndTo();
     }
 
-    private boolean containAnUppercaseLetter(String password) throws IsNotSuitablePassword {
+    private boolean containAnUppercaseLetter() throws IsNotSuitablePassword {
 //        Pattern pattern = Pattern.compile("(?=.*[A-Z])");
 //        Matcher matcher = pattern.matcher(password);
 
-        if (contains(password, "(?=.*[A-Z])")) {
+        if (contains("(?=.*[A-Z])")) {
             return true;
         } else throw new IsNotSuitablePassword("Неудача братан, введи большую букву");
     }
 
-    private boolean containSpecialCharacter(String password) throws IsNotSuitablePassword {
+    private boolean containSpecialCharacter() throws IsNotSuitablePassword {
 //        Pattern pattern = Pattern.compile("(?=.*[@$!%*?&])");
 //        Matcher matcher = pattern.matcher(password);
 
-        if (contains(password, "(?=.*[@$!%*?&])")) {
+        if (contains("(?=.*[@$!%*?&])")) {
             return true;
         } else throw new IsNotSuitablePassword("Не тупи, введи один спецсимвол");
 
     }
 
-    private boolean containThreeDigits(String password) throws IsNotSuitablePassword {
+    private boolean containThreeDigits() throws IsNotSuitablePassword {
 //        Pattern pattern = Pattern.compile("(?=.*\\d{3})");
 //        Matcher matcher = pattern.matcher(password);
 
-        if (contains(password, "(?=.*\\d{3})")) {
+        if (contains("(?=.*\\d{3})")) {
             return true;
         } else throw new IsNotSuitablePassword("Опомнись дружочек, 3 цифры обязательны!");
 
     }
 
-    private boolean beLongFromAndTo(String password) throws IsNotSuitablePassword {
+    private boolean beLongFromAndTo() throws IsNotSuitablePassword {
 //        Pattern pattern = Pattern.compile(".{5,12}");
 //        Matcher matcher = pattern.matcher(password);
 
-        if (contains(password,".{5,12}" )) {
+        if (contains(".{5,12}" )) {
             return true;
         } else throw new IsNotSuitablePassword("Ты чего творишь!? пароль не меньше 5 и не больше 12 символов");
 
 
     }
 
-    private  boolean contains(String password, String regex){
+    private  boolean contains(String regex){
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         return matcher.find();

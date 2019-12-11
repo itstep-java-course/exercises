@@ -4,7 +4,7 @@ public class Test {
 
     public static void main(String[] args) {
 
-        Validator validator = new Validator("Gerb123");
+        Validator validator = new Validator("Gerb123&");
 
         try {
             if (validator.isPasswordValid()) {
