@@ -3,11 +3,8 @@ package com.itstep.inheritance_exception.huk_homework;
 import javax.swing.*;
 
 public class Test {
-    public static void main(String[] args) throws PasswordNotValidException {
+    public static void main(String[] args) {
        Validator validator = new Validator("Poo123!");
-
-       System.out.println(validator.isPasswordValid());
-
 
        try {
             if (validator.isPasswordValid()) {

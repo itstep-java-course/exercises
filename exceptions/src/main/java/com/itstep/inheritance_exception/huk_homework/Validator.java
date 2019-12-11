@@ -28,36 +28,35 @@ public class Validator {
 
 
     boolean isPasswordValid() throws PasswordNotValidException {
-        return hasMinOneCapitalLetters(password) && isLongFromFiveToTwelve(password) && hasMinThreeDigits(password) && hasOneSpecialCharacter(password);
+        return hasMinOneCapitalLetters() && isLongFromFiveToTwelve() && hasMinThreeDigits() && hasOneSpecialCharacter();
     }
 
 
-    private boolean hasMinThreeDigits(String password) throws PasswordNotValidException{ //иметь миниум 3ри цыфры
+    private boolean hasMinThreeDigits() throws PasswordNotValidException{ //иметь миниум 3ри цыфры
+//        Pattern pattern = Pattern.compile("(?=.*\\d{3})");
+//        Matcher matcher = pattern.matcher(password);
 
-        Pattern pattern = Pattern.compile("(?=.*\\d{3})");
-        Matcher matcher = pattern.matcher(password);
-
-        if (matcher.find()) {
+        if (contains("(?=.*\\d{3})")) {
             return true;
         } else throw new PasswordNotValidException("Пароль повинен містити не менше трьох цифр");
     }
 
 
-    private boolean hasOneSpecialCharacter(String password) throws  PasswordNotValidException{ //иметь 1н спец символ
-        Pattern pattern = Pattern.compile("(?=.*[@$!%*?&])");
-        Matcher matcher = pattern.matcher(password);
+    private boolean hasOneSpecialCharacter() throws  PasswordNotValidException{ //иметь 1н спец символ
+//        Pattern pattern = Pattern.compile("(?=.*[@$!%*?&])");
+//        Matcher matcher = pattern.matcher(password);
 
-        if (matcher.find()) {
+        if (contains("(?=.*[@$!%*?&])")) {
             return true;
         } else throw new PasswordNotValidException("Пароль повинен містити принаймні один спеціальний символ");
     }
 
 
-    private boolean hasMinOneCapitalLetters(String password) throws PasswordNotValidException { //иметь минимум одну заглавную букву
-        Pattern pattern = Pattern.compile("(?=.*[A-Z])");
-        Matcher matcher = pattern.matcher(password);
+    private boolean hasMinOneCapitalLetters() throws PasswordNotValidException { //иметь минимум одну заглавную букву
+//        Pattern pattern = Pattern.compile("(?=.*[A-Z])");
+//        Matcher matcher = pattern.matcher(password);
 
-        if (matcher.find()) {
+        if (contains("(?=.*[A-Z])")) {
             return true;
         } else throw new PasswordNotValidException("Пароль повинен містити принаймні одну велику літеру");
 
@@ -72,11 +71,11 @@ public class Validator {
     }
 
 
-    private boolean isLongFromFiveToTwelve(String password) throws PasswordNotValidException { //быть длиной от 5ти до 12ти
-        Pattern pattern = Pattern.compile(".{5,12}");
-        Matcher matcher = pattern.matcher(password);
+    private boolean isLongFromFiveToTwelve() throws PasswordNotValidException { //быть длиной от 5ти до 12ти
+//        Pattern pattern = Pattern.compile(".{5,12}");
+//        Matcher matcher = pattern.matcher(password);
 
-        if (matcher.find()) {
+        if (contains(".{5,12}" )) {
             return true;
         } else throw new PasswordNotValidException("Пароль повинен містити від 5 до 12 символів");
 
@@ -87,4 +86,12 @@ public class Validator {
     }*/
 
     }
+
+
+    private  boolean contains(String regex){
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.find();
+    }
+
 }
