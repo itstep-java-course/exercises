@@ -27,12 +27,12 @@ public class Validator {
     }
 
 
-    boolean isPasswordValidation() throws PasswordNotValidException {
-        return hasMinOneCapitalLetters(password) && isLongFromFiveToTwelve(password) && hasMinThreeDigits() && hasOneSpecialCharacter();
+    boolean isPasswordValid() throws PasswordNotValidException {
+        return hasMinOneCapitalLetters(password) && isLongFromFiveToTwelve(password) && hasMinThreeDigits(password) && hasOneSpecialCharacter(password);
     }
 
 
-    private boolean hasMinThreeDigits() throws PasswordNotValidException{ //иметь миниум 3ри цыфры
+    private boolean hasMinThreeDigits(String password) throws PasswordNotValidException{ //иметь миниум 3ри цыфры
 
         Pattern pattern = Pattern.compile("(?=.*\\d{3})");
         Matcher matcher = pattern.matcher(password);
@@ -43,7 +43,7 @@ public class Validator {
     }
 
 
-    private boolean hasOneSpecialCharacter() throws  PasswordNotValidException{ //иметь 1н спец символ
+    private boolean hasOneSpecialCharacter(String password) throws  PasswordNotValidException{ //иметь 1н спец символ
         Pattern pattern = Pattern.compile("(?=.*[@$!%*?&])");
         Matcher matcher = pattern.matcher(password);
 
