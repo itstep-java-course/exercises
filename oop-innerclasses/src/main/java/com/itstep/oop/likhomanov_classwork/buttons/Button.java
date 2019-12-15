@@ -1,9 +1,8 @@
 package com.itstep.oop.likhomanov_classwork.buttons;
 
 import com.itstep.oop.likhomanov_classwork.lift.Lift;
-import com.itstep.oop.likhomanov_classwork.Messages;
 
-public abstract class Button implements Clickable, Messages {
+public abstract class Button implements Clickable {
 
     private final String name;
     private final Lift parentLift;

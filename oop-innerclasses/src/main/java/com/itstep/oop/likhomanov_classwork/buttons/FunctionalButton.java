@@ -1,6 +1,7 @@
 package com.itstep.oop.likhomanov_classwork.buttons;
 
 import com.itstep.oop.likhomanov_classwork.lift.Lift;
+import static com.itstep.oop.likhomanov_classwork.Messages.*;
 
 public class FunctionalButton extends Button {
 

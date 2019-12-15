@@ -1,23 +1,22 @@
 package com.itstep.oop.likhomanov_classwork.lift;
 
-import com.itstep.oop.likhomanov_classwork.Messages;
 import com.itstep.oop.likhomanov_classwork.buttons.Button;
 import com.itstep.oop.likhomanov_classwork.buttons.FloorButton;
 import com.itstep.oop.likhomanov_classwork.buttons.FunctionalButton;
 import com.itstep.oop.likhomanov_classwork.display.Monitor;
 import com.itstep.oop.likhomanov_classwork.door.Door;
 
-public class Lift implements UpMovable, DownMovable, Stoppable, Messages {
+import static com.itstep.oop.likhomanov_classwork.Messages.*;
+
+public class Lift implements UpMovable, DownMovable, Stoppable {
 
     private final Button[] buttons;
     private final Door door;
     private final Monitor monitor;
+    private final PassengersController passengersController;
+    private final FloorCounter floorCounter;
 
-    private int currentFloor = 1;
-    private int nextFloor = 1;
-    private int numberOfPassengers;
-
-    private Lift() {
+    private Lift(int capacity) {
         Button firstFloorButton = FloorButton.getInstance("First floor", 1, this);
         Button secondFloorButton = FloorButton.getInstance("Second floor", 2, this);
         Button thirdFloorButton = FloorButton.getInstance("Third floor", 3, this);
@@ -39,33 +38,12 @@ public class Lift implements UpMovable, DownMovable, Stoppable, Messages {
         door = new Door();
         door.open();
         monitor = new Monitor();
+        passengersController = new PassengersController(capacity);
+        floorCounter = new FloorCounter();
     }
 
-    public static Lift getInstance() {
-        return new Lift();
-    }
-
-    public void letPassengersIn(int numberOfPassengers) {
-
-        if (numberOfPassengers <= 0) {
-            return;
-        }
-
-        if (door.isOpen()) {
-            this.numberOfPassengers = numberOfPassengers;
-            monitor.display(NUMBER_OF_PASSENGERS + numberOfPassengers);
-        } else {
-            monitor.display(CLOSE_DOOR);
-        }
-    }
-
-    public void letPassengersOut() {
-        if (door.isOpen()) {
-            numberOfPassengers = 0;
-            monitor.display(IS_EMPTY);
-        } else {
-            monitor.display(CLOSE_DOOR);
-        }
+    public static Lift getInstance(int capacity) {
+        return new Lift(capacity);
     }
 
     public void pressButton(String buttonName) {
@@ -80,17 +58,13 @@ public class Lift implements UpMovable, DownMovable, Stoppable, Messages {
         }
         monitor.display(pressedButton.onClick());
 
-        if (currentFloor > nextFloor) {
+        if (floorCounter.isNextFloorBelow()) {
             moveDown();
-        } else if (currentFloor == nextFloor){
-            stop();
-        } else {
+        } else if (floorCounter.isNextFloorAbove()){
             moveUp();
+        } else {
+            stop();
         }
-    }
-
-    public void setNextFloor(int floor) {
-        nextFloor = floor;
     }
 
     public String[] getButtons() {
@@ -102,6 +76,18 @@ public class Lift implements UpMovable, DownMovable, Stoppable, Messages {
         return buttons;
     }
 
+    public void setNextFloor(int floor) {
+        floorCounter.setNextFloor(floor);
+    }
+
+    public void comeIn(int numberOfPassengers) {
+        passengersController.letPassengersIn(numberOfPassengers);
+    }
+
+    public void getOut() {
+        passengersController.letPassengersOut();
+    }
+
     private Button findPressedButton(String buttonName) {
         for (Button button : buttons) {
             if (buttonName.equals(button.getName())) {
@@ -111,39 +97,13 @@ public class Lift implements UpMovable, DownMovable, Stoppable, Messages {
         return null;
     }
 
-    private void countFloors() {
-        if (currentFloor > nextFloor) {
-            incrementFloors();
-        } else {
-            decrementFloors();
-        }
-    }
-
-    private void incrementFloors() {
-        do {
-            monitor.display(CURRENT_FLOOR + (--currentFloor));
-        } while (currentFloor != nextFloor);
-        stop();
-    }
-
-    private void decrementFloors() {
-        do {
-            monitor.display(CURRENT_FLOOR + (++currentFloor));
-        } while (currentFloor != nextFloor);
-        stop();
-    }
-
-    private boolean isNumberOfPassengersOk() {
-        return numberOfPassengers <= 6;
-    }
-
     @Override
-    public void moveDown() {                                    //????How to make private????
-        if (isNumberOfPassengersOk()) {
+    public void moveDown() {
+        if (passengersController.isNumberOfPassengersOk()) {
             door.close();
             monitor.display(CLOSE_DOOR);
-            monitor.display(GOING_DOWN + nextFloor);
-            countFloors();
+            monitor.display(GOING_DOWN + floorCounter.nextFloor);
+            floorCounter.decrementFloors();
         } else {
             monitor.display(TOO_MANY_PASSENGERS);
         }
@@ -158,13 +118,82 @@ public class Lift implements UpMovable, DownMovable, Stoppable, Messages {
 
     @Override
     public void moveUp() {
-        if (isNumberOfPassengersOk()) {
+        if (passengersController.isNumberOfPassengersOk()) {
             door.close();
             monitor.display(CLOSE_DOOR);
-            monitor.display(GOING_UP + nextFloor);
-            countFloors();
+            monitor.display(GOING_UP + floorCounter.nextFloor);
+            floorCounter.incrementFloors();
         } else {
             monitor.display(TOO_MANY_PASSENGERS);
+        }
+    }
+
+    private class PassengersController {
+
+        private final int maxNumberOfPassengers;
+        private int numberOfPassengers;
+
+        private PassengersController(int maxNumberOfPassengers) {
+            this.maxNumberOfPassengers = maxNumberOfPassengers;
+        }
+
+        private void letPassengersIn(int numberOfPassengers) {
+
+            if (numberOfPassengers <= 0) {
+                return;
+            }
+
+            if (door.isOpen()) {
+                this.numberOfPassengers = numberOfPassengers;
+                monitor.display(NUMBER_OF_PASSENGERS + numberOfPassengers);
+            } else {
+                monitor.display(CLOSE_DOOR);
+            }
+        }
+
+        private void letPassengersOut() {
+            if (door.isOpen()) {
+                numberOfPassengers = 0;
+                monitor.display(IS_EMPTY);
+            } else {
+                monitor.display(CLOSE_DOOR);
+            }
+        }
+
+        private boolean isNumberOfPassengersOk() {
+            return numberOfPassengers <= maxNumberOfPassengers;
+        }
+    }
+
+    private class FloorCounter {
+
+        private int currentFloor = 1;
+        private int nextFloor = 1;
+
+        private void setNextFloor(int floor) {
+            nextFloor = floor;
+        }
+
+        private void incrementFloors() {
+            do {
+                monitor.display(CURRENT_FLOOR + (++currentFloor));
+            } while (currentFloor != nextFloor);
+            stop();
+        }
+
+        private void decrementFloors() {
+            do {
+                monitor.display(CURRENT_FLOOR + (--currentFloor));
+            } while (currentFloor != nextFloor);
+            stop();
+        }
+
+        private boolean isNextFloorBelow() {
+            return currentFloor > nextFloor;
+        }
+
+        private boolean isNextFloorAbove() {
+            return currentFloor < nextFloor;
         }
     }
 }

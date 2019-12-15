@@ -10,11 +10,11 @@ public class LiftTest {
 
         Scanner in = new Scanner(System.in);
 
-        Lift lift = Lift.getInstance();
+        Lift lift = Lift.getInstance(6);
 
         do {
             System.out.println("Type the number of passengers to enter the lift...");
-            lift.letPassengersIn(in.nextInt());
+            lift.comeIn(in.nextInt());
             in.nextLine();
 
             System.out.println("Press any button:");
@@ -25,7 +25,7 @@ public class LiftTest {
             lift.pressButton(in.nextLine());
 
             System.out.println("Passengers can leave the lift...");
-            lift.letPassengersOut();
+            lift.getOut();
             System.out.println("========================================================");
         } while (true);
     }
