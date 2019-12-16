@@ -6,11 +6,11 @@ public class PasswordValidator implements CapitalLetterCheckable, LengthCheckabl
         SymbolCheckable, ThreeNumeralCheckable {
     private final String password;
 
-     PasswordValidator(String password)  {
+    PasswordValidator(String password) {
         this.password = password;
     }
 
-     boolean isPasswordValid() throws InvalidPasswordException {
+    boolean isPasswordValid() throws InvalidPasswordException {
         return hasCapitalLetter() && hasSpecialSymbol() &&
                 hasThreeNumeral() && hasCorrectLength();
     }
@@ -23,7 +23,7 @@ public class PasswordValidator implements CapitalLetterCheckable, LengthCheckabl
             if (isDigit(passwordChar))
                 counter++;
         }
-        if (counter >2)
+        if (counter > 2)
 
             return true;
         throw new InvalidPasswordException("Password must contains at least three numerals");
@@ -53,7 +53,8 @@ public class PasswordValidator implements CapitalLetterCheckable, LengthCheckabl
     @Override
     public boolean hasSpecialSymbol() throws InvalidPasswordException {
         String symbol = "_";
-        if (password.contains(symbol)) {
+        if (password.contains("_") || password.contains(".") || password.contains("/")
+                && password.contains("$") || password.contains("%")) {
             return true;
         }
         throw new InvalidPasswordException("Password must contains at least 1 symbol");
