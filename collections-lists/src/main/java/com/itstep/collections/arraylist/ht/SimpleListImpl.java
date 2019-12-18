@@ -1,5 +1,6 @@
 package com.itstep.collections.arraylist.ht;
 
+//https://habr.com/ru/post/128269/
 public class SimpleListImpl<T> implements SimpleList<T> {
 
     private final Object[] elements;
@@ -23,6 +24,7 @@ public class SimpleListImpl<T> implements SimpleList<T> {
         return false;
     }
 
+    //formula size*3/2 + 1
     @Override
     public boolean add(T o) {
         return false;
