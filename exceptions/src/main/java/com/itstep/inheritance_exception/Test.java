@@ -7,6 +7,6 @@ public class Test {
     public static void main(String[] args) throws FileNotFoundException {
         FileReaderImpl reader = new FileReaderImpl();
 
-        reader.readFile(new File("ds21"));
+       // reader.readFile(new File(""));
     }
 }
