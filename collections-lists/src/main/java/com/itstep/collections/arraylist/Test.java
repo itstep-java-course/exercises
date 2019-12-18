@@ -43,46 +43,46 @@ public class Test {
 //            System.out.println(next);
 //        }
 
-        List<String> l1 = new ArrayList<>(3);
-        l1.add("1");
-        l1.add("2");
-        l1.add("1");
-        l1.add("1");
+        List<String> arrayList = new ArrayList<>(3);
+        arrayList.add("1");
+        arrayList.add("2");
+        arrayList.add("1");
+        arrayList.add("1");
 
         //добавление элемента в лист O(1)
-        l1.add("3");
+        arrayList.add("3");
 
         //добавление элемента в середину листа O(n)
-        l1.add(3, "5");
+        arrayList.add(3, "5");
 
         //перезапись элемента по конкретному индексу O(1)
-        l1.set(3, "5");
+        arrayList.set(3, "5");
 
         //проверяет существует ли элемент в листе O(n)
-        boolean isExists = l1.contains("5");
+        boolean isExists = arrayList.contains("5");
 
         //возвращает значение по индексу O(1)
-        String s = l1.get(4);
+        String s = arrayList.get(4);
 
         //возвращает индекс элемента в листе O(n)
-        int index = l1.indexOf("4");
+        int index = arrayList.indexOf("4");
 
         //удаление элемента из массива по индексу O(n)
-        l1.remove(4);
+        arrayList.remove(4);
 
         //удаление элемента из массива по значению O(n)
-        l1.remove("4");
+        arrayList.remove("4");
 
         //количество элементов в листе O(1)
-        int size = l1.size();
+        int size = arrayList.size();
 
         //возвращает часть листа между индексами. Левый включается а правый нет
-        List<String> list = l1.subList(4, 6);
+        List<String> list = arrayList.subList(4, 6);
 
         //очищает лист
-        l1.clear();
+        arrayList.clear();
 
         //если лист пустой - true, если нет то false
-        boolean empty = l1.isEmpty();
+        boolean empty = arrayList.isEmpty();
     }
 }
