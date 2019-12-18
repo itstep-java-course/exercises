@@ -1,5 +1,7 @@
 package com.itstep.oop.inner;
 
+import java.util.Objects;
+
 public class Car {
 
     private Engine engine = new Engine();
@@ -7,6 +9,10 @@ public class Car {
 
     public Car() {
 
+    }
+
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
     }
 
     public void veryComplexLogic() {
@@ -71,4 +77,16 @@ public class Car {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(carModel, car.carModel);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(carModel);
+    }
 }
