@@ -4,7 +4,7 @@ public class Test {
 
 
     public static void main(String[] args) {
-        SimpleList<String> list = new SimpleListImpl<>();
+        SimpleList<String> list = new SimpleListImpl<>(3);
 
         list.add("one");
         list.add("two");
