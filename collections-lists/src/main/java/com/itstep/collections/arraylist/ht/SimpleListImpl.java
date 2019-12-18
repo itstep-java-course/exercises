@@ -1,6 +1,13 @@
 package com.itstep.collections.arraylist.ht;
 
 public class SimpleListImpl<T> implements SimpleList<T> {
+
+    private final Object[] elements;
+
+    public SimpleListImpl(int initialCapacity) {
+        this.elements = new Object[initialCapacity];
+    }
+
     @Override
     public int size() {
         return 0;
@@ -8,7 +15,7 @@ public class SimpleListImpl<T> implements SimpleList<T> {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return elements.length == 0;
     }
 
     @Override
