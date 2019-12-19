@@ -18,6 +18,7 @@ public class HashSetTest {
         hashSet.add("4aaaaaaaa");
         hashSet.add("5dddd");
         hashSet.add("6aaaa");
+        hashSet.add(null);
 
 
         for (String s1 : hashSet) {
@@ -35,6 +36,7 @@ public class HashSetTest {
         linkedHashSet.add("4aaaaaaaa");
         linkedHashSet.add("5dddd");
         linkedHashSet.add("6aaaa");
+        linkedHashSet.add(null);
 
         for (String s1 : linkedHashSet) {
             System.out.println(s1);

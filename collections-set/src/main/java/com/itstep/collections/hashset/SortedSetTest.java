@@ -10,6 +10,8 @@ public class SortedSetTest {
         sortedSet.add(new Car("ad"));
         sortedSet.add(new Car("az"));
         sortedSet.add(new Car("af"));
+//        не может хранить нул-ы
+//        sortedSet.add(null);
 
         for (Car s : sortedSet) {
             System.out.println(s.model);
@@ -34,6 +36,8 @@ public class SortedSetTest {
         cars.add(new NotComparableCar("ad"));
         cars.add(new NotComparableCar("az"));
         cars.add(new NotComparableCar("af"));
+//        усли мы собираемся сортировать элементы, мы должны исключить нулы из коллекции
+//        cars.add(null);
 
         System.out.println(" =============== not sorted list ==========");
         for (NotComparableCar car : cars) {
