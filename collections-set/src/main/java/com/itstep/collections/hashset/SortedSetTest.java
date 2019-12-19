@@ -12,8 +12,24 @@ public class SortedSetTest {
         sortedSet.add(new Car("af"));
 //        не может хранить нул-ы
 //        sortedSet.add(null);
-
         for (Car s : sortedSet) {
+            System.out.println(s.model);
+        }
+
+        Set<NotComparableCar> notComparableCarSet = new TreeSet<>(new Comparator<NotComparableCar>() {
+            @Override
+            public int compare(NotComparableCar o1, NotComparableCar o2) {
+                return o1.model.compareTo(o2.model);
+            }
+        });
+        notComparableCarSet.add(new NotComparableCar("ab"));
+        notComparableCarSet.add(new NotComparableCar("ad"));
+        notComparableCarSet.add(new NotComparableCar("az"));
+        notComparableCarSet.add(new NotComparableCar("af"));
+
+
+        System.out.println("not comparable car in tree set (comparable collection)");
+        for (NotComparableCar s : notComparableCarSet) {
             System.out.println(s.model);
         }
 
