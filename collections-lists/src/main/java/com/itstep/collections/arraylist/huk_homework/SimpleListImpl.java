@@ -1,0 +1,71 @@
+package com.itstep.collections.arraylist.huk_homework;
+
+
+public class SimpleListImpl<T> implements SimpleList<T> {
+
+    private Object[] elements; //поле константа массивов
+int index = 0;
+    public SimpleListImpl(int initialCapacity) { //конструктор
+        this.elements = new Object[initialCapacity];
+    }
+
+    @Override
+    public int size() {
+        return index;
+    }
+
+
+    @Override
+    public boolean isEmpty() {
+        return elements.length == 0;
+    }
+
+    @Override
+    public boolean contains(T o) {
+        return false;
+    }
+
+    @Override
+    public boolean add(T o) { // в конец
+        if (index == elements.length) {
+            Object[] temp = new Object[elements.length * 3 / 2 + 1];
+            System.arraycopy(elements,0,temp,0,elements.length);
+            this.elements = temp;
+        }
+
+        this.elements[index++] = o;// index++ записую обьект
+        return true;
+    }
+
+    @Override
+    public boolean remove(T o) {
+        return false;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
+    public T get(int index) {
+        return (T) elements[index]; //нужно только добавить проверку что индекс который ты передаешь в пределах массива
+    }
+
+    @Override
+    public void add(int index, T element) { //добавление в средину
+
+    }
+
+    @Override
+    public T remove(int index) {
+        return null;
+    }
+
+    @Override
+    public int indexOf(T o) {
+        return 0;
+    }
+
+
+}
