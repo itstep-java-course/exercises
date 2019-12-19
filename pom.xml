@@ -17,6 +17,7 @@
         <module>exceptions</module>
         <module>collections-lists</module>
         <module>collections-set</module>
+        <module>collections-map</module>
     </modules>
     <packaging>pom</packaging>
 
