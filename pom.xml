@@ -16,6 +16,7 @@
         <module>oop-innerclasses</module>
         <module>exceptions</module>
         <module>collections-lists</module>
+        <module>collections-set</module>
     </modules>
     <packaging>pom</packaging>
 
