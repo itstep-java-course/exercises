@@ -4,7 +4,9 @@ package com.itstep.collections.arraylist.huk_homework;
 public class SimpleListImpl<T> implements SimpleList<T> {
 
     private Object[] elements; //поле константа массивов
+
 int index = 0;
+
     public SimpleListImpl(int initialCapacity) { //конструктор
         this.elements = new Object[initialCapacity];
     }
@@ -39,6 +41,19 @@ int index = 0;
 
     @Override
     public boolean remove(T o) {
+//        if (o == null) {
+//            for (int index = 0; index < elements.length; index++)
+//                if (elements[index] == null) {
+//                    fastRemove(index);
+//                    return true;
+//                }
+//        } else {
+//            for (int index = 0; index < elements.length; index++)
+//                if (o.equals(elements[index])) {
+//                    fastRemove(index);
+//                    return true;
+//                }
+//        }
         return false;
     }
 
@@ -53,7 +68,14 @@ int index = 0;
     }
 
     @Override
-    public void add(int index, T element) { //добавление в средину
+    public void add(int index, T element) { //добавление в середину
+        if (index == elements.length) {
+            Object[] temp = new Object[elements.length * 3 / 2 + 1];
+        }
+            System.arraycopy(element, index, element, index + 1, size() - index);
+
+    this.elements[index++] = element;// index++ записую обьект
+
 
     }
 
@@ -64,8 +86,15 @@ int index = 0;
 
     @Override
     public int indexOf(T o) {
-        return 0;
-    }
-
-
+        if (o == null) {
+            for (int i = 0; i < elements.length; i++)
+                if (elements[i]==null)
+                    return i;
+        } else {
+            for (int i = 0; i < elements.length; i++)
+                if (o.equals(elements[i]))
+                    return i;
+        }
+        return -1;
+   }
 }

@@ -1,11 +1,14 @@
 package com.itstep.collections.arraylist.huk_homework;
 
+import java.util.ArrayList;
+
 public class Test {
 
 
 
     public static void main(String[] args) {
         SimpleList<String> list = new SimpleListImpl<>(3); //Початкова потужність, начальный размер
+
 
         list.add("one"); //добавление элементов
         list.add("two");
@@ -50,7 +53,7 @@ public class Test {
 //            throw new RuntimeException("get by index error");
 //        }
 
-//        list.add(1, "second");
+        list.add(1, "second");
 //
 //        if (!list.get(1).equals("second")) {
 //            throw new RuntimeException("add by index error");
@@ -62,12 +65,12 @@ public class Test {
 //            throw new RuntimeException("remove by index error");
 //        }
 //
-//        int index = list.indexOf("second");
+//        int index = list.indexOf("second");//заменить на second
 //
 //        if (index != 1) {
 //            throw new RuntimeException("index of error");
 //        }
-//
+
 //        list.clear();
 //
 //        if (list.size() != 0) {
