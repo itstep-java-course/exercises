@@ -38,7 +38,6 @@ public class Transport implements Movable {
 
     public class Bike implements ShowCharacteristic {
         public Bike() {
-            new NumberOfTransport();
             wheels = 2;
         }
 
