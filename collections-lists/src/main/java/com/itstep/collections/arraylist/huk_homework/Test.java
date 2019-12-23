@@ -68,12 +68,16 @@ public class Test {
 //        if (list.contains("three")) {
 //            throw new RuntimeException("remove by index error");
 //        }
-//
-//        int index = list.indexOf("second");//заменить на second
-//
-//        if (index != 1) {
-//            throw new RuntimeException("index of error");
-//        }
+
+        //======================================================
+
+        int index = list.indexOf("second");//заменить на second
+
+        if (index != 1) {
+            throw new RuntimeException("index of error");
+        }
+
+        //======================================================
 
 //        list.clear();
 //

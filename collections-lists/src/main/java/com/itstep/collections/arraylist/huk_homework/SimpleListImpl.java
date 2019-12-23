@@ -53,10 +53,10 @@ public class SimpleListImpl<T> implements SimpleList<T> {
     public void add(int index, T element) { //добавление в середину
         if (index == elements.length) {
             Object[] temp = new Object[elements.length * 3 / 2 + 1];
-            System.arraycopy(elements,index,elements,index+1,elements.length-index);
+            System.arraycopy(elements, index, elements, index + 1, elements.length - index);
             this.elements = temp;
         }
-    this.elements[index] = element;// index++ записую обьект
+        this.elements[index] = element;// index записую обьект
 
     }
 
@@ -96,15 +96,15 @@ public class SimpleListImpl<T> implements SimpleList<T> {
 
     @Override
     public int indexOf(T o) {
-//        if (o == null) {
-//            for (int i = 0; i < elements.length; i++)
-//                if (elements[i]==null)
-//                    return i;
-//        } else {
-//            for (int i = 0; i < elements.length; i++)
-//                if (o.equals(elements[i]))
-//                    return i;
-//        }
+        if (o == null) {
+            for (int i = 0; i < elements.length; i++)
+                if (elements[i]==null)
+                    return i;
+        } else {
+            for (int i = 0; i < elements.length; i++)
+                if (o.equals(elements[i]))
+                    return i;
+        }
        return -1;
    }
 }
