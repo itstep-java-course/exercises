@@ -13,15 +13,15 @@ public class Validator {
     }
 
     boolean isPasswordTrue() throws СheckPasswordExeption {
-        return  CheckCapsLetter() && CheckLength() && hasSpecialCharacters() && hasEnoughNumbers();
+        return  checkCapsLetter() && checkLength() && hasSpecialCharacters() && hasEnoughNumbers();
     }
 
-    private boolean CheckLength() throws СheckPasswordExeption {
+    private boolean checkLength() throws СheckPasswordExeption {
         if (password.length() >= 5 && password.length() <=12) return true;
         else throw new СheckPasswordExeption("incorrect length");
     }
 
-    private boolean CheckCapsLetter() throws СheckPasswordExeption{
+    private boolean checkCapsLetter() throws СheckPasswordExeption{
         char[] passwordHaveChars = password.toCharArray();
         for (char passwordChar : passwordHaveChars) {
             if (Character.isUpperCase(passwordChar))
