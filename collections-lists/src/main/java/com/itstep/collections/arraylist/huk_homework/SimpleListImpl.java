@@ -33,6 +33,10 @@ public class SimpleListImpl<T> implements SimpleList<T> {
 
     @Override
     public boolean contains(T o) {
+        for (int i = 0; i <elements.length ; i++) {
+            if (elements[i]==o);
+            return true;
+        }
         return false;
     }
 

@@ -41,9 +41,11 @@ public class Test {
         //======================================================
 
 
-//        if (!list.contains("four")) {
-//            throw new RuntimeException("contains error");
-//        }
+        if (!list.contains("four")) {
+            throw new RuntimeException("contains error");
+        }
+
+        //======================================================
 
 //        list.remove("four");
 //
