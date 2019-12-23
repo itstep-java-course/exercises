@@ -33,6 +33,7 @@ public class SimpleListImpl<T> implements SimpleList<T> {
 
     @Override
     public boolean contains(T o) {
+      //return indexOf(o) >= 0;
         for (int i = 0; i <elements.length ; i++) {
             if (elements[i]==o);
             return true;
@@ -85,7 +86,14 @@ public class SimpleListImpl<T> implements SimpleList<T> {
     @Override
     public void clear() {
 
+        // clear to let GC do its work
+        for (int index = 0; index < elements.length; index++) {
+            elements[index] = null;
+        }
+
     }
+
+
 
     @Override
     public T get(int index) {

@@ -5,10 +5,9 @@ import java.util.ArrayList;
 public class Test {
 
 
-
     public static void main(String[] args) {
         SimpleList<String> list = new SimpleListImpl<>(3); //Початкова потужність, начальный размер
-
+        ArrayList arrayList = new ArrayList();
 
         if (list.isEmpty()) {
             throw new RuntimeException("List must not be empty");
@@ -53,13 +52,13 @@ public class Test {
 //            throw new RuntimeException("Size or contains error");
 //        }
 
-//        String strWithIndex2 = list.get(2);
-//
-//        if (!strWithIndex2.equals("three")) {
-//            throw new RuntimeException("get by index error");
-//        }
+        String strWithIndex2 = list.get(2);
 
-       list.add(1, "second");
+        if (!strWithIndex2.equals("three")) {
+            throw new RuntimeException("get by index error");
+        }
+
+        list.add(1, "second");
 
         if (!list.get(1).equals("second")) {
             throw new RuntimeException("add by index error");
@@ -81,10 +80,12 @@ public class Test {
 
         //======================================================
 
-//        list.clear();
-//
-//        if (list.size() != 0) {
-//            throw new RuntimeException("Size error");
-//        }
+        list.clear();
+
+        if (list.size() != 0) {
+            throw new RuntimeException("Size error");
+
+            //======================================================
+        }
     }
 }
