@@ -10,6 +10,13 @@ public class Test {
         SimpleList<String> list = new SimpleListImpl<>(3); //Початкова потужність, начальный размер
 
 
+        if (list.isEmpty()) {
+            throw new RuntimeException("List must not be empty");
+        }
+
+        //======================================================
+
+
         list.add("one"); //добавление элементов
         list.add("two");
         list.add("three");
@@ -17,17 +24,13 @@ public class Test {
         list.add("five");
         list.add("six");
 
-     //   for (String s : list) { //вывод arrayList
-//            System.out.println(s);
-//        }
+        //======================================================
 
         if (list.size() != 6) {
             throw new RuntimeException("Size error");
         }
 
-        if (list.isEmpty()) {
-            throw new RuntimeException("List must not be empty");
-        }
+        //======================================================
 
         list.add("seven");
 
@@ -35,8 +38,9 @@ public class Test {
             throw new RuntimeException("Size error");
         }
 
-//
-//
+        //======================================================
+
+
 //        if (!list.contains("four")) {
 //            throw new RuntimeException("contains error");
 //        }
@@ -53,11 +57,11 @@ public class Test {
 //            throw new RuntimeException("get by index error");
 //        }
 
-        list.add(1, "second");
-//
-//        if (!list.get(1).equals("second")) {
-//            throw new RuntimeException("add by index error");
-//        }
+       list.add(1, "second");
+
+        if (!list.get(1).equals("second")) {
+            throw new RuntimeException("add by index error");
+        }
 //
 //        list.remove(3);
 //

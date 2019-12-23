@@ -5,7 +5,9 @@ public class SimpleListImpl<T> implements SimpleList<T> {
 
     private Object[] elements; //поле константа массивов
 
-int index = 0;
+
+    int index = 0;
+    int count = 0;
 
     public SimpleListImpl(int initialCapacity) { //конструктор
         this.elements = new Object[initialCapacity];
@@ -13,7 +15,14 @@ int index = 0;
 
     @Override
     public int size() {
-        return index;
+        for (int i = 0; i < elements.length; i++) {
+            while
+            (index <= count) ;
+            count++;
+           if (index == count)
+               break;
+        }
+            return count;
     }
 
 
@@ -29,14 +38,26 @@ int index = 0;
 
     @Override
     public boolean add(T o) { // в конец
+
         if (index == elements.length) {
             Object[] temp = new Object[elements.length * 3 / 2 + 1];
             System.arraycopy(elements,0,temp,0,elements.length);
             this.elements = temp;
         }
-
         this.elements[index++] = o;// index++ записую обьект
         return true;
+    }
+
+
+    @Override
+    public void add(int index, T element) { //добавление в середину
+        if (index == elements.length) {
+            Object[] temp = new Object[elements.length * 3 / 2 + 1];
+            System.arraycopy(elements,index,elements,index+1,elements.length-index);
+            this.elements = temp;
+        }
+    this.elements[index] = element;// index++ записую обьект
+
     }
 
     @Override
@@ -67,17 +88,6 @@ int index = 0;
         return (T) elements[index]; //нужно только добавить проверку что индекс который ты передаешь в пределах массива
     }
 
-    @Override
-    public void add(int index, T element) { //добавление в середину
-        if (index == elements.length) {
-            Object[] temp = new Object[elements.length * 3 / 2 + 1];
-        }
-            System.arraycopy(element, index, element, index + 1, size() - index);
-
-    this.elements[index++] = element;// index++ записую обьект
-
-
-    }
 
     @Override
     public T remove(int index) {
@@ -86,15 +96,15 @@ int index = 0;
 
     @Override
     public int indexOf(T o) {
-        if (o == null) {
-            for (int i = 0; i < elements.length; i++)
-                if (elements[i]==null)
-                    return i;
-        } else {
-            for (int i = 0; i < elements.length; i++)
-                if (o.equals(elements[i]))
-                    return i;
-        }
-        return -1;
+//        if (o == null) {
+//            for (int i = 0; i < elements.length; i++)
+//                if (elements[i]==null)
+//                    return i;
+//        } else {
+//            for (int i = 0; i < elements.length; i++)
+//                if (o.equals(elements[i]))
+//                    return i;
+//        }
+       return -1;
    }
 }
