@@ -1,8 +1,6 @@
 package com.itstep.collections.hashset;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class EqualsHashCodeOverrideExample {
 
@@ -21,9 +19,32 @@ public class EqualsHashCodeOverrideExample {
             System.out.println(car);
         }
 
+//        compare to example
+        Car c1 = new Car("2","X5", "red");
+        Car c2 = new Car("2","X6", "green");
+
+        System.out.println(c1.compareTo(c2));
+
+        List<Car> cars = new ArrayList<>();
+        cars.add(c2);
+        cars.add(c1);
+
+        cars.sort(new Comparator<Car>() {
+            @Override
+            public int compare(Car o1, Car o2) {
+                return o1.vin.compareTo(o2.vin);
+            }
+        });
+
+        cars.sort(new Comparator<Car>() {
+            @Override
+            public int compare(Car o1, Car o2) {
+                return o1.model.compareTo(o2.model);
+            }
+        });
     }
 
-    private static class Car {
+    private static class Car implements Comparable<Car>{
         private String vin;
         private final String model;
         private String color;
@@ -63,6 +84,11 @@ public class EqualsHashCodeOverrideExample {
         @Override
         public int hashCode() {
             return Objects.hash(vin, model);
+        }
+
+        @Override
+        public int compareTo(Car o) {
+            return this.model.compareTo(o.model);
         }
     }
 
