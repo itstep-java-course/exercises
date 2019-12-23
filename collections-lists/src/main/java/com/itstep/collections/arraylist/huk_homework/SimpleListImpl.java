@@ -90,7 +90,7 @@ public class SimpleListImpl<T> implements SimpleList<T> {
         for (int index = 0; index < elements.length; index++) {
             elements[index] = null;
         }
-
+//????????????
     }
 
 
