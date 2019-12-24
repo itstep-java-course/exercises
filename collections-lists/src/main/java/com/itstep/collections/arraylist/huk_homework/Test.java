@@ -7,7 +7,7 @@ public class Test {
 
     public static void main(String[] args) {
         SimpleList<String> list = new SimpleListImpl<>(3); //Початкова потужність, начальный размер
-        ArrayList arrayList = new ArrayList();
+
 
         if (list.isEmpty()) {
             throw new RuntimeException("List must not be empty");
