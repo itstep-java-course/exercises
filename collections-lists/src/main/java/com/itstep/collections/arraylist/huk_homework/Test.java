@@ -46,11 +46,11 @@ public class Test {
 
         //======================================================
 
-//        list.remove("four");
-//
-//        if (list.size() != 6 || list.contains("four")) {
-//            throw new RuntimeException("Size or contains error");
-//        }
+        list.remove("four");
+
+        if (list.size() != 6 || list.contains("four")) {
+            throw new RuntimeException("Size or contains error");
+        }
 
         String strWithIndex2 = list.get(2);
 
@@ -63,12 +63,12 @@ public class Test {
         if (!list.get(1).equals("second")) {
             throw new RuntimeException("add by index error");
         }
-//
-//        list.remove(3);
-//
-//        if (list.contains("three")) {
-//            throw new RuntimeException("remove by index error");
-//        }
+
+        list.remove(3);
+
+        if (list.contains("three")) {
+            throw new RuntimeException("remove by index error");
+        }
 
         //======================================================
 

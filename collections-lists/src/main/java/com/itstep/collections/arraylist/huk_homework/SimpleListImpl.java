@@ -80,7 +80,16 @@ public class SimpleListImpl<T> implements SimpleList<T> {
 //                    return true;
 //                }
 //        }
-        return false;
+//        return false;
+        int index = -1;
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i] == o)
+                index = i;
+        }
+        if (index == -1)
+            return false;
+        remove(index);
+        return true;
     }
 
     @Override
@@ -97,13 +106,25 @@ public class SimpleListImpl<T> implements SimpleList<T> {
 
     @Override
     public T get(int index) {
+        if (index > elements.length - 1)
+            return null;
         return (T) elements[index]; //нужно только добавить проверку что индекс который ты передаешь в пределах массива
     }
 
 
     @Override
     public T remove(int index) {
-        return null;
+        Object[] objects = elements;
+        int size=0;
+        if (index > elements.length - 1)
+            return null;
+        Object removedElem = elements[index];
+        elements = new Object[elements.length - 1];
+        if (index == 0)
+            System.arraycopy(objects, 1, elements, 0,size);
+        System.arraycopy(objects, 0, elements, 0, index);
+        System.arraycopy(objects,index+1,elements,index+1,elements.length-index-1);
+        return (T) removedElem;
     }
 
     @Override
