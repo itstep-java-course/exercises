@@ -1,6 +1,7 @@
 package com.itstep.collections.arraylist;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ConcurrentModificationExceptionExample {
@@ -15,5 +16,15 @@ public class ConcurrentModificationExceptionExample {
                 }
             }
         }
+
+        final Iterator<Integer> iterator = list.iterator();
+        while (iterator.hasNext()){
+            iterator.next();
+            iterator.remove();
+        }
+
+//        for (Integer integer : list) {
+//            list.remove(integer);
+//        }
     }
 }
