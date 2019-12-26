@@ -5,11 +5,71 @@ public class EnumTest {
         final CalendarEventFactory calendarEventFactory = new CalendarEventFactory();
 
         calendarEventFactory.createEvent(DayOfTheWeek.THURSDAY, "Java course");
-        calendarEventFactory.createEvent(DayOfTheWeek.SUNDAY, "Бухалово");
+//        calendarEventFactory.createEvent(DayOfTheWeek.SUNDAY, "Бухалово");
+
+        System.out.println(DayOfTheWeek.SUNDAY.getDisplayName());
+
+
+        final DayOfTheWeek monday = DayOfTheWeek.valueOf("MONDAY");
+        final DayOfTheWeek tuesday = DayOfTheWeek.getDayByName("Tuesday");
+
+        final int ordinal = DayOfTheWeek.SUNDAY.ordinal();
+        System.out.println(ordinal);
+
+        final DayOfTheWeek value = DayOfTheWeek.values()[4];
+
+        System.out.println(value);
     }
 
-    private enum DayOfTheWeek {
-        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+    private enum DayOfTheWeek implements DayWeek {
+        MONDAY("Monday"),
+        TUESDAY("Tuesday"),
+        WEDNESDAY("Wednesday"),
+        THURSDAY("Thursday"),
+        FRIDAY("Friday"),
+        SATURDAY("Saturday"),
+        SUNDAY("Sunday");
+
+        private String dayOfTheWeekPrintable;
+
+        DayOfTheWeek(String dayOfTheWeekPrintable) {
+            this.dayOfTheWeekPrintable = dayOfTheWeekPrintable;
+        }
+
+        public static DayOfTheWeek getDayByName(String name) {
+            final DayOfTheWeek[] values = values();
+
+            for (DayOfTheWeek value : values) {
+                if (value.dayOfTheWeekPrintable.equals(name)) {
+                    return value;
+                }
+            }
+            throw new RuntimeException("Illegal name: " + name);
+        }
+
+        @Override
+        public String toString() {
+            return dayOfTheWeekPrintable;
+        }
+
+        @Override
+        public String getDisplayName() {
+            return dayOfTheWeekPrintable;
+        }
+    }
+
+    private interface DayWeek {
+        String getDisplayName();
+    }
+
+    private static class DayOfTheWeekClass {
+        private static final DayOfTheWeekClass MONDAY = new DayOfTheWeekClass();
+        private static final DayOfTheWeekClass TUESDAY = new DayOfTheWeekClass();
+        private static final DayOfTheWeekClass WEDNESDAY = new DayOfTheWeekClass();
+
+        private DayOfTheWeekClass() {
+
+        }
     }
 
     private static class CalendarEvent {
@@ -39,4 +99,17 @@ public class EnumTest {
             return new CalendarEvent(dayOfTheWeek, eventName);
         }
     }
+
+    //простейшая реализация синглетона. Не для многопоточной среды
+    private static class SingletonExample {
+        private static final SingletonExample se = new SingletonExample();
+
+        private SingletonExample() {
+        }
+
+        public static SingletonExample getInstance() {
+            return se;
+        }
+    }
+
 }
