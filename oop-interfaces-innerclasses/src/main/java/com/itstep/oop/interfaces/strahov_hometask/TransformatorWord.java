@@ -1,7 +1,7 @@
 package com.itstep.oop.interfaces.strahov_hometask;
 
-public class LogicFirst extends Convert  {
-    public LogicFirst(String firstString){
+public class TransformatorWord extends Convert  {
+    public TransformatorWord(String firstString){
         super(firstString);
         inputString=result;
         doMainLogic();
