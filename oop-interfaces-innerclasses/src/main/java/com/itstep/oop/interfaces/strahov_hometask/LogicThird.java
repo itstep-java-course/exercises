@@ -1,6 +1,6 @@
 package com.itstep.oop.interfaces.strahov_hometask;
 
-public class LogicThird extends LogicSecond {
+public class LogicThird extends ReverseString {
     public LogicThird(String firstString){
         super(firstString);
         inputString = result;

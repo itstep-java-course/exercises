@@ -1,7 +1,7 @@
 package com.itstep.oop.interfaces.strahov_hometask;
 
-public class LogicSecond extends Convert{
-    public LogicSecond(String firstString){
+public class ReverseString extends Convert{
+    public ReverseString(String firstString){
         super(firstString);
         inputString=result;
         for (int i = 0; i <inputString.length ; i++) {
