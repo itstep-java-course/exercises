@@ -15,7 +15,7 @@ public class Test {
     public static void main(String[] args) {
 
 
-        //System.out.println(Arrays.toString(type.values()));
+        System.out.println(Arrays.toString(Car.type.values()));
 
 
         List<Car> list = new ArrayList<Car>(3);
@@ -39,7 +39,6 @@ public class Test {
         list.add(new Car(565758, "ВАЗ 2115", "2017", "Black"));
         list.add(new Car(596061, "SKODA Fabia", "2018", "Black"));
         list.add(new Car(626364, "KIA Ceed", "2019", "Black"));
-
 
 
 

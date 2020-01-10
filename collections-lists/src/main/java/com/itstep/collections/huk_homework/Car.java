@@ -39,7 +39,7 @@ public class Car {
         return color;
     }
 
-    private enum type implements bodyType {
+    public enum type implements bodyType {
             SEDAN("sedan"),
             COUPE("coupe"),
             SUV("suv");
