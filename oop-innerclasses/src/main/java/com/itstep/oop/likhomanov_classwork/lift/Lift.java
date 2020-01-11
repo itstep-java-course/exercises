@@ -100,7 +100,7 @@ public class Lift implements UpMovable, DownMovable, Stoppable {
     @Override
     public void moveDown() {
         if (passengersController.isNumberOfPassengersOk()) {
-            door.close();
+//            door.close();
             monitor.display(CLOSE_DOOR);
             monitor.display(GOING_DOWN + floorCounter.nextFloor);
             floorCounter.decrementFloors();
@@ -119,7 +119,7 @@ public class Lift implements UpMovable, DownMovable, Stoppable {
     @Override
     public void moveUp() {
         if (passengersController.isNumberOfPassengersOk()) {
-            door.close();
+//            door.close();
             monitor.display(CLOSE_DOOR);
             monitor.display(GOING_UP + floorCounter.nextFloor);
             floorCounter.incrementFloors();

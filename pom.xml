@@ -18,6 +18,7 @@
         <module>collections-lists</module>
         <module>collections-set</module>
         <module>collections-map</module>
+        <module>generics</module>
     </modules>
     <packaging>pom</packaging>
 
