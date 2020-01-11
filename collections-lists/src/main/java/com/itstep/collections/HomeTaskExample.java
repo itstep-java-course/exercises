@@ -1,8 +1,8 @@
 package com.itstep.collections;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import com.itstep.collections.arraylist.generics.Car;
+
+import java.util.*;
 
 public class HomeTaskExample {
 
@@ -18,5 +18,11 @@ public class HomeTaskExample {
         final long end = System.currentTimeMillis();
 
         System.out.println("ArrayList добавить в конец. Результат: " + (end - start));
+
+        final List<String> list = new ArrayList<>();
+//        list.sort();
+
+        Map<String, Set<Car>> groupedBeColor = new HashMap<>();
+
     }
 }
