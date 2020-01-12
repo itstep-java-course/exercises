@@ -18,7 +18,7 @@ public class Test {
         //System.out.println(Arrays.toString(Car.Type.values()));
 
 
-        List<Car> list = new ArrayList<Car>(3);
+        List<Car> list = new ArrayList<Car>(12);
         list.add(new Car(123456, "Volkswagen Caddy", "2000", "Black", Car.Type.COUPE));
         list.add(new Car(789101, "Renault Kangoo", "2001", "Red", Car.Type.SEDAN));
         list.add(new Car(112131, "Hyundai Santa FE", "2002", "Green", Car.Type.SUV));
