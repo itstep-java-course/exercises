@@ -1,5 +1,6 @@
 package com.itstep.collections.huk_homework;
 
+
 /*
 2. Создать класс Car с полями vin, model, year, color, type (sedan, coupe, suv).
 
@@ -7,21 +8,22 @@ package com.itstep.collections.huk_homework;
 
  */
 
-public class Car {
+public class Car implements Comparable<Car> {
 
 
+    private int vin;
+    private String model;
+    private String year;
+    private String color;
+    private Type type;
 
-        private int vin;
-        private String model;
-        private String year;
-        private String color;
-
-    public Car( int vin, String model, String year, String color){
-            this.vin = vin;
-            this.model = model;
-            this.year = year;
-            this.color = color;
-        }
+    public Car(int vin, String model, String year, String color, Type type) {
+        this.vin = vin;
+        this.model = model;
+        this.year = year;
+        this.color = color;
+        this.type = type;
+    }
 
     public int getVin() {
         return vin;
@@ -39,30 +41,47 @@ public class Car {
         return color;
     }
 
-    public enum type implements bodyType {
-            SEDAN("sedan"),
-            COUPE("coupe"),
-            SUV("suv");
+    @Override
+    public int compareTo(Car o) {
+        return this.color.compareTo(o.color);
+    }
 
-            private String bodyTypePrintable;
 
-            type(String bodyTypePrintable) {
-                this.bodyTypePrintable = bodyTypePrintable;
+    public enum Type implements BodyType {
+        SEDAN("sedan"),
+        COUPE("coupe"),
+        SUV("suv");
+
+        private String bodyTypePrintable;
+
+        Type(String bodyTypePrintable) {
+            this.bodyTypePrintable = bodyTypePrintable;
+        }
+
+        public static Type getTypeByTypeName(String name) {
+            final Type[] carType = values();
+
+            for (Type value : carType) {
+                if (value.bodyTypePrintable.equals(name)) {
+                    return value;
+                }
             }
-
+            throw new RuntimeException("Illegal type: " + name);
+        }
 
 
         @Override
-            public String getDisplayName() {
-                return bodyTypePrintable;
-            }
-
-            @Override
-            public String toString() {
-                return bodyTypePrintable;
-            }
-
+        public String getDisplayName() {
+            return bodyTypePrintable;
         }
+
+        @Override
+        public String toString() {
+            return bodyTypePrintable;
+        }
+
+    }
+
 
     @Override
     public String toString() {
@@ -72,5 +91,7 @@ public class Car {
                 ", year='" + year + '\'' +
                 ", color='" + color + '\'' +
                 '}';
+
+
     }
 }

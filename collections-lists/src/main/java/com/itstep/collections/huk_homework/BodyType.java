@@ -1,5 +1,5 @@
 package com.itstep.collections.huk_homework;
 
-public interface bodyType {
+public interface BodyType {
     String getDisplayName();
 }
