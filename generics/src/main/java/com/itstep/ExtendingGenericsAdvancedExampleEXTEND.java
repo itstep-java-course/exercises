@@ -7,13 +7,14 @@ public class ExtendingGenericsAdvancedExampleEXTEND {
     public static void main(String[] args) {
         List<Camera> cameras = new ArrayList<>();
 
-//        isProductExists(cameras, new Camera("name", 12.0, 20));
-// with ?
-// with T
+        List<Phone> phones = new ArrayList<>();
+
+        isProductExists(cameras, new Camera("name", 12.0, 20));
+        isProductExists(phones, new Phone("name", 12.0, "iphone3"));
 
     }
 
-    static boolean isProductExists(List<Product> products, Product product) {
+    static <T extends Product> boolean isProductExists(List<T> products, T product) {
         for (Product p : products) {
             if (p.name.equals(product.name)){
                 return true;
@@ -43,7 +44,7 @@ public class ExtendingGenericsAdvancedExampleEXTEND {
     public static class Camera extends Product {
         private final int pixel;
 
-        private Camera(String name, double price, int pixel) {
+        public Camera(String name, double price, int pixel) {
             super(name, price);
             this.pixel = pixel;
         }
@@ -61,7 +62,7 @@ public class ExtendingGenericsAdvancedExampleEXTEND {
     public static class Phone extends Product {
         private final String model;
 
-        private Phone(String name, double price, String model) {
+        public Phone(String name, double price, String model) {
             super(name, price);
             this.model = model;
         }
@@ -77,7 +78,7 @@ public class ExtendingGenericsAdvancedExampleEXTEND {
     }
 
 //    bounded type parameter
-    private static class Container<T extends Product & Comparable<T>> {
+    private static class Container<T extends Product> {
         private T item;
 
         public T getItem() {
