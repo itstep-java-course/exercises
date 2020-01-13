@@ -8,46 +8,41 @@ import java.util.*;
 Создать class Table. У класса должно быть поле “площадь поверхности”. Отсортировать столы по площади поверхности начиная
  с наибольшей. Table должен быть Comparable. Вывести элементы в консоль. Для решения задачи используйте TreeSet
  */
-public abstract class Table implements Comparable { //стол
+public abstract class Table implements Comparable<Table> { //стол
 
-    private double a;
+
     private String name;
+    private double surfaceArea;
 
-    public Table(double a, String name) {
-        this.a = a;
+    public Table( String name, double surfaceArea) {
         this.name = name;
+        this.surfaceArea = surfaceArea;
     }
 
-    public double getA() {
-        return a;
-    }
 
     public String getName() {
         return name;
     }
 
-    public abstract double getArea();
+    public double getSurfaceArea() {
+        return surfaceArea;
+    }
 
-//    public Table(String type, double side1, double side2) {
-//    }
+    public abstract double getArea();
 
 
     @Override
-    public int compareTo (Object o){
-        return 0;
+    public int compareTo(Table o) {
+         return Double.compare(surfaceArea, o.surfaceArea);
     }
 
-    public static void main(String[] args) {
 
-
-        Comparator<Table> fromLargerToSmallerTable = Collections.reverseOrder();
-        SortedSet<Table> tables = new TreeSet<>(fromLargerToSmallerTable);
-
-        tables.add(new TriangularTable("triangular",12, 12));
-
-        for (Table table:tables){
-            System.out.println(table);
-        }
-
+    @Override
+    public String toString() {
+        return "Table{" +
+                "name='" + name + '\'' +
+                ", surfaceArea=" + surfaceArea +
+                '}';
     }
 }
+
