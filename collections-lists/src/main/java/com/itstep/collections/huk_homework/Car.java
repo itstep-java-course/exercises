@@ -41,6 +41,10 @@ public class Car implements Comparable<Car> {
         return color;
     }
 
+    public Type getType() {
+        return type;
+    }
+
     @Override
     public int compareTo(Car o) {
         return this.color.compareTo(o.color);
