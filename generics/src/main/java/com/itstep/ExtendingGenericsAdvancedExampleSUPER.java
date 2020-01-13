@@ -4,9 +4,7 @@ import com.itstep.ExtendingGenericsAdvancedExampleEXTEND.Camera;
 import com.itstep.ExtendingGenericsAdvancedExampleEXTEND.Phone;
 import com.itstep.ExtendingGenericsAdvancedExampleEXTEND.Product;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class ExtendingGenericsAdvancedExampleSUPER {
     public static void main(String[] args) {
@@ -24,6 +22,14 @@ public class ExtendingGenericsAdvancedExampleSUPER {
         System.out.println(products);
 
         final Product product = products.get(0);
+
+//        Map<String, String> map = new HashMap<>();
+//
+//        final String put1 = map.put("1", "2");
+//        System.out.println("put 1 " + put1);
+//
+//        final String put2 = map.put("1", "3");
+//        System.out.println("put 2 " + put2);
     }
 
     //    source - extends
