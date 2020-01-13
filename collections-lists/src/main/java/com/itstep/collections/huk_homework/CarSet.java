@@ -61,7 +61,7 @@ public class CarSet {
         System.out.println("=========================================================================================");
         System.out.print("Red → ");
         for (Car s : sortedSet) {
-            if (s.getColor() == "Red")
+            if (s.getColor().equals("Red"))
                 System.out.print("vin: " + s.getVin() + ", " + "model: " + s.getModel() + ", " + "year: " + s.getYear() + ", " + "type: " + s.getType() + ";\n");
         }
 
