@@ -15,9 +15,9 @@ public class Car implements Comparable<Car> {
     private String model;
     private String year;
     private String color;
-    private Type type;
+    private CarType type;
 
-    public Car(int vin, String model, String year, String color, Type type) {
+    public Car(int vin, String model, String year, String color, CarType type) {
         this.vin = vin;
         this.model = model;
         this.year = year;
@@ -41,7 +41,7 @@ public class Car implements Comparable<Car> {
         return color;
     }
 
-    public Type getType() {
+    public CarType getCarType() {
         return type;
     }
 
@@ -51,21 +51,21 @@ public class Car implements Comparable<Car> {
     }
 
 
-    public enum Type implements BodyType {
+    public enum CarType  {
         SEDAN("sedan"),
         COUPE("coupe"),
         SUV("suv");
 
         private String bodyTypePrintable;
 
-        Type(String bodyTypePrintable) {
+        CarType(String bodyTypePrintable) {
             this.bodyTypePrintable = bodyTypePrintable;
         }
 
-        public static Type getTypeByTypeName(String name) {
-            final Type[] carType = values();
+        public static CarType getTypeByTypeName(String name) {
+            final CarType[] carType = values();
 
-            for (Type value : carType) {
+            for (CarType value : carType) {
                 if (value.bodyTypePrintable.equals(name)) {
                     return value;
                 }
@@ -74,10 +74,6 @@ public class Car implements Comparable<Car> {
         }
 
 
-        @Override
-        public String getDisplayName() {
-            return bodyTypePrintable;
-        }
 
         @Override
         public String toString() {
