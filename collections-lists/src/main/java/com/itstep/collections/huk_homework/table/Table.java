@@ -1,8 +1,5 @@
 package com.itstep.collections.huk_homework.table;
 
-import javafx.print.Collation;
-
-import java.util.*;
 
 /*
 Создать class Table. У класса должно быть поле “площадь поверхности”. Отсортировать столы по площади поверхности начиная
