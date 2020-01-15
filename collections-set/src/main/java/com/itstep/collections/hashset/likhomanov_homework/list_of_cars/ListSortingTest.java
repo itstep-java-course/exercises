@@ -1,43 +1,29 @@
 package com.itstep.collections.hashset.likhomanov_homework.list_of_cars;
 
-import com.itstep.collections.hashset.likhomanov_homework.Cars;
+import com.itstep.collections.hashset.likhomanov_homework.Car;
+import com.itstep.collections.hashset.likhomanov_homework.CarCollectionGenerator;
+import com.itstep.collections.hashset.likhomanov_homework.CarCollectionPrinter;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class ListSortingTest {
 
     public static void main(String[] args) {
-        ListSortingTest test = new ListSortingTest();
 
-        List<Cars> cars = test.getListOfCars();
+        List<Car> cars = CarCollectionGenerator.getListOfCars();
 
         System.out.println("Before sorting:");
-        test.printList(cars);
+        CarCollectionPrinter.printList(cars);
 
-        cars.sort(new Comparator<Cars>() {
+        cars.sort(new Comparator<Car>() {
             @Override
-            public int compare(Cars o1, Cars o2) {
+            public int compare(Car o1, Car o2) {
                 return o1.getColour().compareToIgnoreCase(o2.getColour());
             }
         });
 
         System.out.println("After sorting:");
-        test.printList(cars);
-    }
-
-    private List<Cars> getListOfCars() {
-        List<Cars> cars = new ArrayList<>(20);
-        Collections.addAll(cars, Cars.values());
-        return cars;
-    }
-
-    private void printList(List<?> list) {
-        for (Object o : list) {
-            System.out.println(o);
-        }
-        System.out.println();
+        CarCollectionPrinter.printList(cars);
     }
 }

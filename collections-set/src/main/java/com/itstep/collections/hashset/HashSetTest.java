@@ -1,9 +1,6 @@
 package com.itstep.collections.hashset;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.PriorityQueue;
-import java.util.Set;
+import java.util.*;
 
 public class HashSetTest {
 

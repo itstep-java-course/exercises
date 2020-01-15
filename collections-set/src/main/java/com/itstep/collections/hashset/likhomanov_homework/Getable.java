@@ -1,7 +1,8 @@
 package com.itstep.collections.hashset.likhomanov_homework;
 
 @FunctionalInterface
-public interface Sortable<T> {
+public interface Getable {
 
-    boolean findMatch(T param);
+    String get(Car car);
+
 }
