@@ -1,7 +1,5 @@
 package com.itstep.collections.chubuk_homework;
 
-import com.itstep.collections.arraylist.ht.SimpleList;
-
 public class SimpleListImpl<T> implements SimpleList<T> {
 
     private Object[] elements;
@@ -36,7 +34,7 @@ public class SimpleListImpl<T> implements SimpleList<T> {
             }
         }
         Object[] object = new Object[elements.length * 3 / 2 + 1];
-        System.arraycopy(elements,0, object ,0,elements.length);
+        System.arraycopy(elements, 0, object, 0, elements.length);
         elements = object;
         elements[length] = o;
         return true;
@@ -48,9 +46,9 @@ public class SimpleListImpl<T> implements SimpleList<T> {
         for (int i = 0; i < elements.length; ++i) {
             if (o.equals(elements[i])) {
                 for (int j = i; j < elements.length - 1; j++) {
-                    object[j] = elements[j+1];
+                    object[j] = elements[j + 1];
                 }
-                System.arraycopy(elements,0,object,0,elements.length - 1);
+                System.arraycopy(elements, 0, object, 0, elements.length - 1);
             }
         }
         return true;
@@ -63,8 +61,9 @@ public class SimpleListImpl<T> implements SimpleList<T> {
 
     @Override
     public T get(int index) {
-        if (index>elements.length-1){
-            return null;}
+        if (index > elements.length - 1) {
+            return null;
+        }
         return (T) elements[index];
     }
 
@@ -72,33 +71,33 @@ public class SimpleListImpl<T> implements SimpleList<T> {
     public void add(int index, T element) {
         if (index == elements.length) {
             Object[] object = new Object[elements.length * 3 / 2 + 1];
-            System.arraycopy(elements,0,object,0,elements.length);
+            System.arraycopy(elements, 0, object, 0, elements.length);
         }
-        this.elements[index+1] = element;
+        this.elements[index + 1] = element;
     }
 
     @Override
     public T remove(int index) {
         Object[] object = elements;
         for (int i = index; i < elements.length; i++) {
-            object[i] = elements[i+1];
+            object[i] = elements[i + 1];
         }
-        System.arraycopy(elements,0,object,0,elements.length - 1);
+        System.arraycopy(elements, 0, object, 0, elements.length - 1);
         return null;
     }
 
     @Override
     public int indexOf(T o) {
-            if (o == null) {
-                for (int index = 0; index < elements.length; ++index) {
-                    if (elements[index] == null) return index;
-                }
-            } else {
-                for (int index = 0; index < elements.length; ++index) {
-                    if (o.equals(elements[index])) return index;
-                }
+        if (o == null) {
+            for (int index = 0; index < elements.length; ++index) {
+                if (elements[index] == null) return index;
             }
-            return -1;
+        } else {
+            for (int index = 0; index < elements.length; ++index) {
+                if (o.equals(elements[index])) return index;
+            }
+        }
+        return -1;
     }
 }
 
