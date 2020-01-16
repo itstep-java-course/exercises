@@ -85,6 +85,7 @@ public class CarSet {
         Map<Car.CarType, Set<Car>> map3 = sortByType(sortedSet);
 
 
+
         sortedSet.add(new Car(123456, "Volkswagen Caddy", "2000", "Black", Car.CarType.COUPE));
         sortedSet.add(new Car(789101, "Renault Kangoo", "2001", "Red", Car.CarType.SEDAN));
         sortedSet.add(new Car(112131, "Hyundai Santa FE", "2002", "Green", Car.CarType.SUV));
@@ -113,7 +114,6 @@ public class CarSet {
         for (Car car : sortedSet) { //выввод колекции на экран
             System.out.println(car);
         }
-
 
 
     }
