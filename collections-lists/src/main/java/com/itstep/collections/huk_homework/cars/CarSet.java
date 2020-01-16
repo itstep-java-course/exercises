@@ -1,8 +1,6 @@
 package com.itstep.collections.huk_homework.cars;
 
-import java.util.Map;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 /*
 
 4. Создать класс Car с полями vin, model, year, color, CarType (sedan, coupe, suv). Создать 20 разных объектов класса Car
@@ -13,20 +11,80 @@ import java.util.TreeSet;
 2010 → vin: 202020, model: CX-5, color: red, CarType: Sedan; (если несколько значение то через ‘;’)
 red → vin: 202020, model: CX-5, year: 2010, CarType: Sedan
 Sedan → vin: 202020, model: CX-5, color: red, year: 2010
+
+
+обратите внимание на то что поле, по которому происходит группировка не отображается в выводе информации по авто.
+Для группировки элементов использовать Map
+При выполнении задания использовать ООП подход
+
  */
 
 
 
 public class CarSet {
+
+    private static Map<String, Set<Car>> sortByYear(SortedSet<Car> sortedSet){
+        Map<String, Set<Car>> map = new HashMap<>();
+
+        for (Car car : sortedSet) {
+            if (map.get(car.getYear())==null){
+                Set<Car> set = new HashSet<>();
+                set.add(car);
+                map.put(car.getYear(), set);
+
+            }
+            else{
+                map.get(car.getYear()).add(car);
+            }
+        }
+        return map;
+    }
+
+    private static Map<String, Set<Car>> sortByColor(SortedSet<Car> sortedSet){
+        Map<String, Set<Car>> map = new HashMap<>();
+
+        for (Car car : sortedSet) {
+            if (map.get(car.getColor())==null){
+                Set<Car> set = new HashSet<>();
+                set.add(car);
+                map.put(car.getColor(), set);
+
+            }
+            else{
+                map.get(car.getColor()).add(car);
+            }
+        }
+        return map;
+    }
+
+
+    private static Map<Car.CarType, Set<Car>> sortByType(SortedSet<Car> sortedSet){
+        Map<Car.CarType, Set<Car>> map = new HashMap<>();
+
+        for (Car car : sortedSet) {
+            if (map.get(car.getCarType())==null){
+                Set<Car> set = new HashSet<>();
+                set.add(car);
+                map.put(car.getCarType(), set);
+
+            }
+            else{
+                map.get(car.getCarType()).add(car);
+            }
+        }
+        return map;
+    }
+
+
     public static void main(String[] args) {
 
+
         SortedSet<Car> sortedSet = new TreeSet<Car>();
-//       3 разных мапы
-//        Map<String,List<Car>>
-//        get("2015");
-//        если null таких значений нет
-//        ("2015", [Car1,Car 4])
-//        иквелс и hascode переопределить
+        Map<String, Set<Car>> map = sortByYear(sortedSet);
+        Map<String, Set<Car>> map2 = sortByColor(sortedSet);
+        Map<Car.CarType, Set<Car>> map3 = sortByType(sortedSet);
+
+
         sortedSet.add(new Car(123456, "Volkswagen Caddy", "2000", "Black", Car.CarType.COUPE));
         sortedSet.add(new Car(789101, "Renault Kangoo", "2001", "Red", Car.CarType.SEDAN));
         sortedSet.add(new Car(112131, "Hyundai Santa FE", "2002", "Green", Car.CarType.SUV));
@@ -56,28 +114,7 @@ public class CarSet {
             System.out.println(car);
         }
 
-        System.out.println("=========================================================================================");
-        System.out.print("2015 → ");
-        for (Car s : sortedSet) {
-            if (s.getYear().equals("2015"))
-                System.out.print("vin: " + s.getVin() + ", " + "model: " + s.getModel() + ", " + "color: " + s.getColor() + ", " + "CarType: " + s.getCarType() + ";\n");
-        }
 
-
-        System.out.println("=========================================================================================");
-        System.out.print("Red → ");
-        for (Car s : sortedSet) {
-            if (s.getColor().equals("Red"))
-                System.out.print("vin: " + s.getVin() + ", " + "model: " + s.getModel() + ", " + "year: " + s.getYear() + ", " + "CarType: " + s.getCarType() + ";\n");
-        }
-
-
-        System.out.println("=========================================================================================");
-        System.out.print("SEDAN → ");
-        for (Car s : sortedSet) {
-            if (s.getCarType() == Car.CarType.SEDAN)
-                System.out.print("vin: " + s.getVin() + ", " + "model: " + s.getModel() + ", " + "color: " + s.getColor() + ", " + "year: " + s.getYear() + ";\n");
-        }
 
     }
 }
