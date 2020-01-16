@@ -6,10 +6,10 @@ public class Car {
     private String vin;
     private String model;
     private String color;
-    private int year;
+    private Integer year;
     private MashinkaTypes type;
 
-    public Car(String vin, String model, String color, MashinkaTypes type, int year) {
+    public Car(String vin, String model, String color, MashinkaTypes type, Integer year) {
         this.year = year;
         this.type = type;
         this.vin = vin;
@@ -17,7 +17,7 @@ public class Car {
         this.color = color;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
