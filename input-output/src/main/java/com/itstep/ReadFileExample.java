@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ReadFileExample {
     public static void main(String[] args) throws IOException, URISyntaxException {
-        readFileLineByLine();
+        readAllBytesOldSchool();
     }
 
     private static void readAllBytesOldSchool() throws IOException {
