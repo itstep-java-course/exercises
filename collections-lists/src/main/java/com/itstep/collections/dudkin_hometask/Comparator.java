@@ -62,6 +62,6 @@ public class Comparator {
             linkedList.remove(linkedList.size()/2);
         }
         end = System.currentTimeMillis();
-        System.out.println("LinkedList удаляет из середины за " + (double) (end - start) / 1000 + "(c)");
+        System.out.println("LinkedList удаляет из середины за  " + (double) (end - start) / 1000 + "(c)");
     }
 }
