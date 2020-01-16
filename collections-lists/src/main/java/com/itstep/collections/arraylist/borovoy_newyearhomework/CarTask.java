@@ -1,24 +1,23 @@
 package com.itstep.collections.arraylist.borovoy_newyearhomework;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 class CarTask {
 
     public static void main(String[] args) {
         List<Car> cars = new ArrayList<>();
-        cars.add(new Car("1234", "Duster", "2011", "white", "SUV"));
-        cars.add(new Car("1245", "CLS250", "2014", "brown", "Sedan"));
-        cars.add(new Car("1275", "Megane", "2013", "green", "Coupe"));
-        cars.add(new Car("1211", "X5", "2019", "black", "SUV"));
-        cars.add(new Car("1257", "A4", "2013", "white", "Sedan"));
-        cars.add(new Car("1278", "Mustang", "2015", "red", "Coupe"));
-        cars.add(new Car("1241", "Corolla", "2018", "black", "Sedan"));
-        cars.add(new Car("1268", "Tucson", "2016", "silver", "SUV"));
-        cars.add(new Car("1273", "S63", "2015", "grey", "Coupe"));
-        cars.add(new Car("1249", "CC", "2011", "white", "Coupe"));
-        cars.add(new Car("1253", "Rav4", "2017", "black", "SUV"));
-        cars.add(new Car("1222", "Is250", "2007", "blue", "Sedan"));
+        cars.add(new Car("1234", "Duster", "2011", "white", BodyType.SUV));
+        cars.add(new Car("1245", "CLS250", "2014", "brown", BodyType.SEDAN));
+        cars.add(new Car("1275", "Megane", "2013", "green", BodyType.COUPE));
+        cars.add(new Car("1211", "X5", "2019", "black", BodyType.SUV));
+        cars.add(new Car("1257", "A4", "2013", "white", BodyType.SEDAN));
+        cars.add(new Car("1278", "Mustang", "2015", "red", BodyType.COUPE));
+        cars.add(new Car("1241", "Corolla", "2018", "black", BodyType.SEDAN));
+        cars.add(new Car("1268", "Tucson", "2016", "silver", BodyType.SUV));
+        cars.add(new Car("1273", "S63", "2015", "grey", BodyType.COUPE));
+        cars.add(new Car("1249", "CC", "2011", "white", BodyType.COUPE));
+        cars.add(new Car("1253", "Rav4", "2017", "black", BodyType.SUV));
+        cars.add(new Car("1222", "Is250", "2007", "blue", BodyType.SEDAN));
 
 
         cars.sort(Car::compareTo);
@@ -27,20 +26,49 @@ class CarTask {
 
     }
 
+    enum BodyType {
+        SUV("Suv"),
+        COUPE("Coupe"),
+        SEDAN("Sedan");
+        private String type;
+
+
+        BodyType(String type) {
+            this.type = type;
+        }
+
+        public static BodyType getTypeByTypeName(String name) {
+            final BodyType[] carType = values();
+
+            for (BodyType value : carType) {
+                if (value.type.equals(name)) {
+                    return value;
+                }
+            }
+            throw new RuntimeException("Illegal type: " + name);
+        }
+
+        @Override
+        public String toString() {
+            return type;
+        }
+    }
+
 
     private static class Car implements Comparable<Car> {
         private String vin;
         private final String model;
         private String year;
         private String colour;
-        private String type;
+        private final BodyType type;
 
-        private Car(String vin, String model, String year, String colour, String type) {
+        private Car(String vin, String model, String year, String colour, BodyType type) {
             this.vin = vin;
             this.model = model;
             this.year = year;
             this.colour = colour;
             this.type = type;
+
         }
 
         public String getVin() {
@@ -59,7 +87,7 @@ class CarTask {
             return colour;
         }
 
-        public String getType() {
+        public BodyType getType() {
             return type;
         }
 
@@ -81,4 +109,3 @@ class CarTask {
     }
 
 }
-
