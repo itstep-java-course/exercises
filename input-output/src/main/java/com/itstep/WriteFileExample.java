@@ -21,6 +21,7 @@ public class WriteFileExample {
         String str = "Hello";
         BufferedWriter writer = new BufferedWriter(new FileWriter("write_test.txt"));
         writer.write(str);
+        writer.write("\n");
 
         writer.close();
     }
