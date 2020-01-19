@@ -23,7 +23,7 @@ Sedan → vin: 202020, model: CX-5, color: red, year: 2010
 
 public class CarSet {
 
-    private static Map<String, Set<Car>> sortByYear(SortedSet<Car> sortedSet){
+    private static Map<String, Set<Car>> groupByYear(SortedSet<Car> sortedSet){
         Map<String, Set<Car>> map = new HashMap<>();
 
         for (Car car : sortedSet) {
@@ -40,51 +40,45 @@ public class CarSet {
         return map;
     }
 
-    private static Map<String, Set<Car>> sortByColor(SortedSet<Car> sortedSet){
-        Map<String, Set<Car>> map = new HashMap<>();
+    private static Map<String, Set<Car>> groupByColor(SortedSet<Car> sortedSet){
+        Map<String, Set<Car>> map2 = new HashMap<>();
 
         for (Car car : sortedSet) {
-            if (map.get(car.getColor())==null){
+            if (map2.get(car.getColor())==null){
                 Set<Car> set = new HashSet<>();
                 set.add(car);
-                map.put(car.getColor(), set);
+                map2.put(car.getColor(), set);
 
             }
             else{
-                map.get(car.getColor()).add(car);
+                map2.get(car.getColor()).add(car);
             }
         }
-        return map;
+        return map2;
     }
 
 
-    private static Map<Car.CarType, Set<Car>> sortByType(SortedSet<Car> sortedSet){
-        Map<Car.CarType, Set<Car>> map = new HashMap<>();
+    private static Map<Car.CarType, Set<Car>> groupByType(SortedSet<Car> sortedSet){
+        Map<Car.CarType, Set<Car>> map3 = new HashMap<>();
 
         for (Car car : sortedSet) {
-            if (map.get(car.getCarType())==null){
+            if (map3.get(car.getCarType())==null){
                 Set<Car> set = new HashSet<>();
                 set.add(car);
-                map.put(car.getCarType(), set);
+                map3.put(car.getCarType(), set);
 
             }
             else{
-                map.get(car.getCarType()).add(car);
+                map3.get(car.getCarType()).add(car);
             }
         }
-        return map;
+        return map3;
     }
 
 
     public static void main(String[] args) {
 
-
         SortedSet<Car> sortedSet = new TreeSet<Car>();
-        Map<String, Set<Car>> map = sortByYear(sortedSet);
-        Map<String, Set<Car>> map2 = sortByColor(sortedSet);
-        Map<Car.CarType, Set<Car>> map3 = sortByType(sortedSet);
-
-
 
         sortedSet.add(new Car(123456, "Volkswagen Caddy", "2000", "Black", Car.CarType.COUPE));
         sortedSet.add(new Car(789101, "Renault Kangoo", "2001", "Red", Car.CarType.SEDAN));
@@ -107,13 +101,58 @@ public class CarSet {
         sortedSet.add(new Car(505152, "MITSUBISHI Outlander", "2015", "Purple", Car.CarType.COUPE));
         sortedSet.add(new Car(535455, "FORD Fusion", "2015", "Silver", Car.CarType.SEDAN));
         sortedSet.add(new Car(565758, "ВАЗ 2115", "2017", "Gold", Car.CarType.SUV));
-        sortedSet.add(new Car(596061, "SKODA Fabia", "2018", "Khaki", Car.CarType.SEDAN));
-        sortedSet.add(new Car(626364, "KIA Ceed", "2019", "Copper", Car.CarType.SUV));
+        sortedSet.add(new Car(596061, "SKODA Fabia", "2015", "Red", Car.CarType.SEDAN));
+        sortedSet.add(new Car(626364, "KIA Ceed", "2019", "Red", Car.CarType.SUV));
 
 
-        for (Car car : sortedSet) { //выввод колекции на экран
-            System.out.println(car);
+
+        Map<String, Set<Car>> map = groupByYear(sortedSet);
+        Map<String, Set<Car>> map2 = groupByColor(sortedSet);
+        Map<Car.CarType, Set<Car>> map3 = groupByType(sortedSet);
+
+
+        for (Map.Entry<String, Set<Car>> entry : map.entrySet()) {
+            String result = entry.getKey() + " -> ";
+            final Set<Car> values = entry.getValue();
+            for (Car car : values) {
+                result +=  car.getVin() + ", " + car.getModel() + ", " + car.getColor()  + ", "  + car.getCarType() + "; ";
+
+            }
+            System.out.println(result);
+
         }
+
+        System.out.println("=========================================================================================");
+
+
+        for (Map.Entry<String, Set<Car>> entry : map2.entrySet()){
+            String result = entry.getKey() + " -> ";
+            final Set <Car> values = entry.getValue();
+            for(Car car :values){
+                result += car.getVin() + ", " + car.getModel() + ", " + car.getYear() + ", "  + car.getCarType() +  "; ";
+
+            }
+            System.out.println(result);
+        }
+
+        System.out.println("=========================================================================================");
+
+        for (Map.Entry<Car.CarType, Set<Car>> entry : map3.entrySet()){
+            String result = entry.getKey() + " -> ";
+            final Set <Car> values = entry.getValue();
+            for(Car car :values){
+                result += car.getVin() + ", " + car.getModel() + ", " + car.getYear() + ", "  + car.getColor() +  "; ";
+
+            }
+            System.out.println(result);
+        }
+
+
+
+
+//        for (Car car : sortedSet) { //выввод колекции на экран
+//            System.out.println(car);
+//        }
 
 
     }
