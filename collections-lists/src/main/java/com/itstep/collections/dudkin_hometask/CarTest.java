@@ -5,7 +5,10 @@ import com.itstep.collections.dudkin_hometask.Garage.MashinkaTypes;
 import java.util.*;
 
 public class CarTest {
-    public static <showGroups> void main(String[] args) {
+    private static final int GROUP_BY_COLOR = 1;
+    private static final int GROUP_BY_TYPE = 2;
+    private static final int GROUP_BY_YEAR = 3;
+    public static void main(String[] args) {
         Set<Car> carSet = new HashSet<>();
         carSet.add(new Car("23", "SR5", "red", MashinkaTypes.SEDAN, 2000));
         carSet.add(new Car("523", "SR6", "orange", MashinkaTypes.SEDAN, 2001));
@@ -27,26 +30,25 @@ public class CarTest {
         carSet.add(new Car("423", "FN5", "brown", MashinkaTypes.SUV, 2010));
         carSet.add(new Car("235", "ER2", "brown", MashinkaTypes.SUV, 2005));
         carSet.add(new Car("123", "SR55", "green", MashinkaTypes.COUPE, 2010));
-        String string=null;MashinkaTypes mashinkaTypes=MashinkaTypes.COUPE;Integer integer=25;
-        showGroups(makeGroups(carSet,1,string),1,string);
+        showGroups(makeGroups(carSet,GROUP_BY_COLOR),GROUP_BY_COLOR);
         System.out.println("========================================");
-        showGroups(makeGroups(carSet,2,mashinkaTypes),2,mashinkaTypes);
+        showGroups(makeGroups(carSet,GROUP_BY_TYPE),GROUP_BY_TYPE);
         System.out.println("========================================");
-        showGroups(makeGroups(carSet,3,integer),3,integer);
+        showGroups(makeGroups(carSet,GROUP_BY_YEAR),GROUP_BY_YEAR);
     }
-    public static<T>Map<T, List<Car>> makeGroups(Set<Car> carSet, int groupType, T parametr) {
-        Map<T, List<Car>> groupedBy = new HashMap<>();
+    public static Map<String, List<Car>> makeGroups(Set<Car> carSet, int groupType) {
+        Map<String, List<Car>> groupedBy = new HashMap<>();
         for (Car car : carSet) {
-            T value = null;
+            String value=null;
             switch (groupType) {
                 case 1:
-                    value = (T) car.getColor();
+                    value =  car.getColor();
                     break;
                 case 2:
-                    value = (T) car.getType();
+                    value =  car.getType();
                     break;
                 case 3:
-                    value = (T) car.getYear();
+                    value =  car.getYear();
                     break;
                 default:
                     break;
@@ -63,8 +65,8 @@ public class CarTest {
         }
         return groupedBy;
     }
-        public static<T> void showGroups(Map<T, List<Car>> groupedBy,int groupType,T parametr) {
-            for (Map.Entry<T, List<Car>> entry : groupedBy.entrySet()) {
+        public static void showGroups(Map<String, List<Car>> groupedBy,int groupType) {
+            for (Map.Entry<String, List<Car>> entry : groupedBy.entrySet()) {
                 System.out.print(entry.getKey() + "->");
                 int i = 0;
                 for (Car car1 : entry.getValue()) {
