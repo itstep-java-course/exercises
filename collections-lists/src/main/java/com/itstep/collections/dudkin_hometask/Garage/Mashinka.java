@@ -22,7 +22,7 @@ public class Mashinka implements Comparable<Mashinka> {
         this.color = color;
     }
 
-    public void SoutMashinkaInfo() {
+    public void soutMashinkaInfo() {
         System.out.println("Car" + currentNumber + "\tvin=" + vin + "\tmodel=" + model + "\tcolor=" + color + "\ttype=" + type + "\tyear=" + year);
     }
 

@@ -28,25 +28,25 @@ public class CarTest {
         carSet.add(new Car("235", "ER2", "brown", MashinkaTypes.SUV, 2005));
         carSet.add(new Car("123", "SR55", "green", MashinkaTypes.COUPE, 2010));
         String string=null;MashinkaTypes mashinkaTypes=MashinkaTypes.COUPE;Integer integer=25;
-        showGroups(carSet,1,string);
+        showGroups(makeGroups(carSet,1,string),1,string);
         System.out.println("========================================");
-        showGroups(carSet,2,mashinkaTypes);
+        showGroups(makeGroups(carSet,2,mashinkaTypes),2,mashinkaTypes);
         System.out.println("========================================");
-        showGroups(carSet,3,integer);
+        showGroups(makeGroups(carSet,3,integer),3,integer);
     }
-    public static<T>void showGroups(Set<Car> carSet, int groupType,T parametr) {
+    public static<T>Map<T, List<Car>> makeGroups(Set<Car> carSet, int groupType, T parametr) {
         Map<T, List<Car>> groupedBy = new HashMap<>();
         for (Car car : carSet) {
-            T value=null;
-            switch (groupType){
+            T value = null;
+            switch (groupType) {
                 case 1:
-                    value= (T) car.getColor();
+                    value = (T) car.getColor();
                     break;
                 case 2:
-                    value= (T) car.getType();
+                    value = (T) car.getType();
                     break;
                 case 3:
-                    value= (T) car.getYear();
+                    value = (T) car.getYear();
                     break;
                 default:
                     break;
@@ -61,28 +61,31 @@ public class CarTest {
                 groupedBy.put(value, sameCharacteristic);
             }
         }
-        for (Map.Entry<T, List<Car>> entry : groupedBy.entrySet()) {
-            System.out.print(entry.getKey() + "->");
-            int i = 0;
-            for (Car car1 : entry.getValue()) {
-                if (i != 0) System.out.print(";  ");
-                System.out.print("vin:" + car1.getVin() + ",model:" + car1.getModel());
-                switch (groupType) {
-                    case 1:
-                        System.out.print(",type:"+car1.getType()+",year:"+car1.getYear());
-                        break;
-                    case 2:
-                        System.out.print(",color:"+car1.getColor()+",year:"+car1.getYear());
-                        break;
-                    case 3:
-                        System.out.print(",color:"+car1.getColor()+",type:"+car1.getType());
-                        break;
-                    default:
-                        break;
+        return groupedBy;
+    }
+        public static<T> void showGroups(Map<T, List<Car>> groupedBy,int groupType,T parametr) {
+            for (Map.Entry<T, List<Car>> entry : groupedBy.entrySet()) {
+                System.out.print(entry.getKey() + "->");
+                int i = 0;
+                for (Car car1 : entry.getValue()) {
+                    if (i != 0) System.out.print(";  ");
+                    System.out.print("vin:" + car1.getVin() + ",model:" + car1.getModel());
+                    switch (groupType) {
+                        case 1:
+                            System.out.print(",type:" + car1.getType() + ",year:" + car1.getYear());
+                            break;
+                        case 2:
+                            System.out.print(",color:" + car1.getColor() + ",year:" + car1.getYear());
+                            break;
+                        case 3:
+                            System.out.print(",color:" + car1.getColor() + ",type:" + car1.getType());
+                            break;
+                        default:
+                            break;
+                    }
+                    i++;
                 }
-                i++;
+                System.out.println();
             }
-            System.out.println();
         }
     }
-}

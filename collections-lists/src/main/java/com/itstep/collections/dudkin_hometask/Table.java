@@ -1,19 +1,18 @@
 package com.itstep.collections.dudkin_hometask;
 
 public class Table implements Comparable<Table> {
-    private int area;
+    private Integer area;
 
-    public Table(int area) {
+    public Table(Integer area) {
         this.area = area;
     }
 
-    public int getArea() {
+    public Integer getArea() {
         return area;
     }
 
     @Override
     public int compareTo(Table o) {
-        String area = Integer.toString(this.area);
-        return area.compareTo(Integer.toString(o.area));
+        return area.compareTo(o.area);
     }
 }

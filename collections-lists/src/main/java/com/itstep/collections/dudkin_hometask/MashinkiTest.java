@@ -27,7 +27,7 @@ public class MashinkiTest {
         }
         carList.sort(Mashinka::compareTo);
         for (int i = 0; i < carList.size(); i++) {
-            carList.get(i).SoutMashinkaInfo();
+            carList.get(i).soutMashinkaInfo();
         }
     }
 }
