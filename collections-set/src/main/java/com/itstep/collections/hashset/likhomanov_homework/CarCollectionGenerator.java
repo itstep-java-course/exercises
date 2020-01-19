@@ -34,9 +34,7 @@ public class CarCollectionGenerator {
     };
 
     public static List<Car> getListOfCars() {
-        List<Car> cars = new ArrayList<>(20);
-        Collections.addAll(cars, CARS);
-        return cars;
+        return Arrays.asList(CARS);
     }
 
     public static Set<Car> getSetOfCars() {
