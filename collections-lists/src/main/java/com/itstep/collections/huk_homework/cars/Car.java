@@ -58,14 +58,15 @@ public class Car implements Comparable<Car> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return year.equals(car.year) &&
+        return vin == car.vin &&
+                year.equals(car.year) &&
                 color.equals(car.color) &&
                 type == car.type;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(year, color, type);
+        return Objects.hash(vin, year, color, type);
     }
 
 

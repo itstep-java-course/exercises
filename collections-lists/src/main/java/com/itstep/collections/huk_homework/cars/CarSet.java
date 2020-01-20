@@ -23,7 +23,7 @@ Sedan → vin: 202020, model: CX-5, color: red, year: 2010
 
 public class CarSet {
 
-    private static Map<String, Set<Car>> groupByYear(SortedSet<Car> sortedSet){
+    private static Map<String, Set<Car>> groupByYear(Set<Car> sortedSet){
         Map<String, Set<Car>> map = new HashMap<>();
 
         for (Car car : sortedSet) {
@@ -40,7 +40,7 @@ public class CarSet {
         return map;
     }
 
-    private static Map<String, Set<Car>> groupByColor(SortedSet<Car> sortedSet){
+    private static Map<String, Set<Car>> groupByColor(Set<Car> sortedSet){
         Map<String, Set<Car>> map2 = new HashMap<>();
 
         for (Car car : sortedSet) {
@@ -58,7 +58,7 @@ public class CarSet {
     }
 
 
-    private static Map<Car.CarType, Set<Car>> groupByType(SortedSet<Car> sortedSet){
+    private static Map<Car.CarType, Set<Car>> groupByType(Set<Car> sortedSet){
         Map<Car.CarType, Set<Car>> map3 = new HashMap<>();
 
         for (Car car : sortedSet) {
@@ -78,11 +78,12 @@ public class CarSet {
 
     public static void main(String[] args) {
 
-        SortedSet<Car> sortedSet = new TreeSet<Car>();
+
+        Set<Car> sortedSet = new HashSet<Car>();
 
         sortedSet.add(new Car(123456, "Volkswagen Caddy", "2000", "Black", Car.CarType.COUPE));
-        sortedSet.add(new Car(789101, "Renault Kangoo", "2001", "Red", Car.CarType.SEDAN));
-        sortedSet.add(new Car(112131, "Hyundai Santa FE", "2002", "Green", Car.CarType.SUV));
+        sortedSet.add(new Car(789101, "Renault Kangoo", "2000", "Red", Car.CarType.SEDAN));
+        sortedSet.add(new Car(112131, "Hyundai Santa FE", "2000", "Green", Car.CarType.SUV));
         sortedSet.add(new Car(415161, "Mazda 6", "2003", "Grey", Car.CarType.COUPE));
         sortedSet.add(new Car(171819, "Volkswagen Passat B8 TDI", "2004", "Yellow", Car.CarType.SEDAN));
 
@@ -99,9 +100,9 @@ public class CarSet {
         sortedSet.add(new Car(474849, "ALFA ROMEO Stelvio", "2014", "Coral", Car.CarType.SUV));
 
         sortedSet.add(new Car(505152, "MITSUBISHI Outlander", "2015", "Purple", Car.CarType.COUPE));
-        sortedSet.add(new Car(535455, "FORD Fusion", "2015", "Silver", Car.CarType.SEDAN));
+        sortedSet.add(new Car(535455, "FORD Fusion", "2016", "Silver", Car.CarType.SEDAN));
         sortedSet.add(new Car(565758, "ВАЗ 2115", "2017", "Gold", Car.CarType.SUV));
-        sortedSet.add(new Car(596061, "SKODA Fabia", "2015", "Red", Car.CarType.SEDAN));
+        sortedSet.add(new Car(596061, "SKODA Fabia", "2018", "Red", Car.CarType.SEDAN));
         sortedSet.add(new Car(626364, "KIA Ceed", "2019", "Red", Car.CarType.SUV));
 
 
@@ -113,14 +114,15 @@ public class CarSet {
 
         for (Map.Entry<String, Set<Car>> entry : map.entrySet()) {
             String result = entry.getKey() + " -> ";
-            final Set<Car> values = entry.getValue();
+            Set<Car> values = entry.getValue();
             for (Car car : values) {
-                result +=  car.getVin() + ", " + car.getModel() + ", " + car.getColor()  + ", "  + car.getCarType() + "; ";
+                result +=  car.getYear() + ", " + car.getVin() + ", " + car.getModel() + ", " + car.getColor()  + ", "  + car.getCarType() + "; ";
 
             }
             System.out.println(result);
-
         }
+
+
 
         System.out.println("=========================================================================================");
 
