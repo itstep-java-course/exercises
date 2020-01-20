@@ -2,7 +2,21 @@ package com.itstep.collections.arraylist.borovoy_newyearhomework;
 
 import java.util.*;
 
-class CarTask {
+class Car implements Comparable<Car> {
+    private String vin;
+    private final String model;
+    private String year;
+    private String colour;
+    private final BodyType type;
+
+    protected Car(String vin, String model, String year, String colour, BodyType type) {
+        this.vin = vin;
+        this.model = model;
+        this.year = year;
+        this.colour = colour;
+        this.type = type;
+
+    }
 
     public static void main(String[] args) {
         List<Car> cars = new ArrayList<>();
@@ -25,6 +39,9 @@ class CarTask {
             System.out.println(cars.get(i));
 
     }
+
+
+
 
     enum BodyType {
         SUV("Suv"),
@@ -55,57 +72,61 @@ class CarTask {
     }
 
 
-    private static class Car implements Comparable<Car> {
-        private String vin;
-        private final String model;
-        private String year;
-        private String colour;
-        private final BodyType type;
 
-        private Car(String vin, String model, String year, String colour, BodyType type) {
-            this.vin = vin;
-            this.model = model;
-            this.year = year;
-            this.colour = colour;
-            this.type = type;
 
-        }
-
-        public String getVin() {
-            return vin;
-        }
-
-        public String getModel() {
-            return model;
-        }
-
-        public String getYear() {
-            return year;
-        }
-
-        public String getColour() {
-            return colour;
-        }
-
-        public BodyType getType() {
-            return type;
-        }
-
-        @Override
-        public String toString() {
-            return "Car{" +
-                    "vin='" + vin + '\'' +
-                    ", model='" + model + '\'' +
-                    ", year='" + year + '\'' +
-                    ", colour='" + colour + '\'' +
-                    ", type='" + type + '\'' +
-                    '}';
-        }
-
-        @Override
-        public int compareTo(Car o) {
-            return this.colour.compareTo(o.colour);
-        }
+    public String getVin() {
+        return vin;
     }
 
+    public String getModel() {
+        return model;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public BodyType getBodyType() {
+        return type;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "vin='" + vin + '\'' +
+                ", model='" + model + '\'' +
+                ", year='" + year + '\'' +
+                ", colour='" + colour + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return this.colour.compareTo(o.colour);
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return vin.equals(car.vin) &&
+                year.equals(car.year) &&
+                colour.equals(car.colour) &&
+                type == car.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vin, year, colour, type);
+    }
 }
+
+
