@@ -122,10 +122,10 @@ public class Test {
 
         for(Map.Entry<String, Set<Car>> entry : carsByYear.entrySet()){
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(entry.getKey()+" -> ");
+            stringBuilder.append(entry.getKey()).append(" -> ");
             Set<Car> values = entry.getValue();
             for (Car car : values) {
-                stringBuilder.append("vin: "+car.getVin()+", model: "+car.getModel()+", color: "+car.getColor()+", type: "+car.getType()+";\n");
+                stringBuilder.append("vin: ").append(car.getVin()).append(", model: ").append(car.getModel()).append(", color: ").append(car.getColor()).append(", type: ").append(car.getType()).append(";\n");
             }
             System.out.println(stringBuilder);
         }
@@ -134,10 +134,10 @@ public class Test {
 
         for(Map.Entry<String, Set<Car>> entry : carsByColor.entrySet()){
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(entry.getKey()+" -> ");
+            stringBuilder.append(entry.getKey()).append(" -> ");
             Set<Car> values = entry.getValue();
             for (Car car : values) {
-                stringBuilder.append("vin: "+car.getVin()+", model: "+car.getModel()+", year: "+car.getYear()+", type: "+car.getType()+";\n");
+                stringBuilder.append("vin: ").append(car.getVin()).append(", model: ").append(car.getModel()).append(", year: ").append(car.getYear()).append(", type: ").append(car.getType()).append(";\n");
             }
             System.out.println(stringBuilder);
         }
@@ -146,10 +146,10 @@ public class Test {
 
         for(Map.Entry<String, Set<Car>> entry : carsByType.entrySet()){
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(entry.getKey()+" -> ");
+            stringBuilder.append(entry.getKey()).append(" -> ");
             Set<Car> values = entry.getValue();
             for (Car car : values) {
-                stringBuilder.append("vin: "+car.getVin()+", model: "+car.getModel()+", year: "+car.getType()+", color: "+car.getColor()+";\n");
+                stringBuilder.append("vin: ").append(car.getVin()).append(", model: ").append(car.getModel()).append(", year: ").append(car.getType()).append(", color: ").append(car.getColor()).append(";\n");
             }
             System.out.println(stringBuilder);
         }
