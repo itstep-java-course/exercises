@@ -74,6 +74,7 @@ public class ReadFileExample {
 
     private static void readFileLineByLine() throws IOException {
         final File file = new File("input-output/src/main/java/data/test.txt");
+//        только для маленьких файлов
         final List<String> lines = Files.readAllLines(file.toPath());
 
         System.out.println(lines);
@@ -85,6 +86,37 @@ public class ReadFileExample {
         public void close() throws Exception {
             System.out.println("close");
         }
+    }
+
+    private static class Base {
+        void m1() {
+
+        }
+
+        void m2() {
+
+        }
+    }
+
+    private static class StringDecorator {
+        private final String base;
+
+        private StringDecorator(String base) {
+            this.base = base;
+        }
+
+        void m1() {
+//            base.toCharArray()[6];
+        }
+
+        void m2() {
+//            base.m2();
+        }
+
+        void m3() {
+
+        }
+
     }
 
 //    close reader

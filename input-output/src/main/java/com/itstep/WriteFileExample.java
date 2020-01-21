@@ -17,13 +17,14 @@ public class WriteFileExample {
         writeToFileJava7Plus();
     }
 
-    public static void whenWriteStringUsingBufferedWriter() throws IOException {
+    public static void whenWriteStringUsingBufferedWriter() {
         String str = "Hello";
-        BufferedWriter writer = new BufferedWriter(new FileWriter("write_test.txt"));
-        writer.write(str);
-        writer.write("\n");
-
-        writer.close();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("write_test.txt"))) {
+            writer.write(str);
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void writeToFileJava7Plus() throws IOException {

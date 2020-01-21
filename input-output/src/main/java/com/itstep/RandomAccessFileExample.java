@@ -2,12 +2,16 @@ package com.itstep;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.io.Serializable;
+import java.util.*;
+import java.util.Map.Entry;
 
 public class RandomAccessFileExample {
     public static void main(String[] args) {
 //        canNotWriteIntoFileInReadOnlyMode();
 //        readWriteModeTest();
-        randomAccessExample();
+//        randomAccessExample();
+        sortByValues();
     }
 
     private static void canNotWriteIntoFileInReadOnlyMode() {
@@ -47,5 +51,41 @@ public class RandomAccessFileExample {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void sortByValues() {
+        Map<String, String> map = new HashMap<>();
+        map.put("1", "2");
+        map.put("2", "3");
+        map.put("3", "1");
+
+        final Set<Entry<String, String>> entries = map.entrySet();
+        final List<Entry<String, String>> entriesList = new ArrayList<>(entries);
+        entriesList.sort(new Comparator<Entry<String, String>>() {
+            @Override
+            public int compare(Entry<String, String> o1, Entry<String, String> o2) {
+                return o1.getValue().compareTo(o2.getValue());
+            }
+        });
+
+        Map<String, String> sortedByValue = new LinkedHashMap<>();
+        for (Entry<String, String> entry : entriesList) {
+            sortedByValue.put(entry.getKey(), entry.getValue());
+        }
+
+        List<? extends Number> l1 = new ArrayList<>();
+
+
+
+//        List<T> l2 = new ArrayList<>();
+
+        System.out.println(sortedByValue);
+
+    }
+
+    private class Whether implements Serializable {
+
+
+
     }
 }
