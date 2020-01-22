@@ -3,7 +3,7 @@ package com.itstep.dudkin_homework;
 import java.io.*;
 import java.util.*;
 
-public class Test {
+public class SmallBD {
     public static void main(String[] args) throws IOException {
         ArrayList<File> files = createNewFiles();
         setInitialData(files.get(0), files.get(1));
