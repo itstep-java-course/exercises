@@ -1,0 +1,6 @@
+id;name;last_nameid;street;house;age
+1;Petr;Maksimov;Gagarina;25;31
+2;Petr;Rakul;Pushkina;17;49
+3;Miha;Dobkin;Derjavinska;18;49
+4;Danil;Maksimov;Nauki;7;32
+5;Ivan;Egorov;Bajana;33;17
