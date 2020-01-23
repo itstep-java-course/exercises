@@ -13,7 +13,7 @@ public class TestTable {
         SortedSet<Table> tables = new TreeSet<>(reverse);
 
         tables.add(new RectangleTable("RectangleTable: ", 22));
-        tables.add(new RoundTable("RoundTable: ", 23, name));
+        tables.add(new RoundTable("RoundTable: ", 23));
         tables.add(new SquareTable("SquareTable: ", 24));
 
         for (Table table: tables) {

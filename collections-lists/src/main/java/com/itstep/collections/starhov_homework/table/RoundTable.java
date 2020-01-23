@@ -1,17 +1,12 @@
 package com.itstep.collections.starhov_homework.table;
 
 public class RoundTable extends Table {
-    private final String name;
+    private String name;
 
-    {
-
-
-        public RoundTable(String name, double surfaceArea) {
-            super(name, surfaceArea);
-        }
-
-       
+    public RoundTable(String name, double surfaceArea) {
+        super(name, surfaceArea);
     }
+
 
     public RoundTable(String s, int i, String name) {
         super(s, i);

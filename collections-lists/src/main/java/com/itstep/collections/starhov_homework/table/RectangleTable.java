@@ -11,5 +11,4 @@ public class RectangleTable extends Table {
         public double getArea() {
             return 0;
         }
-    }
 }
