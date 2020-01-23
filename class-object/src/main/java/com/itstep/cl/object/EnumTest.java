@@ -72,6 +72,8 @@ public class EnumTest {
         }
     }
 
+
+
     private static class CalendarEvent {
         private final DayOfTheWeek dayOfTheWeek;
         private final String eventName;
