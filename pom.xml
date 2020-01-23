@@ -20,6 +20,7 @@
         <module>collections-map</module>
         <module>generics</module>
         <module>input-output</module>
+        <module>lambda-streams</module>
     </modules>
     <packaging>pom</packaging>
 
