@@ -6,6 +6,19 @@ import java.util.List;
 public class MappingExample {
     public static void main(String[] args) {
 
+        Tag tag1 = new Tag("name", "Job1");
+        Tag tag2 = new Tag("name", "Job2");
+        Tag tag3 = new Tag("name", "Job3");
+        Tag tag4 = new Tag("description", "Description1");
+        Tag tag5 = new Tag("description", "Description2");
+        Tag tag6 = new Tag("description", "Description3");
+        Tag tag7 = new Tag("description", "Description4");
+        Tag tag8 = new Tag("field", "Field1");
+        Tag tag9 = new Tag("field", "Field2");
+        Tag tag10 = new Tag("field", "Field3");
+
+
+
     }
 
     private static class JobDefinition{
@@ -28,8 +41,7 @@ public class MappingExample {
             return id;
         }
 
-       public  void addTag(String name, String value){
-            final Tag tag =new Tag(name, value);
+       public  void addTag(Tag tag){
             this.tags.add(tag);
        }
 
@@ -42,31 +54,33 @@ public class MappingExample {
                     '}';
         }
 
-        private static class Tag{
-            private final String name;
-            private final String value;
 
-            public Tag(String name, String value) {
-                this.name = name;
-                this.value = value;
-            }
+    }
+    private static class Tag{
+        private final String name;
+        private final String value;
+
+        public Tag(String name, String value) {
+            this.name = name;
+            this.value = value;
+        }
 
 
-            public String getName() {
-                return name;
-            }
+        public String getName() {
+            return name;
+        }
 
-            public String getValue() {
-                return value;
-            }
+        public String getValue() {
+            return value;
+        }
 
-            @Override
-            public String toString() {
-                return "Tag{" +
-                        "name='" + name + '\'' +
-                        ", value='" + value + '\'' +
-                        '}';
-            }
+        @Override
+        public String toString() {
+            return "Tag{" +
+                    "name='" + name + '\'' +
+                    ", value='" + value + '\'' +
+                    '}';
         }
     }
 }
+//создать 10 тегов где пересекаються неймы и значения
