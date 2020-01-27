@@ -26,7 +26,7 @@ public class GroupingExample {
                                                    .collect(Collectors.groupingBy(e ->e));
         System.out.println(map);
         //group user example
-        List
+
 
     }
      public static Map<String, List<String>> groupElements(List<String> list){

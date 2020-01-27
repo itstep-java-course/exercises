@@ -55,10 +55,6 @@ public class MappingExample {
         Tag tag9= new Tag("field","field2");
         Tag tag10= new Tag("field","field3");
 
-        JobDefinition jb1= new JobDefinition("id1","copy files1");
-        jb1.addTag(tag1);
-        jb1.addTag(tag3);
-        jb1.addTag(tag4);
-        jb1.addTag(tag7);
+
     }
 }
