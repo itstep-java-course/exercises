@@ -13,6 +13,10 @@ public class MappingExample {
         Tag tag5 = new Tag("description", "Description2");
         Tag tag6 = new Tag("description", "Description3");
         Tag tag7 = new Tag("description", "Description4");
+        Tag tag8 = new Tag("field", "Field1");
+        Tag tag9 = new Tag("field", "Field2");
+        Tag tag10 = new Tag("field", "Field3");
+
 
 
     }
