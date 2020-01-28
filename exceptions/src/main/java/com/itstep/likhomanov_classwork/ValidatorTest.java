@@ -1,4 +1,4 @@
-package com.itstep.likhomanov_homework;
+package com.itstep.likhomanov_classwork;
 
 import java.util.Scanner;
 

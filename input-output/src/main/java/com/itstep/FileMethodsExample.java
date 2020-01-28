@@ -23,7 +23,7 @@ public class FileMethodsExample {
 //        System.out.println("Absolut path: " + absolutePath);
 
 
-//        final File file1 = new File("input-output/src/main/java/data/test1.txt");
+//        final File file1 = new File("input-output/src/main/java/data/test.txt");
 //        System.out.println(file1.getName());
 
 //        final File file1 = new File("input-output/src/main/java/data/test.txt");
