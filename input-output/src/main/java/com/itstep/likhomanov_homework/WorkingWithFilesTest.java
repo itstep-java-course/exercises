@@ -8,7 +8,7 @@ public class WorkingWithFilesTest {
 
         FileGenerator fileGenerator = new FileGenerator();
         FileReader fileReader = new FileReader();
-        SortedMap<String, List<String>> groupedData;
+        Map<String, List<String>> groupedData;
 
         fileGenerator.createFileWithNames();
         fileGenerator.createFileWithAddresses();
@@ -22,8 +22,8 @@ public class WorkingWithFilesTest {
         fileGenerator.createFileWithUserProfiles(asList(groupedData));
     }
 
-    private static SortedMap<String, List<String>> groupById(List<String> data, SortedMap<String, List<String>> groupedData){
-        SortedMap<String, List<String>> map;
+    private static Map<String, List<String>> groupById(List<String> data, Map<String, List<String>> groupedData){
+        Map<String, List<String>> map;
         String[] strings;
         List<String> value;
 
@@ -48,7 +48,7 @@ public class WorkingWithFilesTest {
         return map;
     }
 
-    private static List<String> asList(SortedMap<String, List<String>> data) {
+    private static List<String> asList(Map<String, List<String>> data) {
         List<String> list = new ArrayList<>();
         String info;
 
