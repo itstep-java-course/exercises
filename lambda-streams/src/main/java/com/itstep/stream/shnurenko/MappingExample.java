@@ -60,6 +60,10 @@ public class MappingExample {
 
         System.out.println(definitions);
 
+//        1. Group job definitions by name
+//        2. Group job definitions by tag value
+//        3. Group job definitions by tag value and display (use sout) definition id and name
+
     }
 
     private static class JobDefinition {
