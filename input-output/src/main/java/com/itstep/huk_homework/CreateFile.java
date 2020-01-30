@@ -1,8 +1,7 @@
 package com.itstep.huk_homework;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 
@@ -53,7 +52,7 @@ id;name;last_name;street;house;age
 
             Writer writer = null;
 
-            public File whenWriteStringUsingBufferedWriter1(File file1){ //throws IOException
+            public File whenWriteStringUsingBufferedWriter1(File file1) { //throws IOException
                 String str = "1;Petr;Maksimov\n" +
                         "5;Ivan;Egorov\n" +
                         "2;Petr;Rakul\n" +
@@ -64,8 +63,7 @@ id;name;last_name;street;house;age
                     writer.newLine(); // writer.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
-                finally {
+                } finally {
                     try {
                         writer.close();
                     } catch (Exception ex) {/*ignore*/}
@@ -73,7 +71,7 @@ id;name;last_name;street;house;age
                 return file1;
             }
 
-            public File whenWriteStringUsingBufferedWriter2(File file2){ //throws IOException
+            public File whenWriteStringUsingBufferedWriter2(File file2) { //throws IOException
                 String str = "1;Gagarina;25\n" +
                         "2;Pushkina;17\n" +
                         "4;Nauki;7\n" +
@@ -84,8 +82,7 @@ id;name;last_name;street;house;age
                     writer.newLine(); //writer.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
-                finally {
+                } finally {
                     try {
                         writer.close();
                     } catch (Exception ex) {/*ignore*/}
@@ -94,26 +91,23 @@ id;name;last_name;street;house;age
             }
 
 
+            private static void whenReadWithBufferedReader_thenCorrect(File file, File file2) {
+                try (FileReader reader = new FileReader("input-output/src/main/java/com/itstep/huk_homework/myData/text1.txt");
+                     BufferedReader br = new BufferedReader(reader)) {
 
-            private static void whenReadWithBufferedReader_thenCorrect(File file1, File file2) throws IOException {
-                final File file = new File("input-output/src/main/java/com/itstep/huk_homework/myData/text3.txt");
-                file.createNewFile();
+                    // read line by line
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        System.out.println(line);
+                    }
 
-                String expected_value = "Hello world";
-                BufferedReader reader1 = new BufferedReader(new FileReader(file1));
-                String currentLine1 = reader1.readLine();
-                BufferedReader reader2 = new BufferedReader(new FileReader(file2));
-                String currentLine2 = reader2.readLine();
-
-
-                reader1.close();
-                reader2.close();
-
-                assertEquals(expected_value,currentLine1,currentLine2);
+                } catch (IOException e) {
+                    System.err.format("IOException: %s%n", e);
+                }
             }
 
-            private static void assertEquals(String expected_value, String currentLine1, String currentLine2) {
-            }
+
+
 
 
             public static void main(String[] args) throws IOException {
