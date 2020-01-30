@@ -22,6 +22,8 @@ public class PeopleInformation implements Comparable<PeopleInformation> {
     @Override
     public int compareTo(PeopleInformation o) {
         if (this.id.compareTo(o.id) == 0) {
+            o.name = this.name;
+            o.lastName = this.lastName;
             o.house = this.house;
             o.street = this.street;
             return 0;
