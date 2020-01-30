@@ -91,8 +91,27 @@ id;name;last_name;street;house;age
             }
 
 
-            private static void whenReadWithBufferedReader_thenCorrect(File file, File file2) {
+            private static void whenReadWithBufferedReader_thenCorrect1() {
                 try (FileReader reader = new FileReader("input-output/src/main/java/com/itstep/huk_homework/myData/text1.txt");
+
+
+                     BufferedReader br = new BufferedReader(reader)) {
+
+                    // read line by line
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        System.out.println(line);
+                    }
+
+                } catch (IOException e) {
+                    System.err.format("IOException: %s%n", e);
+                }
+            }
+
+            private static void whenReadWithBufferedReader_thenCorrect2() {
+                try (FileReader reader = new FileReader("input-output/src/main/java/com/itstep/huk_homework/myData/text2.txt");
+
+
                      BufferedReader br = new BufferedReader(reader)) {
 
                     // read line by line
@@ -149,6 +168,7 @@ id;name;last_name;street;house;age
                 createFile.whenWriteStringUsingBufferedWriter1(file1);
                 createFile.whenWriteStringUsingBufferedWriter2(file2);
 
-                CreateFile.whenReadWithBufferedReader_thenCorrect(file1, file2);
+                CreateFile.whenReadWithBufferedReader_thenCorrect1();
+                CreateFile.whenReadWithBufferedReader_thenCorrect2();
             }
         }
