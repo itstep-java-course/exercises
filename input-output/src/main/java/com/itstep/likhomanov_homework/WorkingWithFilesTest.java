@@ -1,73 +1,60 @@
 package com.itstep.likhomanov_homework;
 
-import java.util.*;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
-public class WorkingWithFilesTest {
+class WorkingWithFilesTest {
+
+    private static final List<String> USER_NAMES = Arrays.asList(   "1;Petr;Maksimov",
+                                                                    "5;Ivan;Egorov",
+                                                                    "2;Petr;Rakul",
+                                                                    "3;Miha;Dobkin",
+                                                                    "4;Danil;Maksimov");
+
+
+    private static final List<String> USER_ADDRESSES = Arrays.asList(   "1;Gagarina;25",
+                                                                        "2;Pushkina;17",
+                                                                        "4;Nauki;7",
+                                                                        "5;Bajana;33",
+                                                                        "3;Derjavinska;18");
+
+    private static final String NAMES_PATH = "input-output/src/main/java/com/itstep/likhomanov_homework/data/names.txt";
+    private static final String ADDRESSES_PATH = "input-output/src/main/java/com/itstep/likhomanov_homework/data/addresses.txt";
+    private static final String PROFILES_PATH = "input-output/src/main/java/com/itstep/likhomanov_homework/data/userProfiles.txt";
 
     public static void main(String[] args) {
-
-        FileGenerator fileGenerator = new FileGenerator();
+        FileCreator fileCreator = new FileCreator();
         FileReader fileReader = new FileReader();
-        Map<String, List<String>> groupedData;
+        UserDataToModelConverter userConverter = new UserDataToModelConverter();
+        AddressDataToModelConverter addressConverter = new AddressDataToModelConverter();
+        UserAndAddressByIdGrouper idGrouper = new UserAndAddressByIdGrouper();
+        FileModifier fileModifier = new FileModifier();
 
-        fileGenerator.createFileWithNames();
-        fileGenerator.createFileWithAddresses();
+        try {
 
-        List<String> names = fileReader.readFileWithNames();
-        List<String> addresses = fileReader.readFileWithAddresses();
+            fileCreator.createFile(NAMES_PATH, USER_NAMES);
+            fileCreator.createFile(ADDRESSES_PATH, USER_ADDRESSES);
 
-        groupedData = groupById(names, null);
-        groupedData = groupById(addresses, groupedData);
+            List<User> users = userConverter.convert(fileReader.readFile(NAMES_PATH));
+            List<Address> addresses = addressConverter.convert(fileReader.readFile(ADDRESSES_PATH));
 
-        fileGenerator.createFileWithUserProfiles(asList(groupedData));
-    }
+            List<User> extendedUsers = idGrouper.group(users, addresses);
 
-    private static Map<String, List<String>> groupById(List<String> data, Map<String, List<String>> groupedData){
-        Map<String, List<String>> map;
-        String[] strings;
-        List<String> value;
+            fileCreator.createFile(PROFILES_PATH, extendedUsers);
 
-        if (groupedData == null) map = new TreeMap<>();
-        else map = groupedData;
+            fileModifier.modify(PROFILES_PATH, lines -> lines.stream()
+                                                            .sorted()
+                                                            .collect(Collectors.toList()));
 
-        for (String line : data) {
+            fileModifier.modify(PROFILES_PATH, lines -> lines.stream()
+                                                            .map(line -> line + new Random().nextInt(100))
+                                                            .collect(Collectors.toList()));
 
-            if (line.startsWith("id")) continue;
-
-            strings = line.split(";");
-
-            value = new ArrayList<>(Arrays.asList(strings));
-            value.remove(0);
-
-            if (map.get(strings[0]) == null) {
-                map.put(strings[0], value);
-            } else {
-                map.get(strings[0]).addAll(value);
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return map;
-    }
-
-    private static List<String> asList(Map<String, List<String>> data) {
-        List<String> list = new ArrayList<>();
-        String info;
-
-        for (String id : data.keySet()) {
-            info = id + ";" + valueToString(data.get(id)) + getRandomAge();
-            list.add(info);
-        }
-        return list;
-    }
-
-    private static String valueToString(List<String> value) {
-        StringBuilder builder = new StringBuilder();
-        for (String info : value) {
-            builder.append(info).append(";");
-        }
-        return builder.toString();
-    }
-
-    private static String getRandomAge() {
-        return String.valueOf(new Random().nextInt(100));
     }
 }

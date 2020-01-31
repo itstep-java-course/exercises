@@ -6,18 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileReader implements FileHandler {
+class FileReader {
 
-    List<String> readFileWithNames() {
-        return readFile(NAMES_PATH);
-    }
-
-    List<String> readFileWithAddresses() {
-        return readFile(ADDRESSES_PATH);
-    }
-
-    @Override
-    public List<String> readFile(String path) {
+    List<String> readFile(String path) throws IOException {
         File file = new File(path);
         List<String> lines = new ArrayList<>();
         String line;
@@ -26,9 +17,6 @@ public class FileReader implements FileHandler {
             while ((line = reader.readLine()) != null) {
                 lines.add(line);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
         }
         return lines;
     }
