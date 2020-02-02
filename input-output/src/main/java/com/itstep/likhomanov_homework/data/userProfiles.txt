@@ -1,0 +1,5 @@
+1;Petr;Maksimov;Gagarina;25;93
+2;Petr;Rakul;Pushkina;17;32
+3;Miha;Dobkin;Derjavinska;18;47
+4;Danil;Maksimov;Nauki;7;78
+5;Ivan;Egorov;Bajana;33;33
