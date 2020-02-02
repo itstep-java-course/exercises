@@ -14,7 +14,7 @@ public class RoundTable extends Table {
     }
 
     public RoundTable(String s, int i, String name) {
-        super(s, i);
+        super(s, side1, i);
         this.name = name;
     }
 

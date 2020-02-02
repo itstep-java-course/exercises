@@ -4,7 +4,7 @@ public abstract class Table implements Comparable<Table> {
     private String name;
     private double surfaceArea;
 
-    public Table( String name, double surfaceArea) {
+    public Table(String name, double side1, double surfaceArea) {
         this.name = name;
         this.surfaceArea = surfaceArea;
     }

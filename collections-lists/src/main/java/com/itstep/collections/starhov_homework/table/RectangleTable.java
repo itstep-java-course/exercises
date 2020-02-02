@@ -2,14 +2,12 @@ package com.itstep.collections.starhov_homework.table;
 
 public class RectangleTable extends Table {
 
+    void RectanguleTable(String type, double side1, double side2) {
+        super(type, side1, side2);
+    }
 
-        public RectangleTable(String name, double surfaceArea) {
-            super(name, surfaceArea);
-        }
-
-        @Override
-        public double getArea() {
-            return 0;
-        }
+    @Override
+    double calculateArea(double... sides) {
+        return sides[0]*sides[2];
     }
 }
