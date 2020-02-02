@@ -24,28 +24,28 @@ public class Litf implements UpMoveable, Stopable, DownMovable {
 
     }
 
-    public void pressButton(String buttonName) {
-        if (buttonName == null) {
-            return;
-            Button pressedButton = findPressed
-        }
-        private Button pressesButton (String buttonName){
-            for (Button button : buttons) {
-                if (buttonName.equals(button.name)) {
-                    return button;
-                }
-            }
-        }
-        for (Button button : buttons) {
-            if (buttonName.equals(button.name)) {
-                downmove();
-            } else if (currentFloor == button.floor) {
-                stop();
-            } else {
-                upMove();
-            }
-        }
-    }
+//    public void pressButton(String buttonName) {
+//        if (buttonName == null) {
+//            return;
+//            Button pressedButton = findPressed
+//        }
+//        private Button pressesButton (String buttonName){
+//            for (Button button : buttons) {
+//                if (buttonName.equals(button.name)) {
+//                    return button;
+//                }
+//            }
+//        }
+//        for (Button button : buttons) {
+//            if (buttonName.equals(button.name)) {
+//                downmove();
+//            } else if (currentFloor == button.floor) {
+//                stop();
+//            } else {
+//                upMove();
+//            }
+//        }
+//    }
 
     @Override
     public void downmove() {

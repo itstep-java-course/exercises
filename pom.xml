@@ -21,6 +21,7 @@
         <module>generics</module>
         <module>input-output</module>
         <module>lambda-streams</module>
+        <module>concurrency</module>
     </modules>
     <packaging>pom</packaging>
 
