@@ -29,5 +29,6 @@ public class AgeAppender {
     private String getRandomAge(){
         Random random = new Random();
         return String.valueOf(random.nextInt(100));//приобразует Int в String
+        //return random.nextInt(100)+ " ";//приобразует Int в String
     }
 }
