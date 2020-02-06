@@ -2,6 +2,7 @@ package com.itstep.stream.shnurenko;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MappingExample {
 
@@ -58,6 +59,12 @@ public class MappingExample {
         definitions.add(jd5);
 
 
+        definitions.stream()
+                   .map(d->d.getTags())
+                   .flatMap(List::stream)
+                   .collect(Collectors.groupingBy(t->t));
+
+
         System.out.println(definitions);
 
 //        1. Group job definitions by name
@@ -75,6 +82,10 @@ public class MappingExample {
             this.id = id;
             this.name = name;
             this.tags = new ArrayList<>();
+        }
+
+        public List<Tag> getTags() {
+            return tags;
         }
 
         public String getName() {

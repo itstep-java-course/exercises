@@ -25,7 +25,7 @@ public class WaitNotifyExample {
             product--;
             System.out.println("Покупатель купил 1 товар");
             System.out.println("Товаров на складе: " + product);
-            notify();
+            notifyAll();
         }
 
         public synchronized void put() {
@@ -38,7 +38,7 @@ public class WaitNotifyExample {
             product++;
             System.out.println("Производитель добавил 1 товар");
             System.out.println("Товаров на складе: " + product);
-            notify();
+            notifyAll();
         }
     }
 
