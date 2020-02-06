@@ -5,7 +5,7 @@ public class ThreadExample {
 
         final Thread thread = new Thread(() -> {
             System.out.println("Thread:" + Thread.currentThread().getName());
-            for (int i = 1; i < 10; i++) {
+            for (int i = 1; i <= 10; i++) {
                 System.out.println(i);
             }
         });
