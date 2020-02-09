@@ -6,21 +6,21 @@ import java.io.IOException;
 
 public class FileMethodsExample {
     public static void main(String[] args) throws IOException {
-//        final File file = new File("input-output/src/main/java/data/test.txt");
+        final File file = new File("input-output/src/main/java/data/test.txt");
 
 //        create directories
-//        final File dir = new File("input-output/src2/main/java/data");
-//        dir.mkdirs();
-//
-//        final boolean absolute = file.isAbsolute();
-//
-//        System.out.println(absolute);
-//
-//        final boolean exists = file.exists();
-//        System.out.println("is file exists: " + exists);
-//
-//        final String absolutePath = file.getAbsolutePath();
-//        System.out.println("Absolut path: " + absolutePath);
+        final File dir = new File("input-output/src2/main/java/data");
+        dir.mkdirs();
+
+        final boolean absolute = file.isAbsolute();
+
+        System.out.println(absolute);
+
+        final boolean exists = file.exists();
+        System.out.println("is file exists: " + exists);
+
+        final String absolutePath = file.getAbsolutePath();
+        System.out.println("Absolut path: " + absolutePath);
 
 
 //        final File file1 = new File("input-output/src/main/java/data/test.txt");

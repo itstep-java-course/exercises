@@ -1,0 +1,5 @@
+1;Gagarina;25
+2;Pushkina;17
+4;Nauki;7
+5;Bajana;33
+3;Derjavinska;18
