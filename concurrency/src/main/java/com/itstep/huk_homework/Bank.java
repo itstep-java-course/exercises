@@ -9,7 +9,6 @@ concurrency_ht
 public class Bank {
     /**
      * конструктор банка.
-     *
      * @param n Количество счетов
      * @param initialBalance Начальный баланс каждого счета
      */
