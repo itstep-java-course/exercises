@@ -22,6 +22,7 @@
         <module>input-output</module>
         <module>lambda-streams</module>
         <module>concurrency</module>
+        <module>reflection-api</module>
     </modules>
     <packaging>pom</packaging>
 
