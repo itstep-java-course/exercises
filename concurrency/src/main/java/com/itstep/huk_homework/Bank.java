@@ -35,7 +35,7 @@ public class Bank {
         accounts[from] -= amount;
         System.out.printf("%10.2f с 2f %d на %d", amount, from, to);
         accounts[to] += amount;
-        System.out.printf("Общий балансЖ %10.2f%n", getTotalBalance());
+        System.out.printf("Общий баланс: %10.2f%n", getTotalBalance());
     }
 
     /**
