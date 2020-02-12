@@ -14,22 +14,28 @@ public class TransferRunnable implements Runnable{
     private  int DELAY = 10;
 
      public TransferRunnable(Bank b, int from, double max){
-         bank = b;
-         fromAccount = from;
-         maxAmount = max;
+         this.bank = b;
+         this.fromAccount = from;
+         this.maxAmount = max;
      }
 
      public void run(){
-         try{
-             while (true){
-                 int toAccount = (int) (bank.size() * Math.random());
-                 double amount = maxAmount * Math.random();
-                 bank.transfer(fromAccount, toAccount, amount);
-                 Thread.sleep((int) (DELAY * Math.random()));
+         try {
+             int x = 0;
+             while (true) {
+                 x++;
+                 if (x == 10 && Thread.currentThread().isInterrupted()) {
+                     int toAccount = (int) (bank.size() * Math.random());
+                     double amount = maxAmount * Math.random();
+                     bank.transfer(fromAccount, toAccount, amount);
+                     Thread.sleep((int) (DELAY * Math.random()));
+                     return;
+                 }
              }
          }
-         catch (InterruptedException e){
 
+         catch (InterruptedException e){
+             //e.printStackTrace();
          }
      }
 }

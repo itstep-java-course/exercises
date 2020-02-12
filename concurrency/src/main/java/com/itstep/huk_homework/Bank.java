@@ -14,9 +14,10 @@ public class Bank {
      */
 
     private final double[] accounts;
+    private final Object lock = new Object();
 
     public Bank(int n, double initialBalance) {
-        accounts = new double[n];
+        this.accounts = new double[n];
         for (int i = 0; i < accounts.length; i++)
             accounts[i] = initialBalance;
     }
@@ -29,13 +30,16 @@ public class Bank {
      * @param amount Сумма перевода
      */
 
-    public void transfer(int from, int to, double amount) {
+    public void transfer(int from, int to, double amount) throws InterruptedException {
         if (accounts[from] < amount) return;
-        System.out.println(Thread.currentThread());
-        accounts[from] -= amount;
-        System.out.printf("%10.2f с 2f %d на %d", amount, from, to);
-        accounts[to] += amount;
-        System.out.printf("Общий баланс: %10.2f%n", getTotalBalance());
+        System.out.println(Thread.currentThread().getName()); //возвращает ссылку на текущий выполняющийся объект потока.
+        synchronized (lock) {// специальная блокировка
+            accounts[from] -= amount;
+            System.out.printf(" %10.2f from %d to %d", amount, from, to);
+            accounts[to] += amount;
+            System.out.printf(" Total Balance: %10.2f%n", getTotalBalance() + amount);
+            Thread.sleep(4000);
+        }
     }
 
     /**
